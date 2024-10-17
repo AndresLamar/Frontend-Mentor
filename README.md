@@ -21,3 +21,5 @@ Projects completed:
 * [Four Card Feature Section](https://andreslamar.github.io/Frontend-Mentor/Four-Card-Feature-Section/)
 
 * [Testimonials Grid Section](https://andreslamar.github.io/Frontend-Mentor/Testimonials-grid-section-main/)
+
+* [Meet Landing Page](https://andreslamar.github.io/Frontend-Mentor/Meet-landing-page/)
