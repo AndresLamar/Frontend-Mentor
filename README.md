@@ -10,6 +10,8 @@ Projects completed:
 
 * [QR Code Component](https://flaviocmb.github.io/Frontend-Mentor/qr-code-component-main/)
 
+* [Recipe Page](https://andreslamar.github.io/Frontend-Mentor/recipe-page/)
+  
 * [FAQ Accordion](https://flaviocmb.github.io/Frontend-Mentor/faq-accordion-main/)
 
 * [Newsletter Sign Up with Success Message](https://flaviocmb.github.io/Frontend-Mentor/newsletter-sign-up-with-success-message-main/)
@@ -19,8 +21,6 @@ Projects completed:
 * [Age Calculator App](https://flaviocmb.github.io/Frontend-Mentor/age-calculator-app-main/)
 
 * [Social Links Profile](https://flaviocmb.github.io/Frontend-Mentor/social-links-profile-main/)
-
-* [Recipe Page](https://flaviocmb.github.io/Frontend-Mentor/recipe-page-main/)
 
 * [Product Preview Card Component](https://flaviocmb.github.io/Frontend-Mentor/product-preview-card-component-main/)
 
