@@ -1,0 +1,113 @@
+/* CSS Variables */
+:root {
+  /* Colors */
+  --color-primary: hsl(192 37% 48%); /* Cyan */
+  --color-primary-light: hsl(192 90% 77%);
+
+  --color-secondary: hsl(268 34% 53%); /* Purple */
+  --color-secondary-light: hsl(268 100% 86%);
+
+  --color-neutral-dark: hsl(240 21% 20%); /* Slate */
+  --color-neutral-medium: hsl(240 10% 57%);
+  --color-neutral-light: hsl(240 18% 85%);
+
+  --color-white: hsl(0 0% 98%);
+
+  /* Font sizes */
+
+  --fs-xlarge: 4rem; /* 64px */
+  --fs-large: 2.5rem; /* 40px */
+  --fs-xmedium: 2rem; /* 32px */
+  --fs-medium: 1.125rem; /* 18px */
+  --fs-normal: 1rem; /* 16px */
+
+  /* Spacing (based on rem units) */
+  --spacing-xxl: 7rem; /* 112px */
+  --spacing-xl: 5rem; /* 80px */
+  --spacing-lg: 4.5rem; /* 72px */
+  --spacing-md: 4rem; /* 64px */
+  --spacing-sm: 3.5rem; /* 56px */
+  --spacing-xs: 2.5rem; /* 40px */
+  --spacing-xxs: 2rem; /* 32px */
+  --spacing-xxxs: 1.5rem; /* 24px */
+  --spacing-tight: 1rem; /* 16px */
+  --spacing-tighter: 0.5rem; /* 8px */
+  --spacing-ultra-tight: 0.25rem; /* 4px */
+}
+
+/* Typography */
+
+@font-face {
+  font-display: swap;
+  font-family: "Red Hat Display";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/red-hat-display-v19-latin-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Red Hat Display";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/red-hat-display-v19-latin-900.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Red Hat Display";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/red-hat-display-v19-latin-500.woff2") format("woff2");
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Red Hat Display", sans-serif;
+}
+
+header{
+  padding: 3rem;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  section{
+
+    & .hero__content{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 3rem;
+    }
+
+    & .hero__images-container {
+      display: flex;
+      justify-content: center;
+      gap: 17px;
+      margin-block-end: 3rem;
+      height: clamp(
+        10rem,
+        -4.8958rem + 49.6528vw,
+        18.9375rem
+      );
+
+      & .hero__img{
+        max-inline-size: none;
+        object-fit: contain;
+        object-position: center;
+      }
+    }
+  }
+}
+
+.hero__img-left,
+.hero__img-right{
+  display: none;
+}
