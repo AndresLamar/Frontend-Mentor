@@ -8,34 +8,16 @@ My Profile - [www.frontendmentor.io/profile/AndresLamar](https://www.frontendmen
 
 Projects completed:
 
-* [QR Code Component](https://flaviocmb.github.io/Frontend-Mentor/qr-code-component-main/)
+* [QR Code Component](https://andreslamar.github.io/Frontend-Mentor/qr-code-component/)
 
 * [Recipe Page](https://andreslamar.github.io/Frontend-Mentor/recipe-page/)
-  
-* [FAQ Accordion](https://flaviocmb.github.io/Frontend-Mentor/faq-accordion-main/)
 
-* [Newsletter Sign Up with Success Message](https://flaviocmb.github.io/Frontend-Mentor/newsletter-sign-up-with-success-message-main/)
+* [Blog Preview Card](https://andreslamar.github.io/Frontend-Mentor/Blog-Preview-Card/)
 
-* [Blog Preview Card](https://flaviocmb.github.io/Frontend-Mentor/blog-preview-card-main-pixel-perfect/)
+* [Social Links Profile](https://andreslamar.github.io/Frontend-Mentor/Social-links/)
 
-* [Age Calculator App](https://flaviocmb.github.io/Frontend-Mentor/age-calculator-app-main/)
+* [Product Preview Card Component](https://andreslamar.github.io/Frontend-Mentor/Product-view-card-component/)
 
-* [Social Links Profile](https://flaviocmb.github.io/Frontend-Mentor/social-links-profile-main/)
+* [Four Card Feature Section](https://andreslamar.github.io/Frontend-Mentor/Four-Card-Feature-Section/)
 
-* [Product Preview Card Component](https://flaviocmb.github.io/Frontend-Mentor/product-preview-card-component-main/)
-
-* [Four Card Feature Section](https://flaviocmb.github.io/Frontend-Mentor/four-card-feature-section-master/)
-
-* [Testimonials Grid Section](https://flaviocmb.github.io/Frontend-Mentor/testimonials-grid-section-main/)
-
-* [Meet Landing Page](https://flaviocmb.github.io/Frontend-Mentor/meet-landing-page/)
-
-* [NFT Preview Card Component](https://flaviocmb.github.io/Frontend-Mentor/nft-preview-card-component-main/)
-
-* [Order Summary Component](https://flaviocmb.github.io/Frontend-Mentor/order-summary-component-main/)
-
-* [Stats Preview Card Component](https://flaviocmb.github.io/Frontend-Mentor/stats-preview-card-component-main/)
-
-* [3 Column Preview Card Component](https://flaviocmb.github.io/Frontend-Mentor/3-column-preview-card-component-main/)
-
-* [Chat App CSS Illustration](https://flaviocmb.github.io/Frontend-Mentor/chat-app-css-illustration-master/)
+* [Testimonials Grid Section](https://andreslamar.github.io/Frontend-Mentor/Testimonials-grid-section-main/)
