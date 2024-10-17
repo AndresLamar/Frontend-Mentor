@@ -34,7 +34,7 @@ Users should be able to:
 ### Links
 
 - [Solution](https://www.frontendmentor.io/solutions/product-view-card-component-j-AoX21TSW)
-- [Live site](https://andreslamar.github.io/Product-view-card-component/
+- [Live site](https://andreslamar.github.io/Frontend-Mentor/Product-view-card-component/
 )
 
 ## My process

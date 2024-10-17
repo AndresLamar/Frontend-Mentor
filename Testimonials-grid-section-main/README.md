@@ -34,7 +34,7 @@ Users should be able to:
 ### Links
 
 - [Solution](https://www.frontendmentor.io/solutions/testimonials-grid-section-zHvrQBiEeL)
-- [Live site ](https://andreslamar.github.io/Testimonials-grid-section/)
+- [Live site ](https://andreslamar.github.io/Frontend-Mentor/Testimonials-grid-section/)
 
 ## My process
 

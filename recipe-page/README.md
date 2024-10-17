@@ -17,12 +17,12 @@ This is a solution to the [Recipe page challenge on Frontend Mentor](https://www
 ### Screenshot
 
 ![Desktop](./screenshot/desktop.png)
-![Mobile](./screenshot/mobile.png)]
+![Mobile](./screenshot/mobile.png)
 
 ### Links
 
 - [Solution URL](https://www.frontendmentor.io/solutions/recipe-page-zxemyNf9iU)
-- [Live Site URL](https://andreslamar.github.io/recipe-page/)
+- [Live Site URL](https://andreslamar.github.io/Frontend-Mentor/recipe-page/)
 
 ## My process
 

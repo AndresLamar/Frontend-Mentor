@@ -35,7 +35,7 @@ Users should be able to:
 ### Links
 
 - [Solution](https://frontendmentor.io/solutions/four-card-feature-section-3v8Kb_fQ6a)
-- [Live site](https://andreslamar.github.io/Four-Card-Feature-Section/)
+- [Live site](https://andreslamar.github.io/Frontend-Mentor/Four-Card-Feature-Section/)
 
 ## My process
 

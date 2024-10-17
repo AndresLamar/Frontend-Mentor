@@ -33,7 +33,7 @@ Users should be able to:
 ### Links
 
 - [Solution URL](https://www.frontendmentor.io/solutions/social-link-H9_-AtJKp5)
-- [Live Site](https://andreslamar.github.io/Social-links/)
+- [Live Site](https://andreslamar.github.io/Frontend-Mentor/Social-links/)
 
 ## My process
 

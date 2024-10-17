@@ -32,7 +32,7 @@ Web View
 ### Links
 
 - [Solution URL ](https://www.frontendmentor.io/solutions/blog-preview-card-wmJ03FwnS9)
-- [Live Site](https://andreslamar.github.io/Blog-Preview-Card)
+- [Live Site](https://andreslamar.github.io/Frontend-Mentor/Blog-Preview-Card)
 
 ## My process
 
