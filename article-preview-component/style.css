@@ -67,7 +67,6 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
     background-color: white;
     max-inline-size: 100%;
     border-radius: 0.5rem;
@@ -75,30 +74,41 @@ body{
 }
 
 .card-img{
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
     aspect-ratio: 6 / 4;
-    width: 100%;
     overflow: hidden;
+    cursor: pointer;
 }
 
-.card .content{
+.card-img img {
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.card-info{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+}
+
+ .card-info .content{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    padding: 1rem 2rem;
 }
 
-.card .content .title{
+.card-info .content .title{
     font-size: 1.25rem;
     font-weight: var(--font-weight-700);
     color: var(--very-dark-grayish-blue);
     text-wrap: unset;
 }
 
-.card .content .description{
+.card-info .content .description{
     font-size: 1rem;
     color: var(--desaturated-dark-blue);
     text-wrap: unset;
@@ -109,8 +119,6 @@ body{
     justify-content: space-between;
     align-items: center;
     gap: 3rem;
-    padding: 0.5rem 2rem;
-    padding-bottom: 2rem;
     width: 100%;
 }
 
@@ -219,5 +227,80 @@ body{
     height: 100%;
 }
 
-.attribution { font-size: 11px; text-align: center; }
+.attribution { font-size: 11px; text-align: center; margin-top: 2rem}
 .attribution a { color: hsl(228, 45%, 44%); }
+
+@media screen and (min-width: 47rem){
+    .card{
+        flex-direction: row;
+        align-items: unset;
+        max-width: 48.75rem;
+        gap: 0;
+    }
+
+    .card-img{
+        border-radius: 10px 0 0 10px;
+        overflow: hidden;
+    }
+
+    .card-img img {
+        height: 100%;
+        width: 100%;
+        object-position: top left;
+        object-fit: cover;
+    }
+
+    .card-info{
+        padding: 2rem;
+    }
+
+    .card-info .content{
+        gap: 1rem;
+    }
+    
+    .share-container{
+        position: absolute;
+        right: 4%;
+        left: auto;
+        bottom: 10%;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border-radius: 100%;
+        box-sizing: border-box;
+        transition: all 0.4s ease;
+        font-size: 12px;
+        opacity: 0;
+    }
+    
+    .share-container.active{
+        background-color: var(--very-dark-grayish-blue);
+        position: absolute;
+        bottom: 6rem;
+        opacity: 1;
+        right: -3.75rem;
+        height: 4rem;
+        width: unset;
+        border-radius: 0.5rem;
+        padding: 1rem;
+    }
+
+    .share-container.active::before{
+        content: "";
+        width: 2rem;
+        height: 2rem;
+        background-color: var(--very-dark-grayish-blue);
+        position: absolute;
+        right: 5.25rem;
+        bottom: -1rem;
+        transform: rotate(45deg) translateX(-50%);
+    }
+
+    .share-button:hover{
+        background-color: var(--grayish-blue);
+    }
+    
+    .share-button.active{
+        transform: rotate(-90deg);
+    }
+} 
