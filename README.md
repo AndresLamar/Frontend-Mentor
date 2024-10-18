@@ -23,3 +23,5 @@ Projects completed:
 * [Testimonials Grid Section](https://andreslamar.github.io/Frontend-Mentor/Testimonials-grid-section-main/)
 
 * [Meet Landing Page](https://andreslamar.github.io/Frontend-Mentor/Meet-landing-page/)
+  
+* [Article Preview Component](https://andreslamar.github.io/Frontend-Mentor/article-preview-component/)
