@@ -25,3 +25,5 @@ Projects completed:
 * [Meet Landing Page](https://andreslamar.github.io/Frontend-Mentor/Meet-landing-page/)
   
 * [Article Preview Component](https://andreslamar.github.io/Frontend-Mentor/article-preview-component/)
+
+* [Newsletter Sign Up](https://andreslamar.github.io/Frontend-Mentor/newsletter-sign-up/)
