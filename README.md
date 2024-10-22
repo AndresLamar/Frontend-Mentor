@@ -27,3 +27,5 @@ Projects completed:
 * [Article Preview Component](https://andreslamar.github.io/Frontend-Mentor/article-preview-component/)
 
 * [Newsletter Sign Up](https://andreslamar.github.io/Frontend-Mentor/newsletter-sign-up/)
+
+* [Time Tracking Dashboard](https://andreslamar.github.io/Frontend-Mentor/time-tracking-dashboard/)
