@@ -1,12 +1,12 @@
 :root{
     /* Colors */
     --primary-Blue: hsl(246, 80%, 60%);
-    --primary-Light-red-work: hsl(15, 100%, 70%);
-    --primary-Soft-blue-play: hsl(195, 74%, 62%);
-    --primary-Light-red-study: hsl(348, 100%, 68%);
-    --primary-Lime-green-exercise: hsl(145, 58%, 55%);
-    --primary-Violet-social: hsl(264, 64%, 52%);
-    --primary-Soft-orange-self-care: hsl(43, 84%, 65%);
+    --primary-work: hsl(15, 100%, 70%);
+    --primary-play: hsl(195, 74%, 62%);
+    --primary-study: hsl(348, 100%, 68%);
+    --primary-exercise: hsl(145, 58%, 55%);
+    --primary-social: hsl(264, 64%, 52%);
+    --primary-selfcare: hsl(43, 84%, 65%);
 
     --neutral-Very-dark-blue: hsl(226, 43%, 10%);
     --neutral-Dark-blue: hsl(235, 46%, 20%);
@@ -149,15 +149,13 @@ body{
 }
 
 .activity__card-item{
-    background-color: var(--primary-Light-red-work);
     border-radius: 1rem;    
 }
 
 .activity__card-container{
-    background-image: url(./images/icon-work.svg);
     background-repeat: no-repeat;
-    background-position: 95% -25%;
-    padding-top: 2rem;
+    background-position: 95% -10%;
+    padding-top: 2.5rem;
     width: 100%;
     height: 100%;
 }
@@ -192,6 +190,7 @@ body{
 
 .activity__card-item-current-time{
     font-size: 1.75rem;
+    color: #fff;
     font-weight: var(--font-weight-300);
 }
 
@@ -282,7 +281,6 @@ body{
 
     .activity__card-item-current-time{
         font-size: 3rem;
-        color: #fff;
         font-weight: var(--font-weight-300);
     }
 }
