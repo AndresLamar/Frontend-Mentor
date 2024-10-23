@@ -1,12 +1,12 @@
+const form = document.getElementById('form')
 const stayUpdatedDialog = document.querySelector("#stay-updated");
+const inputEmail = form.querySelector('input[name="email"]')
 stayUpdatedDialog.showModal();
 const ERROR_MESSAGES = new Map([
     ["typeMismatch", "Valid email required"],
     ["valueMissing", "Email required"],
 ]);
 
-const form = document.getElementById('form')
-const inputEmail = form.querySelector('input[name="email"]')
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -112,28 +112,10 @@ function displayErrors(form) {
       emailValidationError.innerText = ERROR_MESSAGES.get("valueMissing");
       return;
     }
-  }
+}
   
 function reloadPage() {
     location.reload();
 }
-
-// function setError(element, message){
-//     const errorDisplay = form.querySelector('.error');
-
-//     errorDisplay.innerText = message;
-//     inputEmail.classList.add('error');
-// }
-
-// function validateInputs() {
-//     const emailValue = email.value.trim()
-//     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-//     if(emailValue === ''){
-//         setError(email, 'Email is required')
-//     } else if(!re.test(emailValue)) {
-//         setError(email, 'Email is not valid')
-//     } 
-// }
 
 
