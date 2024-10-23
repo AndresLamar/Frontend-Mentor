@@ -18,37 +18,42 @@
 
   <main>
     <div class="container">
-      <section class="bill-container">
-        <label for="bill" class="label-text">Bill</label>
-        <input id="bill" type="number" class="bill-input input" placeholder="0">
-      </section>
-
-      <section class="tip-container">
-        <span class="label-text">Select Tip %</span>
-        <div class="tip-buttons">
-          <button class="tip-button" data-tip="0.05">5%</button>
-          <button class="tip-button" data-tip="0.10">10%</button>
-          <button class="tip-button" data-tip="0.15">15%</button>
-          <button class="tip-button" data-tip="0.25">25%</button>
-          <button class="tip-button" data-tip="0.50">50%</button>
-          <input type="number" name="custom-tip" id="custom-tip" placeholder="Custom" class="custom-tip input" min="0" max="100">
-        </div>  
-      </section>
-
-      <section class="number-of-people-container">
-        <label for="people" class="label-text">Number of People</label>
-        <input id="people" type="number" class="people-input input" placeholder="0" step="1">
-      </section>
+      <form id="form" novalidate>
+        <div class="bill-container">
+          <label for="bill" class="label-text">Bill</label>
+          <input id="bill" type="number" id="bill-input" class="bill-input input" placeholder="0" step="0.01" min="0" inputmode="numeric" aria-required="true" 
+          required>
+        </div>
+  
+        <div class="tip-container">
+          <fieldset>
+            <legend class="label-text">Select Tip %</legend>
+            <div class="tip-buttons">
+              <button class="tip-button" data-tip="0.05">5%</button>
+              <button class="tip-button" data-tip="0.10">10%</button>
+              <button class="tip-button" data-tip="0.15">15%</button>
+              <button class="tip-button" data-tip="0.25">25%</button>
+              <button class="tip-button" data-tip="0.50">50%</button>
+              <input type="number" name="custom-tip" id="custom-tip" placeholder="Custom" id="custom-tip-input" class="custom-tip-input input" min="0" max="100" inputmode="numeric" aria-required="false"> 
+          </fieldset>          
+        </div>
+  
+        <div class="number-of-people-container">
+          <label for="people" class="label-text">Number of People</label>
+          <input id="people" type="number" id="people-input" class="people-input input" placeholder="0" step="1" min="1" inputmode="numeric" aria-required="true" 
+          required >
+        </div>
+      </form>
 
       <section class="total-container">
         <div class="tip-amount">
           <p class="total-section-text">Tip Amount <span>/ person</span></p>
-          <p class="tip-amount-value">$0.00</p>
+          <p class="tip-amount-value value">$0.00</p>
         </div>
 
         <div class="total">
           <p class="total-section-text">Total <span>/ person</span></p>
-          <p class="tip-amount-value">$0.00</p>
+          <p class="total-value value">$0.00</p>
         </div>
 
         <button class="reset-button">Reset</button>
