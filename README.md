@@ -29,3 +29,7 @@ Projects completed:
 * [Newsletter Sign Up](https://andreslamar.github.io/Frontend-Mentor/newsletter-sign-up/)
 
 * [Time Tracking Dashboard](https://andreslamar.github.io/Frontend-Mentor/time-tracking-dashboard/)
+
+* [Tip Calculator App](https://andreslamar.github.io/Frontend-Mentor/tip-calculator-app/)
+
+
