@@ -238,6 +238,58 @@ main .container{
     cursor: not-allowed;
 }
 
+@media screen and (min-width: 48rem) {
+    body{
+        display: grid;
+        place-content: center;
+    }
+
+    header .logo-container{
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 2rem;
+        margin-block-end: 3rem;
+    }
+
+    main .container{
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+        background-color: var(--neutral-White);
+        padding: 1.5rem ;
+        border-radius: 1rem;
+        max-width: 56.25rem;
+    }
+    
+    #form{
+        gap: 2rem;
+        padding: 1.25rem;
+    }    
+
+    .tip-container fieldset .tip-buttons{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .tip-container fieldset .tip-buttons .tip-button{
+        padding: 0.5rem 2.5rem;
+    }
+
+    .total-container{
+        gap: 1.5rem;
+        padding: 2rem 1.5rem;
+        /* max-width: 30rem; */
+    }
+
+    .total-inner-container{
+        gap: 5rem;
+    }
+
+    .reset-button{
+        margin-block-start: 9rem;
+    }
+}
 
 
 
