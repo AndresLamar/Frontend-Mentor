@@ -140,8 +140,26 @@ main .container{
     color: var(--neutral-Very-dark-cyan);
 }
 
+.custom-tip-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 100%;
+    position: relative;
+}
+
+.custom-tip-container .error-message{
+    color: #D98E7E;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+}
+
 .tip-container fieldset .tip-buttons .custom-tip-input{
     text-align: center;
+    height: 100%;
 }
 
 .number-of-people-container{
@@ -157,8 +175,14 @@ main .container{
 }
 
 .label-text{
+    display: flex;
+    justify-content: space-between;
     font-size: 0.75rem;
     color: var(--neutral-Grayish-cyan);
+}
+
+.label-text .error-message{
+    color: #D98E7E;
 }
 
 .input{
@@ -177,9 +201,14 @@ main .container{
 }
 
 .input:focus, .input:focus-visible {
-    outline: 2px solid hsl(172, 49%, 55%);;
+    outline: 2px solid hsl(172, 49%, 55%);
     outline-offset: 3px;
-  }
+}
+
+.input.error:focus, .input.error:focus-visible {
+    outline: 2px solid #D98E7E;
+    outline-offset: 3px;
+}
 
 .total-container{
     display: flex;
@@ -276,10 +305,14 @@ main .container{
         padding: 0.5rem 2.5rem;
     }
 
+    .custom-tip-container .error-message{
+        font-size: 0.6rem;
+        transform: translateX(-50%) translateY(15%);
+    }
+
     .total-container{
         gap: 1.5rem;
         padding: 2rem 1.5rem;
-        /* max-width: 30rem; */
     }
 
     .total-inner-container{
