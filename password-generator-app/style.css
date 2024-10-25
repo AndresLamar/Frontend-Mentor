@@ -92,6 +92,7 @@ main .container{
 }
 
 .generated_password .pw_generated{
+    position: relative;
     border: none;
     background-color: var(--dark-grey);
     color: var(--almost-white);
@@ -100,6 +101,15 @@ main .container{
 
 .generated_password .copy_msg{
     display: none;
+    transition: all 0.3s ease;
+}
+
+.generated_password .copy_msg.show{
+    display: block;
+    text-transform: uppercase;
+    color: var(--neon-green);
+    position: absolute;
+    right: 4rem;    
 }
 
 .generated_password .copy_icon{
@@ -109,9 +119,18 @@ main .container{
     transition: all 0.3s ease;
 }
 
+.generated_password .copy_icon svg{
+    fill: var(--neon-green);
+}
+
 .generated_password .copy_icon:hover,
 .generated_password .copy_icon:focus{
-    scale: 1.2;
+    scale: 1.1;
+}
+
+.generated_password .copy_icon svg:hover,
+.generated_password .copy_icon svg:focus{
+    fill: var(--almost-white);
 }
 
 .generated_password .copy_icon .sr-only{
@@ -184,6 +203,7 @@ input[type="range"]::-webkit-slider-thumb{
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    margin-block-start: 1rem;
 }
 
 .group_checkbox .label_for_check{
@@ -191,6 +211,37 @@ input[type="range"]::-webkit-slider-thumb{
     align-items: center;
     gap: 1rem;
     color: var(--almost-white);
+
+}
+
+input[type="checkbox"]{
+    margin-inline-end:1.25rem;
+    display:none;
+}
+
+.label_for_check{
+    /* margin-inline-start:2.5rem; */
+    position:relative;   
+}
+
+.label_for_check::before{
+    content: '';
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid var(--almost-white);
+    cursor: pointer;
+}
+
+.label_for_check:hover::before{
+    border-color: var(--neon-green);
+}
+
+.checked::before{
+    border-color: var(--neon-green);
+    background-color: var(--neon-green);
+    background-image: url(./assets/images/icon-check.svg);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .strength_display{
@@ -209,6 +260,24 @@ input[type="range"]::-webkit-slider-thumb{
 
 .strength_display .strength .strength_level{
     text-transform: uppercase;
+    display: none;
+}
+
+.strength_display .strength{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.colored_level{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.colored_level .level{
+    width: 1rem;
+    height: 2rem;
+    border: 2px solid var(--almost-white);
 }
 
 .generate-btn{

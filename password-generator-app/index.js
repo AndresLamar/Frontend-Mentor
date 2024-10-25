@@ -5,6 +5,7 @@ const copyMsg = document.getElementById('copy_msg');
 const charLength = document.getElementById('char_length');
 const range = document.querySelector('input[type="range"]');
 const charLengthDisplay = document.getElementById('char_length_display');
+const checkLabels = document.querySelectorAll('.label_for_check');
 const strengthLevel = document.getElementById('strength_level');
 const coloredLevel = document.getElementById('colored_level');
 
@@ -56,10 +57,23 @@ function generatePassword(length, charsList) {
     return password;
 }
 
-// charLength.addEventListener('input', (e) => {
-//     handleRangeColor(e);
-//     charLengthDisplay.textContent = charLength.value;
-// })
+const copyToClipboard = (text, showMsg) =>{
+    navigator.clipboard.writeText(text)
+    .then(()=>{
+        showMsg();
+    })
+    .catch(err => {
+        console.error('Failed to copy text: ', err);
+    })
+}
+
+const showCopiedMsg = () => {
+    copyMsg.classList.add('show');
+    setTimeout(() => {
+        copyMsg.classList.remove('show');
+    }, 1500);
+}
+
 
 const handleRangeColor = (e) => {
     const position = (e.target.value*100)/e.target.max;
@@ -71,15 +85,24 @@ range.addEventListener('input', (e)=>{
     charLengthDisplay.textContent = e.target.value;
 });
 
-// const handleRangeColor = (e) => {
-//     const position = (e.target.value*100)/e.target.max;
-//     charLength.style.background = `linear-gradient(90deg, rgba(164,255,175,1) 0%, rgba(164,255,175,1) ${position}%, rgba(24,23,31,1) ${position}%)`;
-// }
+copyIcon.addEventListener('click', (e) => {
+    e.preventDefault();
+    const text = pw_generated.value;
 
-// range.addEventListener('input', (e)=>{
-//     handleRangeColor(e);
-//     char_length_display.textContent = e.target.value;
-// });
+    if(text){
+        copyToClipboard(text, showCopiedMsg)
+    }
+})
+
+const toggleCheck = (e) => {
+    e.target.classList.toggle('checked');
+}
+
+checkLabels.forEach((label)=>{
+    label.addEventListener('click', (e)=>{
+        toggleCheck(e);
+    })
+})
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
