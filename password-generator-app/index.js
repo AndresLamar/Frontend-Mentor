@@ -3,6 +3,7 @@ const passwordDisplay = document.getElementById('pw_generated');
 const copyIcon = document.getElementById('copy_icon');
 const copyMsg = document.getElementById('copy_msg');
 const charLength = document.getElementById('char_length');
+const range = document.querySelector('input[type="range"]');
 const charLengthDisplay = document.getElementById('char_length_display');
 const strengthLevel = document.getElementById('strength_level');
 const coloredLevel = document.getElementById('colored_level');
@@ -55,9 +56,30 @@ function generatePassword(length, charsList) {
     return password;
 }
 
-charLength.addEventListener('input', () => {
-    charLengthDisplay.textContent = charLength.value;
-})
+// charLength.addEventListener('input', (e) => {
+//     handleRangeColor(e);
+//     charLengthDisplay.textContent = charLength.value;
+// })
+
+const handleRangeColor = (e) => {
+    const position = (e.target.value*100)/e.target.max;
+    range.style.background = `linear-gradient(90deg, rgba(164,255,175,1) 0%, rgba(164,255,175,1) ${position}%, rgba(24,23,31,1) ${position}%)`;
+}
+
+range.addEventListener('input', (e)=>{
+    handleRangeColor(e);
+    charLengthDisplay.textContent = e.target.value;
+});
+
+// const handleRangeColor = (e) => {
+//     const position = (e.target.value*100)/e.target.max;
+//     charLength.style.background = `linear-gradient(90deg, rgba(164,255,175,1) 0%, rgba(164,255,175,1) ${position}%, rgba(24,23,31,1) ${position}%)`;
+// }
+
+// range.addEventListener('input', (e)=>{
+//     handleRangeColor(e);
+//     char_length_display.textContent = e.target.value;
+// });
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
