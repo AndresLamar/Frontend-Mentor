@@ -260,7 +260,7 @@ input[type="checkbox"]{
 
 .strength_display .strength .strength_level{
     text-transform: uppercase;
-    display: none;
+    /* display: none; */
 }
 
 .strength_display .strength{
