@@ -10,11 +10,7 @@ This is a solution to the [Password generator app challenge on Frontend Mentor](
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -30,13 +26,18 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+* Desktop
+
+![Desktop](./screenshots/desktop.png)
+
+* Mobile
+
+![Mobile](./screenshots/mobile.png)
 
 
 ### Links
 
-- Solution URL: [https://github.com/barka-dev/password-generator-app.git](https://your-solution-url.com)
-- Live Site URL: [https://barka-dev.github.io/password-generator-app/](https://your-live-site-url.com)
+- [Live Site](https://andreslamar.github.io/Frontend-Mentor/password-generator-app/)
 
 ## My process
 
@@ -51,6 +52,5 @@ Users should be able to:
 
 ## Author
 
-- Website - [Abdessalam Barka](https://www.your-site.com)
-- Frontend Mentor - [@barka-dev](https://www.frontendmentor.io/profile/barka-dev)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Portfolio - [Andrés Lamar](https://portfolio-delta-snowy-98.vercel.app/)
+- Frontend Mentor - [@AndresLamar](https://www.frontendmentor.io/profile/AndresLamar)
