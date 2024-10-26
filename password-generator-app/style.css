@@ -296,7 +296,7 @@ input[type="checkbox"]{
     transition: all 0.3s ease;
 }
 
-@media screen and (min-width: 30rem) {
+@media screen and (min-width: 28rem) {
     body{
         place-content: center;
     }
