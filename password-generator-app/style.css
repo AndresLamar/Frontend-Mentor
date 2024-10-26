@@ -295,3 +295,13 @@ input[type="checkbox"]{
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
+@media screen and (min-width: 30rem) {
+    body{
+        place-content: center;
+    }
+
+    main{
+        min-width: 35rem;
+    }
+}
