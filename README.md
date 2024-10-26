@@ -32,4 +32,6 @@ Projects completed:
 
 * [Tip Calculator App](https://andreslamar.github.io/Frontend-Mentor/tip-calculator-app/)
 
+* [Password Generator App](https://andreslamar.github.io/Frontend-Mentor/password-generator-app/)
+
 
