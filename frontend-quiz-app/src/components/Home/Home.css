@@ -1,0 +1,20 @@
+@import url(../../styles/var.css);
+
+.home{
+    display: flex;
+    flex-direction: column;
+    margin-block-start: 2rem;
+    gap: 0.75rem;
+}
+
+.home .title{
+    font-size: 2rem;
+    color: var(--darkest-grey);
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.home .subtitle{
+    font-style: italic;
+    margin-block-end: 2rem;
+}

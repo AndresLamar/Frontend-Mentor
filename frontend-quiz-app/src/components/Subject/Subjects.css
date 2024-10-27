@@ -1,0 +1,47 @@
+@import url('../../styles/var.css');
+
+.subjects-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.subject-card{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.subject-card:hover{
+    transform: scale(1.01);
+}
+
+.subject-card .title{
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.subject-HTML{
+    background-color: hsla(0, 82%, 63%, 0.2);
+    padding: 0.5rem;
+}
+
+.subject-CSS{
+    background-color: hsla(151, 70%, 50%, 0.2);
+    padding: 0.5rem;
+}
+
+.subject-JavaScript{
+    background-color: hsla(216, 47%, 78%, 0.3);
+    padding: 0.5rem;
+}
+
+.subject-Accessibility{
+    background-color: hsla(277, 91%, 56%, 0.2);
+    padding: 0.5rem;
+}

@@ -1,10 +1,10 @@
 import './Header.css'
 import { useContext, useEffect } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
-import IconSunLight from "../../assets/images/icon-sun-light.svg";
-import IconSunDark from "../../assets/images/icon-sun-dark.svg";
-import IconMoonLight from "../../assets/images/icon-moon-light.svg";
-import IconMoonDark from "../../assets/images/icon-moon-dark.svg";
+import IconSunLight from "/assets/images/icon-sun-light.svg";
+import IconSunDark from "/assets/images/icon-sun-dark.svg";
+import IconMoonLight from "/assets/images/icon-moon-light.svg";
+import IconMoonDark from "/assets/images/icon-moon-dark.svg";
 
 const Header = () => {
     const { theme, toggleTheme } = useContext(ThemeContext);

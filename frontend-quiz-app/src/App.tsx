@@ -1,13 +1,18 @@
 import './App.css'
 import Header from './components/Header/Header';
+import Home from './components/Home/Home';
+import { DataProvider } from './context/DataContext';
 import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
 
   return (
-    <ThemeProvider>
-      <Header />
-    </ThemeProvider>
+    <DataProvider>
+      <ThemeProvider>
+        <Header />
+        <Home/>
+      </ThemeProvider>
+    </DataProvider>
   )
 }
 
@@ -16,36 +21,6 @@ export default App
 //   </head>
 //   <body>
 //     <main>
-//       <header>
-//         <div class="selected_topic">
-//           <div class="img_selected"></div>
-//           <p></p>
-//         </div>
-//         <div class="light-dark-switch-container">
-//           <label for="toggle">
-//             <img
-//               src="assets/images/icon-sun-dark.svg"
-//               alt="light switch toggle"
-//             />
-//           </label>
-//           <label class="toggle" for="toggle">
-//             <input
-//               type="checkbox"
-//               name="toggle"
-//               id="toggle"
-//               class="toggle__input"
-//             />
-
-//             <span class="toggle__display"> </span>
-//           </label>
-//           <label for="toggle">
-//             <img
-//               src="assets/images/icon-moon-dark.svg"
-//               alt="dark switch toggle"
-//             />
-//           </label>
-//         </div>
-//       </header>
 //       <div class="wrapper">
 //         <div class="question_box">
 //           <p class="hidden curr_question_number">
