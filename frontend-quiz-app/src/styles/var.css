@@ -1,0 +1,24 @@
+:root{
+    --background-color: hsl(220, 38%, 97%);
+    --color: hsl(216, 25%, 25%);
+
+    --color-toggle-bg-default: var(--purple); 
+    --color-toggle-bg-checked: var(--purple); 
+    --color-toggle-border: rgba(0, 0, 0, 0.2);
+    --color-focus-ring: var(--purple);
+  
+    --purple: hsl(277, 91%, 56%);
+    --darkest-grey: hsl(216, 25%, 25%);
+    --medium-grey: hsl(215, 27%, 32%);
+    --ligthest-grey: hsl(219, 13%, 44%);
+    --darker-blue: hsl(216, 47%, 78%);
+    --grey: hsl(220, 38%, 97%);
+    --white: hsl(0, 0%, 100%);
+    --green: hsl(151, 70%, 50%);
+    --red: hsl(0, 82%, 63%); 
+}
+
+[data-theme='dark'] {
+    --background-color: hsl(215, 27%, 32%);
+    --color: hsl(0, 0%, 100%);
+}

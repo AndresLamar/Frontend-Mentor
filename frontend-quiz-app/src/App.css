@@ -1,0 +1,15 @@
+@import url(./styles/var.css);
+
+body{
+  background-color: var(--background-color);
+  color: var(--color);
+  background-image: url(./assets/images/pattern-background-mobile-light.svg);
+  background-repeat: no-repeat;
+  padding: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease, background-image 0.3s ease;
+}
+
+body[data-theme='dark']{
+  background-image: url(./assets/images/pattern-background-mobile-dark.svg);
+  background-repeat: no-repeat;
+}
