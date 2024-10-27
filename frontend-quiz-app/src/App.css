@@ -5,7 +5,7 @@ body{
   color: var(--color);
   background-image: url(./assets/images/pattern-background-mobile-light.svg);
   background-repeat: no-repeat;
-  padding: 1rem;
+  padding: 1.5rem;
   transition: background-color 0.3s ease, color 0.3s ease, background-image 0.3s ease;
 }
 

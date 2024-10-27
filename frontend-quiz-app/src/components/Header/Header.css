@@ -1,0 +1,58 @@
+@import url(../../styles/var.css);
+
+header{
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.light-dark-toggle-container{
+    display: flex;
+    align-items: center;
+}
+
+.light-dark-toggle-container label > img{
+    transition: all 0.3s ease;
+}
+
+.toggle__input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.toggle__display{
+    --offset: 0.25em;
+    --diameter: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+
+    box-sizing: content-box;
+    width: calc(var(--diameter)* 2 + var(--offset)* 2);
+    height: calc(var(--diameter) + var(--offset)* 2);
+    border: 0.1em solid var(--white);
+    position: relative;
+    border-radius: 100vw;
+    background-color: var(--purple);
+    transition: background-color 250ms, transform 250ms;
+    cursor: pointer;
+}
+
+.toggle__display::before{
+    content: '';
+    position: absolute;
+    inset-inline-start: var(--offset);
+    width: var(--diameter);
+    height: var(--diameter);
+    border-radius: 100vw;
+    background-color: var(--white); 
+    transition: transform 250ms;
+}
+
+.toggle__input:checked + .toggle__display::before {
+    transform: translateX(100%);
+}
+
