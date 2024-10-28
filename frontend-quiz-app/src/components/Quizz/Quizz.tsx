@@ -12,8 +12,7 @@ const Quizz = ({ subject }: { subject: string }) => {
 
   return (
     <div>
-      <h1>{subject} Quiz</h1>
-      {/* ... (código para mostrar las preguntas de 'questions') */}
+          {/* ... (código para mostrar las preguntas de 'questions') */}
     </div>
   );
 };

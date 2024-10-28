@@ -10,8 +10,8 @@ interface DataContextProps {
     setTopicLogo: React.Dispatch<React.SetStateAction<string>>;
     topicTitle: string;
     setTopicTitle: React.Dispatch<React.SetStateAction<string>>;
-    topicBgClass: string; 
-    setTopicBgClass: React.Dispatch<React.SetStateAction<string>>;
+    showTopic: boolean; 
+    setShowTopic: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const DataContext = createContext<DataContextProps>({
@@ -24,8 +24,8 @@ export const DataContext = createContext<DataContextProps>({
     setTopicLogo: () => {},
     topicTitle: '',
     setTopicTitle: () => {},
-    topicBgClass: '', 
-    setTopicBgClass: () => {}
+    showTopic: false, 
+    setShowTopic: () => {}
 });
 
 
@@ -35,7 +35,7 @@ export const DataProvider = ({children} : {children: React.ReactNode}) => {
     const [score, setScore] = useState(0);
     const [topicLogo, setTopicLogo] = useState('');
     const [topicTitle, setTopicTitle] = useState('');
-    const [topicBgClass, setTopicBgClass] = useState('');
+    const [showTopic, setShowTopic] = useState(false);
 
 
     useEffect(()=>{
@@ -54,7 +54,7 @@ export const DataProvider = ({children} : {children: React.ReactNode}) => {
             score, setScore, 
             topicLogo, setTopicLogo, 
             topicTitle, setTopicTitle, 
-            topicBgClass, setTopicBgClass
+            showTopic, setShowTopic
         }}>
             {children}
         </DataContext.Provider>

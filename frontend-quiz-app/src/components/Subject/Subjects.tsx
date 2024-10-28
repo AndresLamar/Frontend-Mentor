@@ -8,9 +8,17 @@ interface SubjectProps {
 }
 
 const Subject = ({title, icon} : SubjectProps) =>{
+    const { setTopicLogo, setTopicTitle, setShowTopic } = useData();
+
+    const handleSubjectClick = () => {
+        setTopicLogo(icon);
+        setTopicTitle(title);
+        setShowTopic(true)
+    }
+
     return(
         <Link to={`/${title.toLowerCase()}`}>
-            <div className="subject-card">
+            <div className="subject-card" onClick={handleSubjectClick}>
                 <div className="icon">
                     <img src={icon} alt={`${title} icon`} className={`subject-${title}`}/>
                 </div>
@@ -27,7 +35,7 @@ const Subjects = () => {
         <ul className="subjects-container">
             {
                 data && data.map((quiz : {title: string, icon: string}) => (
-                    <Subject title={quiz.title} icon={quiz.icon} key={quiz.title}/>
+                <Subject title={quiz.title} icon={quiz.icon} key={quiz.title}/>
                 ))
             }
         </ul>

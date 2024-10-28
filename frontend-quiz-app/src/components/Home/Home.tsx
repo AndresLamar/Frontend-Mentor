@@ -1,7 +1,14 @@
 import "./Home.css";
 import Subjects from "../Subject/Subjects";
+import { useData } from "../../context/DataContext";
+import { useEffect } from "react";
 
 const Home = () => {
+    const { setShowTopic } = useData();
+
+    useEffect(() => {
+        setShowTopic(false); // Ocultar logo y título en el home
+      }, []);
 
     return (
         <div className="home">

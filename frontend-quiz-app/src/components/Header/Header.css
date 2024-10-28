@@ -56,3 +56,14 @@ header{
     transform: translateX(100%);
 }
 
+.selected-topic{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.selected-topic p{
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
