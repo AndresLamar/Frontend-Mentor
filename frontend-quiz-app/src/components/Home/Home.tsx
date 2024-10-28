@@ -8,7 +8,6 @@ const Home = () => {
             <h1 className="title">Welcome to the <strong>Frontend quiz!</strong></h1>
             <p className="subtitle">Pick a subject to get started!</p>
             <Subjects/>
-
         </div>
     )
 }

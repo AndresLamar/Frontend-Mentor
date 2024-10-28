@@ -3,5 +3,12 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "compilerOptions": {
+    "baseUrl": "./", // La base para resolver los paths
+    "paths": {
+      "@components/*": ["src/components/*"], // Ejemplo: @components/Button se resolverá a src/components/Button
+      "@/*": ["src/*"] // Alias para la carpeta src
+    }
+  }
 }

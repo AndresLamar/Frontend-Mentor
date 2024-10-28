@@ -1,5 +1,6 @@
 import './Subjects.css'
 import { useData } from "../../context/DataContext"
+import { Link } from 'react-router-dom';
 
 interface SubjectProps {
     title: string;
@@ -8,12 +9,14 @@ interface SubjectProps {
 
 const Subject = ({title, icon} : SubjectProps) =>{
     return(
-        <div className="subject-card">
-            <div className="icon">
-                <img src={icon} alt={`${title} icon`} className={`subject-${title}`}/>
+        <Link to={`/${title.toLowerCase()}`}>
+            <div className="subject-card">
+                <div className="icon">
+                    <img src={icon} alt={`${title} icon`} className={`subject-${title}`}/>
+                </div>
+                <p className="title">{title}</p>
             </div>
-            <p className="title">{title}</p>
-        </div>
+        </Link>
     )
 }
 
