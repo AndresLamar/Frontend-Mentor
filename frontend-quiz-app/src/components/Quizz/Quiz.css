@@ -1,0 +1,82 @@
+@import url(../../styles/var.css);
+
+.quizz-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-block-start: 2.5rem;
+}
+
+.quizz-container .question-number{
+    font-style: italic;
+}
+
+.quizz-container .question{
+    font-style: italic;
+    font-weight: bold;
+    margin-block-end: 1.5rem;
+}
+
+.quizz-container .options{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style-type: none;
+}
+
+.quizz-container .options .option{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.quizz-container .options .option .answers{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    cursor: pointer;
+}
+
+.quizz-container .options .option .answers.selected{
+    border: 2px solid var(--purple);
+}
+
+.quizz-container .quizz-btn{
+    padding: 1rem 2rem;
+    width: 100%;
+    color: var(--white);
+    background-color: var(--purple);
+    border: none;
+    border-radius: 0.5rem;
+    margin-block-start: 0.5rem;
+}
+
+.quizz-container .options .option .option_letter{
+    background-color: var(--grey);   
+    padding: 0.25rem 0.5rem;
+    color: var(--darkest-grey);
+    font-weight: 600;
+}
+
+.quizz-container .options .option .option_letter.selected{
+    background-color: var(--purple);   
+    color: var(--white);
+}
+
+.radios{
+    display: none;
+}
+
+.radios:checked {
+    background-color: var(--purple);
+    color: var(--white);
+}
+
+.answers:hover > .radios:not(:checked) + span{
+    background-color:#F6E7FF;
+    color: var(--purple);
+  }
