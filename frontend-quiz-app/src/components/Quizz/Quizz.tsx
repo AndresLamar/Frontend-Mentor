@@ -20,6 +20,7 @@ const Quizz = ({ subject }: { subject: string }) => {
   const [options, setOptions] = useState<string[] | undefined>(undefined);
   const [answer, setAnswer] = useState<string | undefined>(undefined);
   const [correctAnswer, setCorrectAnswer] = useState<string | undefined>(undefined);
+  const [error, setError] = useState<boolean>(false);
   const letters = ["A","B","C","D"];
   
   const { data } = useData(); // Acceder a los datos de las preguntas
@@ -70,6 +71,11 @@ const Quizz = ({ subject }: { subject: string }) => {
 
   const handleNextQuestion = () => {
     // Check if the selected answer is correct
+    if (!answer) {
+      setError(true);
+      return;
+    }
+
     if (answer === correctAnswer) {
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1)
     }else{
@@ -98,6 +104,7 @@ const Quizz = ({ subject }: { subject: string }) => {
                     <span className="option_letter">{letters[index]}</span>
                     <input type="radio" className="radios" id={`answer_${letters[index]}`} name="answer" value={option} onChange={handleInputChange}/>
                     {option}  
+
                   </label>
                 </li>
               ))}
@@ -106,6 +113,13 @@ const Quizz = ({ subject }: { subject: string }) => {
 
           {currentQuestionIndex < questions.length - 1 && (
             <button onClick={handleNextQuestion} className='quizz-btn'>{ answer ? 'Submit Answer' : 'Select an answer' }</button>
+          )}
+
+          {!answer && error && (
+            <div className="unselected-error">
+              <img src="/assets/images/icon-error.svg" alt="error-icon" />
+              Please select an answer
+            </div>
           )}
     </div>
   );

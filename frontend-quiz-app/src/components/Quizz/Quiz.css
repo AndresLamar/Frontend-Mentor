@@ -79,4 +79,19 @@
 .answers:hover > .radios:not(:checked) + span{
     background-color:#F6E7FF;
     color: var(--purple);
-  }
+}
+
+.quizz-container .unselected-error{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--red);
+    margin-block-start: 0.5rem;
+}
+
+.quizz-container .unselected-error img{
+    width: 2rem;
+}
