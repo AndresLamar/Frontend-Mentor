@@ -38,10 +38,10 @@ const Quizz = ({ subject }: { subject: string }) => {
     }
   }, [currentQuestionIndex, questions]);
 
-  
+  const getCheckedOption = () => document.querySelector("input[type='radio']:checked");
 
   const addStyles = (element: Element | null, parentClass: string, siblingClass: string) => {
-    element?.parentElement?.classList.add(parentClass);
+    element?.parentElement?.parentElement?.classList.add(parentClass);
     element?.previousElementSibling?.classList.add(siblingClass);
   };
   
@@ -50,7 +50,7 @@ const Quizz = ({ subject }: { subject: string }) => {
   };
 
   const addStylesToOptions = (parentClass: string, siblingClass: string) => {
-    const checkedOption = document.querySelector("input[type='radio']:checked");
+    const checkedOption = getCheckedOption()
     addStyles(checkedOption, parentClass, siblingClass);
   };
   
@@ -69,18 +69,45 @@ const Quizz = ({ subject }: { subject: string }) => {
     styleOption('selected', 'selected', 'selected', 'selected');
   }
 
-  const handleNextQuestion = () => {
-    // Check if the selected answer is correct
+  const toggleDisplayForCorrectIncorrectIcon = (isCorrect: boolean) =>{
+    const iconElement = getCheckedOption()?.parentElement?.parentElement?.querySelector('.icon-result') as HTMLImageElement;
+    
+    if(isCorrect){
+      iconElement.src = '/assets/images/icon-correct.svg';
+    } else {
+      const correctElement = document.querySelector(`.answers[data-answer="${correctAnswer}"]`)
+      const correctElementIcon = correctElement?.querySelector('.icon-result') as HTMLImageElement;
+      iconElement.src = '/assets/images/icon-incorrect.svg';
+      correctElementIcon.src = '/assets/images/icon-correct.svg';
+    }
+  }
+
+  const checkSubmittedResponse = () =>{
+    if(answer?.trim() === correctAnswer?.trim()){
+        return true
+    }
+
+    return false
+  };
+
+  const handleSubmitQuestion = () => {
     if (!answer) {
       setError(true);
       return;
     }
 
-    if (answer === correctAnswer) {
-      setCurrentQuestionIndex((prevIndex) => prevIndex + 1)
-    }else{
-      console.log('Incorrect answer')
+    const isCorrect = checkSubmittedResponse()
+    if(isCorrect){
+      toggleDisplayForCorrectIncorrectIcon(isCorrect)
+    } else{
+      toggleDisplayForCorrectIncorrectIcon(isCorrect)
     }
+
+    // if (answer === correctAnswer) {
+    //   setCurrentQuestionIndex((prevIndex) => prevIndex + 1)
+    // }else{
+    //   console.log('Incorrect answer')
+    // }
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -89,7 +116,6 @@ const Quizz = ({ subject }: { subject: string }) => {
       handleStyleOnCheck()
     }
   }
-
 
   return (
     <div className='quizz-container'>
@@ -100,11 +126,14 @@ const Quizz = ({ subject }: { subject: string }) => {
             <ul className='options'>
               {options.map((option, index) => (
                 <li key={index} className='option'>
-                  <label tabIndex={0} htmlFor={`answer_${letters[index]}`} className="answers">
-                    <span className="option_letter">{letters[index]}</span>
-                    <input type="radio" className="radios" id={`answer_${letters[index]}`} name="answer" value={option} onChange={handleInputChange}/>
-                    {option}  
+                  <label tabIndex={0} htmlFor={`answer_${letters[index]}`} className="answers" data-answer={option}>
+                    <div className="choice">
+                      <span className="option_letter">{letters[index]}</span>
+                      <input type="radio" className="radios" id={`answer_${letters[index]}`} name="answer" value={option} onChange={handleInputChange}/>
+                      {option}  
+                    </div>
 
+                    <img src="" alt="" className='icon-result'/>
                   </label>
                 </li>
               ))}
@@ -112,7 +141,7 @@ const Quizz = ({ subject }: { subject: string }) => {
           )}
 
           {currentQuestionIndex < questions.length - 1 && (
-            <button onClick={handleNextQuestion} className='quizz-btn'>{ answer ? 'Submit Answer' : 'Select an answer' }</button>
+            <button onClick={handleSubmitQuestion} className='quizz-btn'>{ answer ? 'Submit Answer' : 'Select an answer' }</button>
           )}
 
           {!answer && error && (

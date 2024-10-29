@@ -32,6 +32,7 @@
 
 .quizz-container .options .option .answers{
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 1rem;
     background-color: var(--white);
@@ -41,8 +42,18 @@
     cursor: pointer;
 }
 
+/* .quizz-container .options .option .answers .icon-result{
+    display: none;
+} */
+
 .quizz-container .options .option .answers.selected{
     border: 2px solid var(--purple);
+}
+
+.quizz-container .options .option .answers .choice{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .quizz-container .quizz-btn{
@@ -95,3 +106,4 @@
 .quizz-container .unselected-error img{
     width: 2rem;
 }
+
