@@ -82,6 +82,13 @@ const Quizz = ({ subject }: { subject: string }) => {
     }
   }
 
+  const stopSelectingOptions = ()=>{
+    document.querySelectorAll('.radios').forEach((el : Element)=>{
+      const inputElement = el as HTMLInputElement; 
+      inputElement.disabled= true;
+    })
+  }
+
   const checkSubmittedResponse = () =>{
     if(answer?.trim() === correctAnswer?.trim()){
         return true
@@ -96,15 +103,20 @@ const Quizz = ({ subject }: { subject: string }) => {
       return;
     }
 
-    const isCorrect = checkSubmittedResponse()
-    if(isCorrect){
-      addStylesToOptions('correct', 'correct');
-      // setCurrentQuestionIndex((prevIndex) => prevIndex + 1)
-      toggleDisplayForCorrectIncorrectIcon(isCorrect)
-    } else{
-      addStylesToOptions('incorrect', 'incorrect');
+    const checkedOption = getCheckedOption()
+    if(checkedOption){
+      stopSelectingOptions()
+      const isCorrect = checkSubmittedResponse()
+      if(isCorrect){
+        addStylesToOptions('correct', 'correct');
+        // setCurrentQuestionIndex((prevIndex) => prevIndex + 1)
+        toggleDisplayForCorrectIncorrectIcon(isCorrect)
+      } else{
+        addStylesToOptions('incorrect', 'incorrect');
+  
+        toggleDisplayForCorrectIncorrectIcon(isCorrect)
+    }
 
-      toggleDisplayForCorrectIncorrectIcon(isCorrect)
     }
   };
 

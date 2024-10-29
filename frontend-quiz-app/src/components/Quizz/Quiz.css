@@ -42,6 +42,10 @@
     cursor: pointer;
 }
 
+/* .quizz-container .options .option .answers:hover{
+    border: 2px solid hsl(276, 45%, 88%);
+}    */
+
 .quizz-container .options .option .answers.selected{
     border: 2px solid var(--purple);
 }
@@ -79,6 +83,11 @@
     padding: 0.25rem 0.5rem;
     color: var(--darkest-grey);
     font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+.quizz-container .options .option .answers:hover .option_letter{
+    background-color: hsl(276, 45%, 88%);
 }
 
 .quizz-container .options .option .option_letter.selected{
