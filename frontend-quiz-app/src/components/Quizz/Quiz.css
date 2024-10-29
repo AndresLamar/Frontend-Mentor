@@ -42,12 +42,20 @@
     cursor: pointer;
 }
 
-/* .quizz-container .options .option .answers .icon-result{
-    display: none;
-} */
-
 .quizz-container .options .option .answers.selected{
     border: 2px solid var(--purple);
+}
+
+.quizz-container .options .option .answers.correct{
+    border: 2px solid var(--green);
+}
+
+.quizz-container .options .option .answers.incorrect{
+    border: 2px solid var(--red);
+}
+
+.icon-result{
+    width: 2rem;
 }
 
 .quizz-container .options .option .answers .choice{
@@ -75,6 +83,16 @@
 
 .quizz-container .options .option .option_letter.selected{
     background-color: var(--purple);   
+    color: var(--white);
+}
+
+.quizz-container .options .option .option_letter.correct{
+    background-color: var(--green);   
+    color: var(--white);
+}
+
+.quizz-container .options .option .option_letter.incorrect{
+    background-color: var(--red);   
     color: var(--white);
 }
 

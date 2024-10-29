@@ -98,16 +98,14 @@ const Quizz = ({ subject }: { subject: string }) => {
 
     const isCorrect = checkSubmittedResponse()
     if(isCorrect){
+      addStylesToOptions('correct', 'correct');
+      // setCurrentQuestionIndex((prevIndex) => prevIndex + 1)
       toggleDisplayForCorrectIncorrectIcon(isCorrect)
     } else{
+      addStylesToOptions('incorrect', 'incorrect');
+
       toggleDisplayForCorrectIncorrectIcon(isCorrect)
     }
-
-    // if (answer === correctAnswer) {
-    //   setCurrentQuestionIndex((prevIndex) => prevIndex + 1)
-    // }else{
-    //   console.log('Incorrect answer')
-    // }
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
