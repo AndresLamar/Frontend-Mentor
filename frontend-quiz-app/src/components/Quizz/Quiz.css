@@ -134,3 +134,6 @@
     width: 2rem;
 }
 
+.quizz-container .next_question{
+    display: none;
+}

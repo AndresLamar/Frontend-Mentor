@@ -70,8 +70,16 @@ const Quizz = ({ subject }: { subject: string }) => {
   }
 
   const toggleDisplayForCorrectIncorrectIcon = (isCorrect: boolean) =>{
-    const iconElement = getCheckedOption()?.parentElement?.parentElement?.querySelector('.icon-result') as HTMLImageElement;
-    
+    const checkedOption = getCheckedOption()
+    const iconElement = checkedOption?.parentElement?.parentElement?.querySelector('.icon-result') as HTMLImageElement;
+    if(!checkedOption){
+      document.querySelectorAll('.icon-result').forEach((el : Element)=>{
+        const iconElement = el as HTMLImageElement; 
+        iconElement.src = '/';
+      })
+      return;
+    }
+
     if(isCorrect){
       iconElement.src = '/assets/images/icon-correct.svg';
     } else {
@@ -89,6 +97,13 @@ const Quizz = ({ subject }: { subject: string }) => {
     })
   }
 
+  const resumeSelectingOptions = ()=>{
+    document.querySelectorAll('.radios').forEach((el: Element)=>{
+      const inputElement = el as HTMLInputElement; 
+      inputElement.disabled= false;
+    })
+}
+
   const checkSubmittedResponse = () =>{
     if(answer?.trim() === correctAnswer?.trim()){
         return true
@@ -96,6 +111,13 @@ const Quizz = ({ subject }: { subject: string }) => {
 
     return false
   };
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setAnswer(event.target.value)
+    if(event.target.checked){
+      handleStyleOnCheck()
+    }
+  }
 
   const handleSubmitQuestion = () => {
     if (!answer) {
@@ -108,23 +130,48 @@ const Quizz = ({ subject }: { subject: string }) => {
       stopSelectingOptions()
       const isCorrect = checkSubmittedResponse()
       if(isCorrect){
-        addStylesToOptions('correct', 'correct');
-        // setCurrentQuestionIndex((prevIndex) => prevIndex + 1)
-        toggleDisplayForCorrectIncorrectIcon(isCorrect)
-      } else{
-        addStylesToOptions('incorrect', 'incorrect');
-  
-        toggleDisplayForCorrectIncorrectIcon(isCorrect)
+          addStylesToOptions('correct', 'correct');
+          // setCurrentQuestionIndex((prevIndex) => prevIndex + 1)
+          toggleDisplayForCorrectIncorrectIcon(isCorrect)
+        } else{
+          addStylesToOptions('incorrect', 'incorrect');
+    
+          toggleDisplayForCorrectIncorrectIcon(isCorrect)
+      }
+    }
+    const submitButton = document.querySelector(".submit_answer") as HTMLButtonElement;
+    if (submitButton) {
+      submitButton.style.display = 'none';
     }
 
+    const nextButton = document.querySelector(".next_question") as HTMLButtonElement;
+    if (nextButton) {
+      nextButton.style.display = 'block';
     }
   };
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setAnswer(event.target.value)
-    if(event.target.checked){
-      handleStyleOnCheck()
+  const handleNextQuestion = () =>{
+    document.querySelectorAll(".radios").forEach((element : Element)=>{
+      const inputElement = element as HTMLInputElement; 
+      inputElement.checked = false;
+    })
+    setCurrentQuestionIndex((prevIndex) => prevIndex + 1)
+    setAnswer(undefined)
+    removeStyleFromOptions('correct', 'correct');
+    removeStyleFromOptions('incorrect', 'incorrect');
+    removeStyleFromOptions('selected', 'selected');
+    toggleDisplayForCorrectIncorrectIcon(false)
+    resumeSelectingOptions()
+
+    const submitButton = document.querySelector(".submit_answer") as HTMLButtonElement;
+    if (submitButton) {
+      submitButton.style.display = 'block';
     }
+
+    const nextButton = document.querySelector(".next_question") as HTMLButtonElement;
+    if (nextButton) {
+      nextButton.style.display = 'none';
+    } 
   }
 
   return (
@@ -151,7 +198,10 @@ const Quizz = ({ subject }: { subject: string }) => {
           )}
 
           {currentQuestionIndex < questions.length - 1 && (
-            <button onClick={handleSubmitQuestion} className='quizz-btn'>{ answer ? 'Submit Answer' : 'Select an answer' }</button>
+            <>
+              <button onClick={handleSubmitQuestion} className='quizz-btn submit_answer'>{ answer ? 'Check Answer' : 'Select an answer' }</button>
+              <button onClick={handleNextQuestion} className='quizz-btn next_question'>Next Question</button> 
+            </>
           )}
 
           {!answer && error && (
