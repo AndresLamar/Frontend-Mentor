@@ -18,3 +18,9 @@
     font-style: italic;
     margin-block-end: 2rem;
 }
+
+body[data-theme='dark']{
+    .home .title{
+        color: var(--white);
+    }
+}

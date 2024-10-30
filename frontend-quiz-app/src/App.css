@@ -19,6 +19,5 @@ body[data-theme='dark']{
   body{
     background-image: url(./assets/images/pattern-background-mobile-dark.svg);
     background-repeat: no-repeat;
-  }
+    /* color: var(--white); */
   
-} */

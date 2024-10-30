@@ -1,6 +1,7 @@
 :root{
     --background-color: hsl(220, 38%, 97%);
     --color: hsl(216, 25%, 25%);
+    --card-bg-color: hsl(0, 0%, 100%);
 
     --color-toggle-bg-default: var(--purple); 
     --color-toggle-bg-checked: var(--purple); 
@@ -21,11 +22,16 @@
 [data-theme='dark'] {
     --background-color: hsl(215, 27%, 32%);
     --color: hsl(0, 0%, 100%);
+
+    --card-bg-color: hsl(215, 27%, 38%);
 }
 
 /* @media (prefers-color-scheme: dark) {
     :root {
         --background-color: hsl(215, 27%, 32%);
         --color: hsl(0, 0%, 100%);
+
+        --card-bg-color: hsl(215, 27%, 38%);
+
     }
 } */
