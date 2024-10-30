@@ -2,6 +2,7 @@ import './Quiz.css'
 import { useEffect, useState } from 'react';
 import { useData } from '../../context/DataContext';
 import { useNavigate } from 'react-router-dom';
+import Result from '../Result/Result';
 
 interface Quiz {
   title: string;
@@ -21,7 +22,7 @@ const Quizz = ({ subject }: { subject: string }) => {
   const [options, setOptions] = useState<string[] | undefined>(undefined);
   const [answer, setAnswer] = useState<string | undefined>(undefined);
   const [correctAnswer, setCorrectAnswer] = useState<string | undefined>(undefined);
-  const [showResults, setShowResults] = useState<boolean>(false);
+  const [showResults, setShowResults] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
   const letters = ["A","B","C","D"];
 
@@ -237,20 +238,7 @@ const Quizz = ({ subject }: { subject: string }) => {
       )}
 
       {showResults && (
-        <div className="quizz-results">
-          <p className='result-text'>Quiz completed <span>You scored...</span></p>
-
-          <div className="score">
-            <div className='selected-topic'> 
-              <img src={topicLogo} alt={`${subject} icon`} className={`subject-${subject}`}/>
-              <p>{subject}</p>
-            </div>
-            <p className='score-number'>{score}</p>
-            <p className='score-questions'>Out of {questions.length}</p>
-          </div>
-
-          <button onClick={handlePlayAgain} className='quizz-btn play-again'>Play again</button>
-        </div>
+        <Result score={score} questionsLength={questions.length} subject={subject} topicLogo={topicLogo} handlePlayAgain={handlePlayAgain}/>
       )}
     </div>
   );
