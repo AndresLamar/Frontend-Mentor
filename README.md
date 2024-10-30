@@ -34,4 +34,6 @@ Projects completed:
 
 * [Password Generator App](https://andreslamar.github.io/Frontend-Mentor/password-generator-app/)
 
+* [Frontend Quiz App](https://frontend-quizzapp.netlify.app/)
+
 
