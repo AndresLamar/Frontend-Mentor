@@ -197,46 +197,52 @@ const Quizz = ({ subject }: { subject: string }) => {
 
   return (
     <div className='quizz-container'>
+      
       {!showResults && (
         <>
-          <QuestionSection counter={counter} currentQuestion={currentQuestionIndex} questionsLength={questions.length} question={question}/>
+          <div className="question-container">
+            <QuestionSection counter={counter} currentQuestion={currentQuestionIndex} questionsLength={questions.length} question={question}/>
+          </div>
 
-          {options && (
-            <ul className='options'>
-              {options.map((option, index) => (
-                <li key={index} className='option'>
-                  <label tabIndex={0} htmlFor={`answer_${letters[index]}`} className="answers" data-answer={option}>
-                    <div className="choice">
-                      <span className="option_letter">{letters[index]}</span>
-                      <input type="radio" className="radios" id={`answer_${letters[index]}`} name="answer" value={option} onChange={handleInputChange}/>
-                      {option}  
-                    </div>
+          <div className="answers">
+            {options && (
 
-                    <img src="" alt="" className='icon-result'/>
-                  </label>
-                </li>
-              ))}
-            </ul>
-          )}
+              <ul className='options'>
+                {options.map((option, index) => (
+                  <li key={index} className='option'>
+                    <label tabIndex={0} htmlFor={`answer_${letters[index]}`} className="answers" data-answer={option}>
+                      <div className="choice">
+                        <span className="option_letter">{letters[index]}</span>
+                        <input type="radio" className="radios" id={`answer_${letters[index]}`} name="answer" value={option} onChange={handleInputChange}/>
+                        {option}  
+                      </div>
 
-          {currentQuestionIndex <= questions.length - 1 && (
-            <>
-              <button onClick={handleSubmitQuestion} className='quizz-btn submit_answer'>Check Answer</button>
-              <button onClick={handleNextQuestion} className='quizz-btn next_question'>Next Question</button> 
-            </>
-          )}
+                      <img src="" alt="" className='icon-result'/>
+                    </label>
+                  </li>
+                ))}
+              </ul>
+            )}
 
-          {currentQuestionIndex > questions.length - 1 && (
-            <button onClick={() => setShowResults(true)} className='quizz-btn show-results'>Show results</button>
-          )}
+            {currentQuestionIndex <= questions.length - 1 && (
+              <>
+                <button onClick={handleSubmitQuestion} className='quizz-btn submit_answer'>Check Answer</button>
+                <button onClick={handleNextQuestion} className='quizz-btn next_question'>Next Question</button> 
+              </>
+            )}
 
-          {!answer && error && (
-            <div className="unselected-error">
-              <img src="/assets/images/icon-error.svg" alt="error-icon" />
-              Please select an answer
-            </div>
-          )}
-          </>
+            {currentQuestionIndex > questions.length - 1 && (
+              <button onClick={() => setShowResults(true)} className='quizz-btn show-results'>Show results</button>
+            )}
+
+            {!answer && error && (
+              <div className="unselected-error">
+                <img src="/assets/images/icon-error.svg" alt="error-icon" />
+                Please select an answer
+              </div>
+            )}
+          </div>
+        </>
       )}
 
       {showResults && (

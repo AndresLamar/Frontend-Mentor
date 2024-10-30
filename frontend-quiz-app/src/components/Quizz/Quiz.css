@@ -163,3 +163,18 @@ input[type="range"]{
     -webkit-appearance:none;
     appearance:none;
   }
+
+  @media screen and (min-width: 48rem) {
+    .quizz-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+        margin-block-start: 2.5rem;
+    }
+    
+    .quizz-container .question{
+        font-size: 1.75rem;
+        margin-block-end: 8rem;
+    }
+    
+  }
