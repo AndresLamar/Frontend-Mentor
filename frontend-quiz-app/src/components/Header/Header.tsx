@@ -17,7 +17,7 @@ const Header = () => {
 
     return(
         <header>
-            {  showTopic  && ( 
+            { showTopic  && ( 
                 <div className="selected-topic">
                     <img src={topicLogo} alt={`${topicTitle} icon`} className={`subject-${topicTitle}`}/>
                     <p>{topicTitle}</p>

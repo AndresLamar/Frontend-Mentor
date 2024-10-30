@@ -20,10 +20,13 @@ const Quizz = ({ subject }: { subject: string }) => {
   const [options, setOptions] = useState<string[] | undefined>(undefined);
   const [answer, setAnswer] = useState<string | undefined>(undefined);
   const [correctAnswer, setCorrectAnswer] = useState<string | undefined>(undefined);
+  const [showResults, setShowResults] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const letters = ["A","B","C","D"];
+
+  console.log(currentQuestionIndex)
   
-  const { data } = useData(); // Acceder a los datos de las preguntas
+  const { data, score, setScore } = useData(); // Acceder a los datos de las preguntas
 
   // Filtrar preguntas del tema actual
   const questions = data?.find((quiz : Quiz)  => quiz.title.toLowerCase() === subject.toLocaleLowerCase())?.questions || [];
@@ -130,12 +133,11 @@ const Quizz = ({ subject }: { subject: string }) => {
       stopSelectingOptions()
       const isCorrect = checkSubmittedResponse()
       if(isCorrect){
+          setScore((prevScore) => prevScore + 1);
           addStylesToOptions('correct', 'correct');
-          // setCurrentQuestionIndex((prevIndex) => prevIndex + 1)
           toggleDisplayForCorrectIncorrectIcon(isCorrect)
         } else{
           addStylesToOptions('incorrect', 'incorrect');
-    
           toggleDisplayForCorrectIncorrectIcon(isCorrect)
       }
     }
@@ -176,6 +178,8 @@ const Quizz = ({ subject }: { subject: string }) => {
 
   return (
     <div className='quizz-container'>
+      {!showResults && (
+        <>
           <p className='question-number'>Question {currentQuestionIndex + 1}  of {questions.length}</p>
 
           {question && <p className='question'>{question}</p>}
@@ -197,11 +201,15 @@ const Quizz = ({ subject }: { subject: string }) => {
             </ul>
           )}
 
-          {currentQuestionIndex < questions.length - 1 && (
+          {currentQuestionIndex <= questions.length - 1 && (
             <>
               <button onClick={handleSubmitQuestion} className='quizz-btn submit_answer'>{ answer ? 'Check Answer' : 'Select an answer' }</button>
               <button onClick={handleNextQuestion} className='quizz-btn next_question'>Next Question</button> 
             </>
+          )}
+
+          {currentQuestionIndex > questions.length - 1 && (
+            <button onClick={() => setShowResults(true)} className='quizz-btn show-results'>Show results</button>
           )}
 
           {!answer && error && (
@@ -210,6 +218,20 @@ const Quizz = ({ subject }: { subject: string }) => {
               Please select an answer
             </div>
           )}
+          </>
+      )}
+
+      {showResults && (
+        <div className="quizz-results">
+          <p className='result-text'>Quiz completed <span>You scored...</span></p>
+
+          <div className="score">
+            <div></div>
+            <p className='score-number'>{score}</p>
+            <p className='score-questions'>Out of {questions.length}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
