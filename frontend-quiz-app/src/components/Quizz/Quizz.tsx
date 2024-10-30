@@ -162,6 +162,7 @@ const Quizz = ({ subject }: { subject: string }) => {
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1)
     setCounter((prevCounter) => prevCounter + 1)
     setAnswer(undefined)
+    setError(false);
     removeStyleFromOptions('correct', 'correct');
     removeStyleFromOptions('incorrect', 'incorrect');
     removeStyleFromOptions('selected', 'selected');
