@@ -4,10 +4,11 @@ import { useData } from "../../context/DataContext";
 import { useEffect } from "react";
 
 const Home = () => {
-    const { setShowTopic } = useData();
+    const { setShowTopic, setCounter } = useData();
 
     useEffect(() => {
         setShowTopic(false); // Ocultar logo y título en el home
+        setCounter(1)
       }, []);
 
     return (

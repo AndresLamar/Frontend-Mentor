@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useData } from '../../context/DataContext';
 import { useNavigate } from 'react-router-dom';
 import Result from '../Result/Result';
+import QuestionSection from "./QuestionSection";
 
 interface Quiz {
   title: string;
@@ -28,7 +29,7 @@ const Quizz = ({ subject }: { subject: string }) => {
 
   const navigate = useNavigate();
 
-  const { data, score, setScore, topicLogo } = useData(); // Acceder a los datos de las preguntas
+  const { data, score, setScore, topicLogo, setCounter, counter } = useData(); // Acceder a los datos de las preguntas
 
   // Filtrar preguntas del tema actual
   const questions = data?.find((quiz : Quiz)  => quiz.title.toLowerCase() === subject.toLocaleLowerCase())?.questions || [];
@@ -159,6 +160,7 @@ const Quizz = ({ subject }: { subject: string }) => {
       inputElement.checked = false;
     })
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1)
+    setCounter((prevCounter) => prevCounter + 1)
     setAnswer(undefined)
     removeStyleFromOptions('correct', 'correct');
     removeStyleFromOptions('incorrect', 'incorrect');
@@ -180,6 +182,7 @@ const Quizz = ({ subject }: { subject: string }) => {
   const handlePlayAgain = () =>{
     setCurrentQuestionIndex(0);
     setScore(0);
+    setCounter(1)
     setShowResults(false);
     setError(false);
     setAnswer(undefined);
@@ -195,9 +198,8 @@ const Quizz = ({ subject }: { subject: string }) => {
     <div className='quizz-container'>
       {!showResults && (
         <>
-          <p className='question-number'>Question {currentQuestionIndex + 1}  of {questions.length}</p>
+          <QuestionSection counter={counter} currentQuestion={currentQuestionIndex} questionsLength={questions.length} question={question}/>
 
-          {question && <p className='question'>{question}</p>}
           {options && (
             <ul className='options'>
               {options.map((option, index) => (
