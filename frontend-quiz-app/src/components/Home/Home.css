@@ -24,3 +24,21 @@ body[data-theme='dark']{
         color: var(--white);
     }
 }
+
+@media screen and (min-width: 48rem){
+    .home { 
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 9rem;
+        padding: 2rem;
+    }
+
+    .home .title-container{
+        max-width: 20rem;
+    }
+
+    .home .title-container .title{
+        font-size: 2.75rem;
+    }
+}

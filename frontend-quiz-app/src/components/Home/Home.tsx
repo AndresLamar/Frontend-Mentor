@@ -13,8 +13,10 @@ const Home = () => {
 
     return (
         <div className="home">
-            <h1 className="title">Welcome to the <strong>Frontend quiz!</strong></h1>
-            <p className="subtitle">Pick a subject to get started!</p>
+            <div className="title-container">
+                <h1 className="title">Welcome to the <strong>Frontend quiz!</strong></h1>
+                <p className="subtitle">Pick a subject to get started!</p>
+            </div>
             <Subjects/>
         </div>
     )
