@@ -20,7 +20,7 @@ const Subject = ({title, icon} : SubjectProps) =>{
         <Link to={`/${title.toLowerCase()}`}>
             <div className="subject-card" onClick={handleSubjectClick}>
                 <div className="icon">
-                    <img src={icon} alt={`${title} icon`} className={`subject-${title}`}/>
+                    <img src={icon} alt={`${title} icon`} className={`subject-${title}`} width="40" height="40"/>
                 </div>
                 <p className="title">{title}</p>
             </div>

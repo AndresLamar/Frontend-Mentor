@@ -26,6 +26,10 @@
     font-weight: bold;
 }
 
+.subject-card .icon{
+    aspect-ratio: 1/1;
+}
+
 .subject-HTML{
     background-color: hsla(0, 82%, 63%, 0.2);
     padding: 0.5rem;
