@@ -73,6 +73,8 @@
     border: none;
     border-radius: 0.5rem;
     margin-block-start: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .quizz-container .options .option .option_letter{

@@ -221,7 +221,7 @@ const Quizz = ({ subject }: { subject: string }) => {
 
           {currentQuestionIndex <= questions.length - 1 && (
             <>
-              <button onClick={handleSubmitQuestion} className='quizz-btn submit_answer'>{ answer ? 'Check Answer' : 'Select an answer' }</button>
+              <button onClick={handleSubmitQuestion} className='quizz-btn submit_answer'>Check Answer</button>
               <button onClick={handleNextQuestion} className='quizz-btn next_question'>Next Question</button> 
             </>
           )}
