@@ -19,7 +19,7 @@ const Header = () => {
         <header>
             { showTopic  && ( 
                 <div className="selected-topic">
-                    <img src={topicLogo} alt={`${topicTitle} icon`} className={`subject-${topicTitle}`}/>
+                    <img src={topicLogo} alt={`${topicTitle} icon`} className={`subject-${topicTitle}`} width="40" height="40"/>
                     <p>{topicTitle}</p>
                 </div>
             )}
