@@ -22,7 +22,7 @@ const Quizz = ({ subject }: { subject: string }) => {
   const [options, setOptions] = useState<string[] | undefined>(undefined);
   const [answer, setAnswer] = useState<string | undefined>(undefined);
   const [correctAnswer, setCorrectAnswer] = useState<string | undefined>(undefined);
-  const [showResults, setShowResults] = useState<boolean>(true);
+  const [showResults, setShowResults] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const letters = ["A","B","C","D"];
 
@@ -70,7 +70,6 @@ const Quizz = ({ subject }: { subject: string }) => {
   };
 
   const handleStyleOnCheck = ()=>{
-    // document.querySelector(".error_message").style.display = 'none';
     styleOption('selected', 'selected', 'selected', 'selected');
   }
 
