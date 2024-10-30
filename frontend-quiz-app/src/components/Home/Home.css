@@ -27,10 +27,10 @@ body[data-theme='dark']{
 
 @media screen and (min-width: 48rem){
     .home { 
-        flex-direction: row;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         align-items: center;
-        gap: 9rem;
+        gap: 2rem;
         padding: 2rem;
     }
 
