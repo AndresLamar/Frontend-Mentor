@@ -48,7 +48,7 @@ Users should be able to:
 
 ### Links
 
-- [Solution]()
+- [Solution](https://www.frontendmentor.io/solutions/interactive-rating-component-e0rBRl28XL)
 - [Live Site](https://andreslamar.github.io/Frontend-Mentor/interactive-rating-component/)
 
 ## My process
