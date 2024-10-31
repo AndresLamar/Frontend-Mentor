@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <script type="module" src="main.js"></script>
   
   <title>Interactive rating component | Frontend Mentor</title>
 </head>
 <body>
   <main></main>
 
-  <dialog id="rating-component" class="rating-component">
+  <dialog id="rating-dialog" class="rating-dialog">
     <div class="rating-component__container"> 
       <img src="./images/icon-star.svg" alt="Icon of a star" class="rating-component__icon">
       
@@ -29,10 +30,12 @@
       <button class="rating-component__submit-btn btn-primary" type="submit">
         Submit
       </button>
+
+      <p class="rating-component__error"></p>
     </div>
   </dialog>
 
-  <dialog id="thank-you-component" class="thank-you-component"></dialog>
+  <dialog id="thank-you-dialog" class="thank-you-component"></dialog>
 
   <template id="thank-you-template">
     <div class="thank-you-component__container">
