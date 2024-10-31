@@ -14,6 +14,10 @@ ratingButtons.forEach(button => {
     button.addEventListener("click", () => {
         const buttonRatingValue = button.getAttribute("data-rating");
         ratingValue = buttonRatingValue
+        ratingButtons.forEach(button => {
+            button.classList.remove("selected")
+        })
+        button.classList.add("selected")
     })
 })
 

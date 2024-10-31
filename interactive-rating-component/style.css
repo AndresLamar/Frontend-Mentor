@@ -9,11 +9,6 @@
     --font-size-paragraph: 0.938rem;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-}
-
 *, *::after, *::before {
     box-sizing: border-box;
 }
@@ -48,3 +43,117 @@ img, video, svg {
         transition: none;
     }
 }
+
+body{
+    font-family: 'Overpass', sans-serif;
+    background-color: var(--neutral-Very-Dark-Blue);
+}
+
+dialog:not([open]) {
+    pointer-events: none;
+    opacity: 0;
+}
+
+.rating-dialog{
+    background-color: var(--neutral-Dark-Blue);
+    color: var(--neutral-White);
+    padding: 2rem 1.5rem;
+    border: none;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.rating-dialog .rating-component__container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;    
+    gap: 1.5rem;
+    margin-bottom: -3rem;
+    padding: 0;
+    padding-bottom: 1rem;
+    overflow: hidden;
+}
+
+.rating-dialog .rating-component__container .rating-component__icon{
+    background-color: #32383b;
+    padding: 0.75rem;
+    border-radius: 50%;
+}
+
+.rating-dialog .rating-component__container .rating-component__title{
+    margin: 0;
+    margin-block-start: 0.25rem;
+    font-size: 1.75rem;
+    font-weight: 500;
+}
+
+.rating-dialog .rating-component__container .rating-component__description{
+    margin: 0;
+    font-size: var(--font-size-paragraph);
+    color: var(--neutral-Light-Grey);
+    text-wrap: unset;
+    width: 19rem;
+}
+
+.rating-dialog .rating-component__container .rating-component__rating-buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.rating-dialog .rating-component__container .rating-component__rating-buttons .rating-component__rating-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    padding: 0.75rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    background-color: #32383b;
+    color: var(--neutral-Light-Grey);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.rating-dialog .rating-component__container .rating-component__rating-buttons .rating-component__rating-button:hover{
+    background-color: var(--neutral-White);
+    color: var(--neutral-Dark-Blue);
+}
+
+.rating-dialog .rating-component__container .rating-component__rating-buttons .rating-component__rating-button.selected{
+    background-color: var(--primary-orange);
+    color: var(--neutral-Dark-Blue);
+}
+
+.rating-dialog .rating-component__container .rating-component__submit-btn{
+    width: 100%;
+    margin: 0;
+    background-color: var(--primary-orange);
+    color: var(--neutral-Dark-Blue);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+}
+
+.rating-dialog .rating-component__container .rating-component__submit-btn:hover{
+    background-color: var(--neutral-White);
+    color: var(--neutral-Dark-Blue);
+}
+
+.rating-dialog .rating-component__container .rating-component__error{
+    color: var(--primary-orange);
+    font-size: 0.75rem;
+    text-align: center;
+    align-self: center;
+    margin-block-start: -1rem;
+}
+
+
+
+
+
