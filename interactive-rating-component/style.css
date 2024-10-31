@@ -1,0 +1,50 @@
+:root{
+    --primary-orange: hsl(25, 97%, 53%);
+    
+    --neutral-White: hsl(0, 0%, 100%);
+    --neutral-Light-Grey: hsl(217, 12%, 63%);
+    --neutral-Dark-Blue: hsl(213, 19%, 18%);
+    --neutral-Very-Dark-Blue: hsl(216, 12%, 8%);
+
+    --font-size-paragraph: 0.938rem;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100dvh;
+}
+
+input, button, textarea, select {
+    text-wrap: inherit;
+}
+
+p{
+    text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
+img, video, svg {
+    height: auto;
+    max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce){
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition: none;
+    }
+}
