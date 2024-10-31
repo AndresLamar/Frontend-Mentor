@@ -6,44 +6,48 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
-  <title>Frontend Mentor | Interactive rating component</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <title>Interactive rating component | Frontend Mentor</title>
 </head>
 <body>
+  <main></main>
 
-  <!-- Rating state start -->
+  <dialog id="rating-component" class="rating-component">
+    <div class="rating-component__container"> 
+      <img src="./images/icon-star.svg" alt="Icon of a star" class="rating-component__icon">
+      
+      <h1 class="rating-component__title">How did we do?</h1>
+      <p class="rating-component__description">Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
 
-  How did we do?
+      <div class="rating-component__rating-buttons">
+        <button class="rating-component__rating-button btn-primary" data-rating="1">1</button>
+        <button class="rating-component__rating-button btn-primary" data-rating="2">2</button>
+        <button class="rating-component__rating-button btn-primary" data-rating="3">3</button>
+        <button class="rating-component__rating-button btn-primary" data-rating="4">4</button>
+        <button class="rating-component__rating-button btn-primary" data-rating="5">5</button>
+      </div>  
+      
+      <button class="rating-component__submit-btn btn-primary" type="submit">
+        Submit
+      </button>
+    </div>
+  </dialog>
 
-  Please let us know how we did with your support request. All feedback is appreciated 
-  to help us improve our offering!
+  <dialog id="thank-you-component" class="thank-you-component"></dialog>
 
-  1 2 3 4 5
+  <template id="thank-you-template">
+    <div class="thank-you-component__container">
+      <img src="./images/illustration-thank-you.svg" alt="Thank you illustration" class="thank-you-component__icon">
 
-  Submit
-
-  <!-- Rating state end -->
-
-  <!-- Thank you state start -->
-
-  You selected <!-- Add rating here --> out of 5
-
-  Thank you!
-
-  We appreciate you taking the time to give a rating. If you ever need more support, 
-  don’t hesitate to get in touch!
-
-  <!-- Thank you state end -->
-
+      <p class="thank-you-component__rating">You selected <span class="thank-you-component__rating-value"></span> out of 5</p>
+      
+      <h1 class="thank-you-component__title">Thank you!</h1>
+      <p class="thank-you-component__description">Thank you! We appreciate you taking the time to give a rating. If you ever need more support, don’t hesitate to get in touch!</p>
+    </div>
+  </template>     
   
-  <div class="attribution">
+  <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
-  </div>
+  </div> -->
 </body>
 </html>
