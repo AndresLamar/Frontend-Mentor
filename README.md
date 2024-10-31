@@ -36,4 +36,6 @@ Projects completed:
 
 * [Frontend Quiz App](https://frontend-quizzapp.netlify.app/)
 
+* [Interactive Rating Component](https://andreslamar.github.io/Frontend-Mentor/interactive-rating-component/)
+
 
