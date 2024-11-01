@@ -38,4 +38,8 @@ Projects completed:
 
 * [Interactive Rating Component](https://andreslamar.github.io/Frontend-Mentor/interactive-rating-component/)
 
+* [FAQ Accordion](https://andreslamar.github.io/Frontend-Mentor/faq-accordion/)
+
+
+
 
