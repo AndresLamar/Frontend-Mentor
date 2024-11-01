@@ -36,7 +36,7 @@ Users should be able to:
 
 ### Links
 
-- [Solution](https://your-solution-url.com)
+- [Solution](https://www.frontendmentor.io/solutions/faq-accordion-tKtXS6e2-B)
 - [Live site](https://andreslamar.github.io/Frontend-Mentor/faq-accordion/)
 
 ## My process
