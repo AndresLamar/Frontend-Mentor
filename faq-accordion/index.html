@@ -6,6 +6,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="style.css">
+  <script type="module" src="main.js"></script>
   
   <title>FAQ accordion | Frontend Mentor</title>
 </head>
@@ -19,9 +20,9 @@
     <section class="accordion"> 
       <div class="accordion-item">
         <h3 class="accordion-item__question">
-          <button aria-expanded="false" aria-controls="panel1" id="accordion1">
+          <button aria-expanded="false" aria-controls="panel1" id="accordion1"  class="accordion-button">
             What is Frontend Mentor, and how will it help me?
-            <img src="./assets/images/icon-plus.svg" alt="Icon of an arrow down">
+            <img src="./assets/images/icon-plus.svg" alt="Icon of an arrow down" class="accordion-item__icon">
           </button>
         </h3>
         <div id="panel1" role="region" aria-labelledby="accordion1" hidden class="accordion-item__answer">
@@ -30,9 +31,9 @@
       </div>
       <div class="accordion-item">
         <h3 class="accordion-item__question">
-          <button aria-expanded="false" aria-controls="panel2" id="accordion2">
+          <button aria-expanded="false" aria-controls="panel2" id="accordion2" class="accordion-button">
             Is Frontend Mentor free?
-            <img src="./assets/images/icon-plus.svg" alt="Icon of an arrow down" class="accordion-item__arrow">
+            <img src="./assets/images/icon-plus.svg" alt="Icon of an arrow down" class="accordion-item__icon">
           </button>
         </h3>
         <div id="panel2" role="region" aria-labelledby="accordion2" hidden class="accordion-item__answer">
@@ -41,9 +42,9 @@
       </div>
       <div class="accordion-item">
         <h3 class="accordion-item__question">
-          <button aria-expanded="false" aria-controls="panel3" id="accordion3">
+          <button aria-expanded="false" aria-controls="panel3" id="accordion3" class="accordion-button">
             Can I use Frontend Mentor projects in my portfolio?
-            <img src="./assets/images/icon-plus.svg" alt="Icon of an arrow down" class="accordion-item__arrow">
+            <img src="./assets/images/icon-plus.svg" alt="Icon of an arrow down" class="accordion-item__icon">
           </button>
         </h3>
         <div id="panel3" role="region" aria-labelledby="accordion3" hidden class="accordion-item__answer">
@@ -52,9 +53,9 @@
       </div>
       <div class="accordion-item">
         <h3 class="accordion-item__question">
-          <button aria-expanded="false" aria-controls="panel4" id="accordion4">
+          <button aria-expanded="false" aria-controls="panel4" id="accordion4" class="accordion-button">
             How can I get help if I'm stuck on a Frontend Mentor challenge?
-            <img src="./assets/images/icon-plus.svg" alt="Icon of an arrow down" width="30" height="31" class="accordion-item__arrow">
+            <img src="./assets/images/icon-plus.svg" alt="Icon of an arrow down" width="30" height="31" class="accordion-item__icon">
           </button>
         </h3>
         <div id="panel4" role="region" aria-labelledby="accordion4" hidden class="accordion-item__answer">
