@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
   
   <title>Contact form | Frontend Mentor </title>
 </head>
@@ -13,23 +14,29 @@
     <form id="form" class="form-container" novalidate>
       <h1 class="form-title">Contact Us</h1>
 
-      <div class="form-group">
-        <label for="first-name" class="label"> First Name * </label>
-        <input type="text" id="first-name" name="first-name" autocomplete="given-name" aria-invalid="false" aria-describedby="first-name-error" aria-required="true" required>
-        <span id="first-name-error" class="error-message" hidden>This field is required</span>
-
-        <label for="last-name" class="label"> Last Name * </label>
-        <input type="text" id="last-name" name="last-name" autocomplete="family-name" aria-invalid="false" aria-describedby="last-name-error" aria-required="true" required>	
-        <span id="last-name-error" class="error-message" hidden>This field is required</span>
+      <div class="form-group-name">
+        <div class="form-group">
+          <label for="first-name" class="label"> First Name * </label>
+          <input type="text" id="first-name" name="first-name" autocomplete="given-name" aria-invalid="false" aria-describedby="first-name-error" aria-required="true" required>
+          <span id="first-name-error" class="error-message" hidden>This field is required</span>
+        </div>
+  
+        <div class="form-group">
+          <label for="last-name" class="label"> Last Name * </label>
+          <input type="text" id="last-name" name="last-name" autocomplete="family-name" aria-invalid="false" aria-describedby="last-name-error" aria-required="true" required>	
+          <span id="last-name-error" class="error-message" hidden>This field is required</span>
+        </div>
       </div>
 
-      <label for="email" class="label"> Email Address * </label>
-      <input type="email" id="email" name="email" autocomplete="email" aria-invalid="false" aria-describedby="email-error  email-required-error" aria-required="true" required>
-      <span id="email-error" class="error-message" hidden>Please enter a valid email address</span>
-      <span id="email-required-error" class="error-message" hidden>This field is required.</span>
+      <div class="form-group">
+        <label for="email" class="label"> Email Address * </label>
+        <input type="email" id="email" name="email" autocomplete="email" aria-invalid="false" aria-describedby="email-error  email-required-error" aria-required="true" required>
+        <span id="email-error" class="error-message" hidden>Please enter a valid email address</span>
+        <span id="email-required-error" class="error-message" hidden>This field is required.</span>
+      </div>  
 
-      <fieldset id="query-type-fieldset" aria-invalid="false" aria-describedby="query-type-error" aria-required="true" required>
-        <legend class="legend">Query Type</legend>
+      <fieldset id="query-type-fieldset" class="query-type-fieldset" aria-invalid="false" aria-describedby="query-type-error" aria-required="true" required>
+        <legend class="legend">Query Type *</legend>
         <div class="fieldset-form-group">
           <label for="general-enquiry" class="label">
             <input type="radio" id="general-enquiry" name="query-type" value="general-enquiry">
@@ -44,17 +51,19 @@
         <span id="query-type-error" class="error-message" hidden>Please select a query type</span> 
       </fieldset>
 
-      <label for="message" class="label"> Message * </label>
-      <textarea id="message" name="message" aria-invalid="false" aria-describedby="message-error" aria-required="true" required></textarea>
-      <span id="message-error" class="error-message" hidden>This field is required</span>
+      <div class="form-group">
+        <label for="message" class="label"> Message * </label>
+        <textarea id="message" class="message-input" name="message" aria-invalid="false" aria-describedby="message-error" aria-required="true" required></textarea>
+        <span id="message-error" class="error-message" hidden>This field is required</span>
+      </div>
 
-      <label for="consent" class="label">
+      <label for="consent" class="label consent-label">
         <input type="checkbox" id="consent" name="consent" aria-invalid="false" aria-describedby="consent-error" aria-required="true" required>
         <span>I consent to being contacted by the team *</span>
       </label>
       <span id="consent-error" class="error-message" hidden>To submit this form, please consent to being contacted</span>
 
-      <button type="submit" class="btn">Submit</button>
+      <button type="submit" class="submit-button">Submit</button>
     </form>
   </main>
 
