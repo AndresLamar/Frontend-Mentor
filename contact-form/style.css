@@ -101,6 +101,10 @@ body{
     font-weight: var(--font-weight-400);
 }
 
+input:focus-visible{
+    outline-color: var(--primary-Green-600-medium);
+}
+
 .form-group input{
     background-color: var(--neutral-White);
     border: 1px solid var(--neutral-Grey-500-medium);
@@ -138,12 +142,60 @@ body{
 }
 
 .fieldset-form-group .label{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: var(--font-size-labels);
     font-weight: var(--font-weight-400);
     border: 1px solid var(--neutral-Grey-500-medium);
     border-radius: 0.25rem;
     padding: 0.75rem;
     width: 100%;
+    cursor: pointer;
+}
+
+input[type="radio"]{
+     -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 1px solid var(--neutral-Grey-500-medium);
+    border-radius: 50%;
+
+    display: grid;
+    place-content: center;
+}
+
+input[type="radio"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 0.5em 0.5em var(--primary-Green-600-medium);
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+.fieldset-form-group .label:focus-visible{
+    outline-color: var(--primary-Green-600-medium);
+    background-color: var(--primary-Green-200-lighter);
+}
+
+.fieldset-form-group .radio-input:checked{
+    border: 1.5px solid var(--primary-Green-600-medium);
+}
+
+.fieldset-form-group .label:has(.radio-input:checked){
+    border: 1.5px solid var(--primary-Green-600-medium);
+    background-color: var(--primary-Green-200-lighter);
 }
 
 .form-group .message-input{
@@ -158,6 +210,10 @@ body{
     min-height: 10rem;
 }
 
+.form-group .message-input:focus-visible{
+    outline-color: var(--primary-Green-600-medium);
+}
+
 .consent-label{
     display: flex;
     align-items: center;
@@ -169,6 +225,42 @@ body{
     width: 1rem;
     height: 1rem;
 } 
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 1px solid var(--neutral-Grey-500-medium);
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]::before {
+    border-color: var(--primary-Green-600-medium);
+    background-color: var(--primary-Green-600-medium);
+    background-image: url(./assets/images/icon-checkbox-check.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+
+    /* content: "";
+    width: 0.65em;
+    height: 0.65em;
+    
+    box-shadow: inset 1em 1em var(--form-control-color); */
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
 
 .submit-button{
     background-color: var(--primary-Green-600-medium);
