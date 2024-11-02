@@ -180,3 +180,24 @@ body{
     border-radius: 0.5rem;
     border: none;
 }
+
+@media screen and (min-width: 48rem) {
+    body{
+        display: grid;
+        place-content: center;
+    }
+
+    .container{
+        padding: 1.5rem;
+        width: 50rem;
+        margin: 4rem 1rem;
+    }
+
+    .form-group-name{
+        flex-direction: row;
+    }
+
+    .fieldset-form-group{
+        flex-direction: row;
+    }
+}
