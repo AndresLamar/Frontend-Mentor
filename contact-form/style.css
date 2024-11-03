@@ -110,10 +110,16 @@ input:focus-visible{
     border: 1px solid var(--neutral-Grey-500-medium);
     border-radius: 0.25rem;
     color: var(--neutral-Grey-900-darker);
+    font-family: 'Karla';
     font-size: var(--font-size-labels);
     font-weight: var(--font-weight-400);
     padding: 0.75rem;
     width: 100%;
+    transition: border-color 120ms ease-in-out;
+}
+
+.form-group input:hover{
+    border: 1.5px solid var(--primary-Green-600-medium);
 }
 
 .form-group-name{
@@ -215,10 +221,10 @@ input[type="radio"]:checked::before {
 }
 
 .consent-label{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
     width: 100%;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
 }
 
 .consent-label > input{
@@ -230,6 +236,7 @@ input[type="checkbox"] {
   -webkit-appearance: none;
   appearance: none;
   margin: 0;
+  
   font: inherit;
   color: currentColor;
   width: 1.15em;
@@ -237,25 +244,27 @@ input[type="checkbox"] {
   border: 1px solid var(--neutral-Grey-500-medium);
   border-radius: 0.15em;
   transform: translateY(-0.075em);
-
+  transition: background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+    
   display: grid;
   place-content: center;
 }
 
-input[type="checkbox"]::before {
-    border-color: var(--primary-Green-600-medium);
+input[type="checkbox"]:checked{
     background-color: var(--primary-Green-600-medium);
-    background-image: url(./assets/images/icon-checkbox-check.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    transform: scale(0);
-    transition: 120ms transform ease-in-out;
+    border: 1.5px solid var(--primary-Green-600-medium);
+}
 
-    /* content: "";
+input[type="checkbox"]::before {
+    content: "";
     width: 0.65em;
     height: 0.65em;
-    
-    box-shadow: inset 1em 1em var(--form-control-color); */
+    transform: scale(0);
+    background-color: var(--neutral-White);
+    transition: 120ms transform ease-in-out;
+
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
 
 input[type="checkbox"]:checked::before {
@@ -271,6 +280,12 @@ input[type="checkbox"]:checked::before {
     padding: 1rem;
     border-radius: 0.5rem;
     border: none;
+    transition: background-color 120ms ease-in-out;
+    cursor: pointer;
+}
+
+.submit-button:hover{
+    background-color: hsl(171, 83%, 14%);
 }
 
 @media screen and (min-width: 48rem) {
