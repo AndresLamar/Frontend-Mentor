@@ -216,6 +216,10 @@ input[type="radio"]:checked::before {
     min-height: 10rem;
 }
 
+.form-group .message-input[aria-invalid="true"]{
+    border: 1.5px solid var(--primary-Red);
+}
+
 .form-group .message-input:focus-visible{
     outline-color: var(--primary-Green-600-medium);
 }
@@ -287,6 +291,15 @@ input[type="checkbox"]:checked::before {
 .submit-button:hover{
     background-color: hsl(171, 83%, 14%);
 }
+
+.error-message{
+    color: var(--primary-Red)
+}
+
+input[aria-invalid="true"]{
+    border: 1.5px solid var(--primary-Red);
+}
+
 
 @media screen and (min-width: 48rem) {
     body{

@@ -1,73 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <link rel="stylesheet" href="style.css">
-  
-  <title>Contact form | Frontend Mentor </title>
-</head>
-<body>
-  <main class="container">
-    <form id="form" class="form-container" novalidate>
-      <h1 class="form-title">Contact Us</h1>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="main.js"></script>
 
-      <div class="form-group-name">
+    <title>Contact form | Frontend Mentor</title>
+  </head>
+  <body>
+    <main class="container">
+      <form id="form" class="form-container" novalidate>
+        <h1 class="form-title">Contact Us</h1>
+
+        <div class="form-group-name">
+          <div class="form-group">
+            <label for="first-name" class="label"> First Name * </label>
+            <input
+              type="text"
+              id="first-name"
+              name="first-name"
+              autocomplete="given-name"
+              aria-invalid="false"
+              aria-describedby="first-name-error"
+              aria-required="true"
+              required
+            />
+            <span id="first-name-error" class="error-message" hidden
+              >This field is required</span
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="last-name" class="label"> Last Name * </label>
+            <input
+              type="text"
+              id="last-name"
+              name="last-name"
+              autocomplete="family-name"
+              aria-invalid="false"
+              aria-describedby="last-name-error"
+              aria-required="true"
+              required
+            />
+            <span id="last-name-error" class="error-message" hidden
+              >This field is required</span
+            >
+          </div>
+        </div>
+
         <div class="form-group">
-          <label for="first-name" class="label"> First Name * </label>
-          <input type="text" id="first-name" name="first-name" autocomplete="given-name" aria-invalid="false" aria-describedby="first-name-error" aria-required="true" required>
-          <span id="first-name-error" class="error-message" hidden>This field is required</span>
+          <label for="email" class="label"> Email Address * </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$"
+            autocomplete="email"
+            aria-invalid="false"
+            aria-describedby="email-error  email-required-error"
+            aria-required="true"
+            required
+          />
+          <span id="email-error" class="error-message email-error" hidden
+            >Please enter a valid email address</span
+          >
+          <span
+            id="email-required-error"
+            class="error-message email-required-error"
+            hidden
+            >This field is required.</span
+          >
         </div>
-  
+
+        <fieldset
+          id="query-type-fieldset"
+          class="query-type-fieldset"
+          aria-invalid="false"
+          aria-describedby="query-type-error"
+          aria-required="true"
+          required
+        >
+          <legend class="legend">Query Type *</legend>
+          <div class="fieldset-form-group">
+            <label for="general-enquiry" class="label">
+              <input
+                type="radio"
+                id="general-enquiry"
+                class="radio-input"
+                name="query-type"
+                value="general-enquiry"
+              />
+              <span>General Enquiry</span>
+            </label>
+
+            <label for="support-request" class="label">
+              <input
+                type="radio"
+                id="support-request"
+                class="radio-input"
+                name="query-type"
+                value="support-request"
+              />
+              <span>Support Request</span>
+            </label>
+          </div>
+          <span id="query-type-error" class="error-message" hidden
+            >Please select a query type</span
+          >
+        </fieldset>
+
         <div class="form-group">
-          <label for="last-name" class="label"> Last Name * </label>
-          <input type="text" id="last-name" name="last-name" autocomplete="family-name" aria-invalid="false" aria-describedby="last-name-error" aria-required="true" required>	
-          <span id="last-name-error" class="error-message" hidden>This field is required</span>
+          <label for="message" class="label"> Message * </label>
+          <textarea
+            id="message"
+            class="message-input"
+            name="message"
+            aria-invalid="false"
+            aria-describedby="message-error"
+            aria-required="true"
+            required
+          ></textarea>
+          <span id="message-error" class="error-message" hidden
+            >This field is required</span
+          >
         </div>
-      </div>
 
-      <div class="form-group">
-        <label for="email" class="label"> Email Address * </label>
-        <input type="email" id="email" name="email" autocomplete="email" aria-invalid="false" aria-describedby="email-error  email-required-error" aria-required="true" required>
-        <span id="email-error" class="error-message" hidden>Please enter a valid email address</span>
-        <span id="email-required-error" class="error-message" hidden>This field is required.</span>
-      </div>  
+        <label for="consent" class="label consent-label">
+          <input
+            type="checkbox"
+            id="consent"
+            name="consent"
+            aria-invalid="false"
+            aria-describedby="consent-error"
+            aria-required="true"
+            required
+          />
+          <span>I consent to being contacted by the team *</span>
+        </label>
+        <span id="consent-error" class="error-message" hidden
+          >To submit this form, please consent to being contacted</span
+        >
 
-      <fieldset id="query-type-fieldset" class="query-type-fieldset" aria-invalid="false" aria-describedby="query-type-error" aria-required="true" required>
-        <legend class="legend">Query Type *</legend>
-        <div class="fieldset-form-group">
-          <label for="general-enquiry" class="label">
-            <input type="radio" id="general-enquiry" class="radio-input" name="query-type" value="general-enquiry">
-            <span>General Enquiry</span>
-          </label>
+        <button type="submit" class="submit-button">Submit</button>
+      </form>
+    </main>
 
-          <label for="support-request" class="label">
-            <input type="radio" id="support-request" class="radio-input" name="query-type" value="support-request">
-            <span>Support Request</span>
-          </label>
-        </div>
-        <span id="query-type-error" class="error-message" hidden>Please select a query type</span> 
-      </fieldset>
-
-      <div class="form-group">
-        <label for="message" class="label"> Message * </label>
-        <textarea id="message" class="message-input" name="message" aria-invalid="false" aria-describedby="message-error" aria-required="true" required></textarea>
-        <span id="message-error" class="error-message" hidden>This field is required</span>
-      </div>
-
-      <label for="consent" class="label consent-label">
-        <input type="checkbox" id="consent" name="consent" aria-invalid="false" aria-describedby="consent-error" aria-required="true" required>
-        <span>I consent to being contacted by the team *</span>
-      </label>
-      <span id="consent-error" class="error-message" hidden>To submit this form, please consent to being contacted</span>
-
-      <button type="submit" class="submit-button">Submit</button>
-    </form>
-  </main>
-
-  <!-- Contact Us
+    <!-- Contact Us
 
   First Name
   This field is required
@@ -94,10 +181,10 @@
 
   Message Sent!
   Thanks for completing the form. We'll be in touch soon! -->
-  
-  <!-- <div class="attribution">
+
+    <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div> -->
-</body>
+  </body>
 </html>
