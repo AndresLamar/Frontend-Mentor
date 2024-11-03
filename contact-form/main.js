@@ -95,9 +95,9 @@ form.addEventListener('submit', (e) => {
     setTimeout(() => {
       messageSent.classList.add('hide');
       setTimeout(() => {
+        messageSent.innerHTML = '';
         messageSent.classList.remove('show');
         messageSent.classList.remove('hide');
-        messageSent.remove()
       }, 1000);
     }, 3000);
   }

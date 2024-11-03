@@ -63,6 +63,8 @@ img, video, svg {
 }
 
 body{
+    display: grid;
+    justify-items: center;
     font-family: 'Karla';
     font-weight: var(--font-weight-400);
     line-height: 1.5;
@@ -301,6 +303,13 @@ input[aria-invalid="true"]{
     border: 1.5px solid var(--primary-Red);
 }
 
+.message-sent{
+    display: none;
+    transform: scale(0);
+
+    transition: transform 1s ease-in-out;
+}
+
 .message-sent.show{
     position: fixed;
     display: flex;
@@ -311,23 +320,30 @@ input[aria-invalid="true"]{
     border-radius: 0.5rem;
     max-width: 22.1rem;
     z-index: 2;
-    right: 0.6rem;
     top: 1rem;
 
     transform: scale(1);
     animation: show 1s ease-in-out;
 }
 
-.message-sent{
-    display: none;
-    transform: scale(0);
-
-    transition: transform 1s ease-in-out;
-}
-
 .message-sent.hide{
     animation: hide 1s ease-in-out;
 }
+
+
+.message-sent .message-sent-title{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: var(--font-weight-700);
+}
+
+.message-sent .message-sent-text{
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-400);
+}
+
 
 @keyframes show{
     0%{
@@ -370,5 +386,6 @@ input[aria-invalid="true"]{
 
     .message-sent.show{
         right: unset;
+        max-width: 100%;
     }
 }
