@@ -7,8 +7,6 @@ const message = document.getElementById('message');
 const consent = document.getElementById('consent');
 const messageSent = document.querySelector('.message-sent');
 
-console.log(messageSent)
-
 firstName.addEventListener('input', () => {
     firstName.nextElementSibling.setAttribute('hidden', '');
     firstName.setAttribute('aria-invalid', 'false');
