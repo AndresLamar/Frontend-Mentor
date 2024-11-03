@@ -5,6 +5,9 @@ const email = document.getElementById('email');
 const radioButtons = document.querySelectorAll('input[name="query-type"]');
 const message = document.getElementById('message');
 const consent = document.getElementById('consent');
+const messageSent = document.querySelector('.message-sent');
+
+console.log(messageSent)
 
 firstName.addEventListener('input', () => {
     firstName.nextElementSibling.setAttribute('hidden', '');
@@ -83,6 +86,19 @@ form.addEventListener('submit', (e) => {
   } 
 
   if (firstName.validity.valid && lastName.validity.valid && email.validity.valid && queryType && message.validity.valid && consent.validity.valid) {
-    alert('Message Sent! Thanks for completing the form. We\'ll be in touch soon!');
+
+    const messageSuccessTemplate = document.querySelector('#message-success-template')
+    const messageSuccessContent = messageSuccessTemplate.content.cloneNode(true);
+    messageSent.appendChild(messageSuccessContent);
+    messageSent.classList.add('show');
+    form.reset();
+    setTimeout(() => {
+      messageSent.classList.add('hide');
+      setTimeout(() => {
+        messageSent.classList.remove('show');
+        messageSent.classList.remove('hide');
+        messageSent.remove()
+      }, 1000);
+    }, 3000);
   }
 });

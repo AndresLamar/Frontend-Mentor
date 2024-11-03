@@ -70,6 +70,7 @@ body{
 }
 
 .container{
+    position: relative;
     background-color: var(--neutral-White);
     border-radius: 0.5rem;
     margin: 2rem 1rem;
@@ -300,17 +301,63 @@ input[aria-invalid="true"]{
     border: 1.5px solid var(--primary-Red);
 }
 
+.message-sent.show{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--neutral-Grey-900-darker); 
+    color: var(--neutral-White);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    max-width: 22.1rem;
+    z-index: 2;
+    right: 0.6rem;
+    top: 1rem;
+
+    transform: scale(1);
+    animation: show 1s ease-in-out;
+}
+
+.message-sent{
+    display: none;
+    transform: scale(0);
+
+    transition: transform 1s ease-in-out;
+}
+
+.message-sent.hide{
+    animation: hide 1s ease-in-out;
+}
+
+@keyframes show{
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(0)
+    }
+}
+
+@keyframes hide{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-100%);
+    }
+}
 
 @media screen and (min-width: 48rem) {
     body{
         display: grid;
         place-content: center;
+        justify-items: center;
     }
 
     .container{
         padding: 1.5rem;
         width: 50rem;
-        margin: 4rem 1rem;
+        margin: 4rem auto;
     }
 
     .form-group-name{
@@ -319,5 +366,9 @@ input[aria-invalid="true"]{
 
     .fieldset-form-group{
         flex-direction: row;
+    }
+
+    .message-sent.show{
+        right: unset;
     }
 }
