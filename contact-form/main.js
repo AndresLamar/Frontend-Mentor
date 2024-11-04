@@ -9,22 +9,28 @@ const messageSent = document.querySelector('.message-sent');
 
 firstName.addEventListener('input', () => {
     firstName.nextElementSibling.setAttribute('hidden', '');
+    firstName.nextElementSibling.innerText = '';
     firstName.setAttribute('aria-invalid', 'false');
 })
 
 lastName.addEventListener('input', () => {
     lastName.nextElementSibling.setAttribute('hidden', '');
+    lastName.nextElementSibling.innerText = '';
     lastName.setAttribute('aria-invalid', 'false');
 })
 
 email.addEventListener('input', () => {
-    document.getElementById('email-required-error').setAttribute('hidden', '');
+   const requiredErrorElement = document.getElementById('email-required-error')
+   requiredErrorElement.setAttribute('hidden', '');
+   const errorElement = document.getElementById('email-error')
 
     if(email.validity.typeMismatch){
-        document.getElementById('email-error').removeAttribute('hidden');
+        errorElement.removeAttribute('hidden');
+        errorElement.innerText = 'Please enter a valid email address';
         email.setAttribute('aria-invalid', 'true');
     } else {
         document.getElementById('email-error').setAttribute('hidden', '');
+        errorElement.innerText = '';
         email.setAttribute('aria-invalid', 'false');
     }
 })
@@ -34,17 +40,24 @@ radioButtons.forEach(radioButton => {
        const selectedQueryType = document.querySelector('input[name="query-type"]:checked');
        if (selectedQueryType) {
         document.getElementById('query-type-error').setAttribute('hidden', '');
-       } 
+        document.getElementById('query-type-fieldset').setAttribute('aria-invalid', 'false');
+        const queryErrorElement = document.getElementById('query-type-error')
+        queryErrorElement.innerText = '';
+       }
     });
 });
 
 message.addEventListener('input', () => {
     message.nextElementSibling.setAttribute('hidden', '');
+    message.nextElementSibling.innerText = '';
     message.setAttribute('aria-invalid', 'false');
 })
 
 consent.addEventListener('change', () => {
     document.getElementById('consent-error').setAttribute('hidden', '');
+    const consestionErrorElement = document.getElementById('consent-error')
+    consestionErrorElement.innerText = '';
+    consent.setAttribute('aria-invalid', 'false');
 })
 
 form.addEventListener('submit', (e) => {
@@ -53,34 +66,47 @@ form.addEventListener('submit', (e) => {
 
   if (!firstName.checkValidity()) {
     firstName.nextElementSibling.toggleAttribute('hidden');
+    firstName.nextElementSibling.innerText = 'This field is required';
     firstName.setAttribute('aria-invalid', 'true');
   }
 
   if(!lastName.checkValidity()){
     lastName.nextElementSibling.toggleAttribute('hidden');
+    lastName.nextElementSibling.innerText = 'This field is required';
     lastName.setAttribute('aria-invalid', 'true');
   }
 
   if (email.validity.valueMissing) {
-    document.getElementById('email-required-error').toggleAttribute('hidden');
+    const requiredErrorElement = document.getElementById('email-required-error')
+    requiredErrorElement.toggleAttribute('hidden');
+    requiredErrorElement.innerText = 'This field is required';
     email.setAttribute('aria-invalid', 'true');
 
   } else if (email.validity.typeMismatch) {
-    document.getElementById('email-error').toggleAttribute('hidden');
+    const errorElement = document.getElementById('email-error')
+    errorElement.toggleAttribute('hidden');
+    errorElement.innerText = 'Please enter a valid email address';
     email.setAttribute('aria-invalid', 'true');
   } 
 
   if (!queryType) {
-    document.getElementById('query-type-error').toggleAttribute('hidden');
+    document.getElementById('query-type-fieldset').setAttribute('aria-invalid', 'true');
+    const queryErrorElement = document.getElementById('query-type-error')
+    queryErrorElement.toggleAttribute('hidden');
+    queryErrorElement.innerText = 'Please select a query type';
   } 
 
   if (message.validity.valueMissing) {
     message.nextElementSibling.toggleAttribute('hidden');
+    message.nextElementSibling.innerText = 'This field is required';
     message.setAttribute('aria-invalid', 'true');
   } 
 
   if (consent.validity.valueMissing) {
-    document.getElementById('consent-error').toggleAttribute('hidden');
+    const consestionErrorElement = document.getElementById('consent-error')
+    consestionErrorElement.toggleAttribute('hidden');
+    consestionErrorElement.innerText = 'To submit this form, please consent to being contacted';
+    consent.setAttribute('aria-invalid', 'true');
   } 
 
   if (firstName.validity.valid && lastName.validity.valid && email.validity.valid && queryType && message.validity.valid && consent.validity.valid) {
