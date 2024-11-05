@@ -79,29 +79,48 @@ const handleConsentValidation = (consent) => {
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   let isValid = true;
+  let firstInvalidField = null; 
 
-  isValid &= validateRequiredField(firstName, 'This field is required');
-  isValid &= validateRequiredField(lastName, 'This field is required');
+  const checkValidityAndFocus = (input, errorMessage) => {
+    const isFieldValid = validateRequiredField(input, errorMessage);
+    if (!isFieldValid && !firstInvalidField) {
+      firstInvalidField = input; // Guardar el primer campo con error
+    }
+    return isFieldValid;
+  };
+
+  isValid &= checkValidityAndFocus(firstName, 'This field is required');
+  isValid &= checkValidityAndFocus(lastName, 'This field is required');
 
   if (email.validity.valueMissing) {
     showError(email, 'This field is required');
+    if (!firstInvalidField) firstInvalidField = email;
     isValid = false;
   } else if (email.validity.typeMismatch) {
     showError(email, 'Please enter a valid email address');
+    if (!firstInvalidField) firstInvalidField = email;
     isValid = false;
   }
 
   const queryType = document.querySelector('input[name="query-type"]:checked');
   if (!queryType) {
     showError(document.getElementById('query-type-fieldset'), 'Please select a query type');
+    if (!firstInvalidField) firstInvalidField = document.getElementById('query-type-fieldset');
     isValid = false;
   }
 
-  isValid &= validateRequiredField(message, 'This field is required');
+  isValid &= checkValidityAndFocus(message, 'This field is required');
 
   if (consent.validity.valueMissing) {
     showError(consent, 'To submit this form, please consent to being contacted');
+    if (!firstInvalidField) firstInvalidField = consent;
     isValid = false;
+  }
+
+   // Si hay un campo inválido, hacer foco y scroll hacia él
+   if (firstInvalidField) {
+    firstInvalidField.focus();
+    firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   if (isValid) {
