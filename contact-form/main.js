@@ -7,111 +7,105 @@ const message = document.getElementById('message');
 const consent = document.getElementById('consent');
 const messageSent = document.querySelector('.message-sent');
 
-firstName.addEventListener('input', () => {
-    firstName.nextElementSibling.setAttribute('hidden', '');
-    firstName.nextElementSibling.innerText = '';
-    firstName.setAttribute('aria-invalid', 'false');
-})
+// Función para limpiar errores
+const clearError = (input) => {
+  const errorElement = document.getElementById(`${input.id}-error`);
+  if (errorElement) {
+    errorElement.setAttribute('hidden', '');
+    errorElement.innerText = '';
+    input.setAttribute('aria-invalid', 'false');
+  }
+};
 
-lastName.addEventListener('input', () => {
-    lastName.nextElementSibling.setAttribute('hidden', '');
-    lastName.nextElementSibling.innerText = '';
-    lastName.setAttribute('aria-invalid', 'false');
-})
+// Función para mostrar errores
+const showError = (input, message) => {
+  const errorElement = document.getElementById(`${input.id}-error`);
+  if (errorElement) {
+    errorElement.removeAttribute('hidden');
+    errorElement.innerText = message;
+    input.setAttribute('aria-invalid', 'true');
+  }
+};
 
-email.addEventListener('input', () => {
-   const requiredErrorElement = document.getElementById('email-required-error')
-   requiredErrorElement.setAttribute('hidden', '');
-   const errorElement = document.getElementById('email-error')
+// Función para validar campo requerido
+const validateRequiredField = (input, errorMessage) => {
+  if (!input.checkValidity()) {
+    showError(input, errorMessage);
+    return false;
+  }
+  return true;
+};
 
-    if(email.validity.typeMismatch){
-        errorElement.removeAttribute('hidden');
-        errorElement.innerText = 'Please enter a valid email address';
-        email.setAttribute('aria-invalid', 'true');
+// Validación para cada campo de texto
+const handleTextInput = (input) => {
+  input.addEventListener('input', () => {
+    clearError(input);
+  });
+};
+
+// Validación para el campo de email
+const handleEmailValidation = (email) => {
+  email.addEventListener('input', () => {
+    const requiredErrorElement = document.getElementById('email-required-error');
+    clearError(requiredErrorElement);
+
+    if (email.validity.typeMismatch) {
+      showError(email, 'Please enter a valid email address');
     } else {
-        document.getElementById('email-error').setAttribute('hidden', '');
-        errorElement.innerText = '';
-        email.setAttribute('aria-invalid', 'false');
+      clearError(email);
     }
-})
+  });
+};
 
-radioButtons.forEach(radioButton => {
-     radioButton.addEventListener('change', () => {
-       const selectedQueryType = document.querySelector('input[name="query-type"]:checked');
-       if (selectedQueryType) {
-        document.getElementById('query-type-error').setAttribute('hidden', '');
-        document.getElementById('query-type-fieldset').setAttribute('aria-invalid', 'false');
-        const queryErrorElement = document.getElementById('query-type-error')
-        queryErrorElement.innerText = '';
-       }
+// Validación para radio buttons
+const handleRadioButtonValidation = (radioButtons) => {
+  radioButtons.forEach(radioButton => {
+    radioButton.addEventListener('change', () => {
+      const selectedQueryType = document.querySelector('input[name="query-type"]:checked');
+      if (selectedQueryType) {
+        clearError(document.getElementById('query-type-fieldset'));
+      }
     });
-});
+  });
+};
 
-message.addEventListener('input', () => {
-    message.nextElementSibling.setAttribute('hidden', '');
-    message.nextElementSibling.innerText = '';
-    message.setAttribute('aria-invalid', 'false');
-})
+const handleConsentValidation = (consent) => {
+  consent.addEventListener('change', () => {
+    clearError(consent);
+  });
+};
 
-consent.addEventListener('change', () => {
-    document.getElementById('consent-error').setAttribute('hidden', '');
-    const consestionErrorElement = document.getElementById('consent-error')
-    consestionErrorElement.innerText = '';
-    consent.setAttribute('aria-invalid', 'false');
-})
-
+// Validación al enviar el formulario
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  const queryType = document.querySelector('input[name="query-type"]:checked');
+  let isValid = true;
 
-  if (!firstName.checkValidity()) {
-    firstName.nextElementSibling.toggleAttribute('hidden');
-    firstName.nextElementSibling.innerText = 'This field is required';
-    firstName.setAttribute('aria-invalid', 'true');
-  }
-
-  if(!lastName.checkValidity()){
-    lastName.nextElementSibling.toggleAttribute('hidden');
-    lastName.nextElementSibling.innerText = 'This field is required';
-    lastName.setAttribute('aria-invalid', 'true');
-  }
+  isValid &= validateRequiredField(firstName, 'This field is required');
+  isValid &= validateRequiredField(lastName, 'This field is required');
 
   if (email.validity.valueMissing) {
-    const requiredErrorElement = document.getElementById('email-required-error')
-    requiredErrorElement.toggleAttribute('hidden');
-    requiredErrorElement.innerText = 'This field is required';
-    email.setAttribute('aria-invalid', 'true');
-
+    showError(email, 'This field is required');
+    isValid = false;
   } else if (email.validity.typeMismatch) {
-    const errorElement = document.getElementById('email-error')
-    errorElement.toggleAttribute('hidden');
-    errorElement.innerText = 'Please enter a valid email address';
-    email.setAttribute('aria-invalid', 'true');
-  } 
+    showError(email, 'Please enter a valid email address');
+    isValid = false;
+  }
 
+  const queryType = document.querySelector('input[name="query-type"]:checked');
   if (!queryType) {
-    document.getElementById('query-type-fieldset').setAttribute('aria-invalid', 'true');
-    const queryErrorElement = document.getElementById('query-type-error')
-    queryErrorElement.toggleAttribute('hidden');
-    queryErrorElement.innerText = 'Please select a query type';
-  } 
+    showError(document.getElementById('query-type-fieldset'), 'Please select a query type');
+    isValid = false;
+  }
 
-  if (message.validity.valueMissing) {
-    message.nextElementSibling.toggleAttribute('hidden');
-    message.nextElementSibling.innerText = 'This field is required';
-    message.setAttribute('aria-invalid', 'true');
-  } 
+  isValid &= validateRequiredField(message, 'This field is required');
 
   if (consent.validity.valueMissing) {
-    const consestionErrorElement = document.getElementById('consent-error')
-    consestionErrorElement.toggleAttribute('hidden');
-    consestionErrorElement.innerText = 'To submit this form, please consent to being contacted';
-    consent.setAttribute('aria-invalid', 'true');
-  } 
+    showError(consent, 'To submit this form, please consent to being contacted');
+    isValid = false;
+  }
 
-  if (firstName.validity.valid && lastName.validity.valid && email.validity.valid && queryType && message.validity.valid && consent.validity.valid) {
-
-    const messageSuccessTemplate = document.querySelector('#message-success-template')
+  if (isValid) {
+    const messageSuccessTemplate = document.querySelector('#message-success-template');
     const messageSuccessContent = messageSuccessTemplate.content.cloneNode(true);
     messageSent.appendChild(messageSuccessContent);
     messageSent.classList.add('show');
@@ -120,9 +114,18 @@ form.addEventListener('submit', (e) => {
       messageSent.classList.add('hide');
       setTimeout(() => {
         messageSent.innerHTML = '';
-        messageSent.classList.remove('show');
-        messageSent.classList.remove('hide');
+        messageSent.classList.remove('show', 'hide');
       }, 1000);
     }, 3000);
   }
 });
+
+// Inicializar validaciones de campos
+handleTextInput(firstName);
+handleTextInput(lastName);
+handleTextInput(message);
+handleEmailValidation(email);
+handleRadioButtonValidation(radioButtons);
+handleConsentValidation(consent);
+
+
