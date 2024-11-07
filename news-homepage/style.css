@@ -55,6 +55,21 @@ body{
     background-color: var(--Off-white);
     padding-inline: clamp(1rem, 5vw, 5rem);
     padding-block: clamp(1.5rem, 5vw, 5rem);
+    transition: all 0.5s ease;
+}
+
+body.menu-open{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+body.menu-open::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 header{
@@ -67,6 +82,49 @@ header{
 header .logo{
     width: 2.5rem;
 }
+
+header .nav .nav-menu{
+    position: fixed;
+    width: 70%;
+    height: 100vh;
+    right: 0;
+    top: 0;
+    padding: 1.5rem;
+    background-color: var(--Off-white);
+    translate: 100vw 0;
+    transition: translate 0.5s ease-in-out;
+}
+
+header .nav .nav-menu .nav-links{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+header .nav .nav-menu button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+header .nav .nav-menu-open-button[aria-expanded="true"] + .nav-menu{
+    translate: 0;
+}
+
+header .nav .nav-menu .nav-menu-close-button{
+    display: block;
+    margin-inline-start: auto;
+    margin-block-end: 8rem;
+}
+
+header .nav .nav-menu .nav-links .link > a{
+    text-decoration: none;
+    color: var(--Very-dark-blue);
+    font-size: 1rem;
+    font-weight: var(--font-weight-700);
+}
+
 
 main{
     display: flex;
@@ -209,7 +267,6 @@ main .article{
     body{
         display: grid;
         place-content: center;
-        /* padding: 5rem; */
     }
 
     header{
@@ -218,6 +275,23 @@ main .article{
     
     header .logo{
         width: 4.5rem;
+    }
+
+    header nav button,
+    header .nav .nav-menu .nav-menu-close-button{
+        display: none;
+    }
+
+    header .nav .nav-menu{
+        position: static;
+        inset: unset;
+        background-color: unset;
+        translate: unset;
+    }
+
+    header .nav .nav-menu .nav-links{
+        flex-direction: row;
+        gap: 2.5rem;
     }
 
     main{
