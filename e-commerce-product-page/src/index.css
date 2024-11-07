@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
+
+:root{
+    --primary-Orange: hsl(26, 100%, 55%);
+    --primary-Pale-orange: hsl(25, 100%, 94%);
+
+    --Very-dark-blue: hsl(220, 13%, 13%);
+    --Dark-grayish-blue: hsl(219, 9%, 45%);
+    --Grayish-blue: hsl(220, 14%, 75%);
+    --Light-grayish-blue: hsl(223, 64%, 98%);
+    --White: hsl(0, 0%, 100%);
+    --Black:  hsl(0, 0%, 0%);
+
+    --font-size-paragraph: 1rem;
+    --font-weight-400: 400;
+    --font-weight-700: 700;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100dvh;
+}
+
+input, button, textarea, select {
+    text-wrap: inherit;
+}
+
+p{
+    text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
+img, video, svg {
+    height: auto;
+    max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce){
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition: none;
+    }
+}
+
