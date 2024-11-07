@@ -1,0 +1,203 @@
+:root{
+    --Soft-orange: hsl(35, 77%, 62%);
+    --Soft-red: hsl(5, 85%, 63%);
+    --Off-white: hsl(36, 100%, 99%);
+    --Grayish-blue: hsl(233, 8%, 79%);
+    --Dark-grayish-blue: hsl(236, 13%, 42%);
+    --Very-dark-blue: hsl(240, 100%, 5%);
+
+    --font-size-pargraph: 0.938rem;
+    --font-weight-400: 400;
+    --font-weight-700: 700;
+    --font-weight-800: 800;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(./assets/fonts/Inter-VariableFont_slnt\,wght.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100dvh;
+}
+
+input, button, textarea, select {
+    text-wrap: inherit;
+}
+
+img, video, svg {
+    height: auto;
+    max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce){
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition: none;
+    }
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+    font-weight: var(--font-weight-400);
+    background-color: var(--Off-white);
+    padding: 1.5rem 1rem;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+header .logo{
+    width: 2.5rem;
+}
+
+main .article{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.article .article-content{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.article .article-content .article-content-title{
+    font-size: 2.5rem;
+    font-weight: var(--font-weight-800);
+    max-width: 18rem;
+    line-height: 1;
+}
+
+.article .article-content .article-content-description{
+    font-size: var(--font-size-pargraph);
+    font-weight: 300;
+    color: var(--Dark-grayish-blue);
+}
+
+.article .article-content .read-more-button{
+    border: none;
+    background-color: var(--Soft-red);
+    color: var(--Very-dark-blue);
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-800);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0.7rem 1rem;
+    max-width: 11rem;
+    margin-block-start: 0.3rem;
+    transition: all 0.3s ease;
+}
+
+.aside{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    background-color: var(--Very-dark-blue);
+    padding: 1.5rem 1rem;
+}
+
+.aside .aside-title{
+    color: var(--Soft-orange);
+    font-size: 1.75rem;
+    font-weight: var(--font-weight-700);
+}
+
+.aside .aside-content{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    list-style-type: none;
+}
+
+.aside .aside-content .aside-item{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.aside .aside-content .aside-item:last-child::after{
+    display: none;
+}
+
+.aside .aside-content .aside-item::after{
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: hsla(233, 8%, 79%, 0.356);
+    margin-block-start: 1.5rem;
+}
+
+.aside .aside-content .aside-item .aside-item-title > a{
+    text-decoration: none;
+    color: var(--Off-white);
+}
+
+.aside .aside-content .aside-item .aside-item-description{
+    color: var(--Grayish-blue);
+    font-size: var(--font-size-pargraph);
+    font-weight: var(--font-weight-400);
+}
+
+.bottom-section .bottom-section-list{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    list-style-type: none;
+}
+
+.bottom-section .bottom-section-list .bottom-section-item{
+    display: flex;
+    gap: 1.5rem;
+}   
+
+.bottom-section .bottom-section-list .bottom-section-item .bottom-section-item-image{
+    width: 6rem;
+}
+
+
+.bottom-section .bottom-section-list .bottom-section-item .bottom-section-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bottom-section .bottom-section-list .bottom-section-item .bottom-section-item-content .bottom-section-item-number{
+    color: var(--Soft-red);
+    font-size: 1.75rem;
+    font-weight: var(--font-weight-700);
+}
+
+.bottom-section .bottom-section-list .bottom-section-item .bottom-section-item-content .bottom-section-item-title > a{
+    text-decoration: none;
+    color: var(--Very-dark-blue);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.bottom-section .bottom-section-list .bottom-section-item .bottom-section-item-content .bottom-section-item-description{
+    font-size: var(--font-size-pargraph);
+    color: var(--Dark-grayish-blue); 
+    font-weight: var(--font-weight-400);
+}
+
+
