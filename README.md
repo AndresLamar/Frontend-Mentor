@@ -42,6 +42,8 @@ Projects completed:
 
 * [Contact Form](https://andreslamar.github.io/Frontend-Mentor/contact-form/)
 
+* [News Homepage](https://andreslamar.github.io/Frontend-Mentor/news-homepage/)
+
 
 
 
