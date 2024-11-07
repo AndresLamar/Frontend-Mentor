@@ -8,7 +8,6 @@ const body = document.querySelector('body')
 function setupTopNav(e){
     if(e.matches){
         navMenu.removeAttribute('inert')
-        closeMobileMenu()
     } else{
         navMenu.setAttribute('inert', '')
         navMenu.style.transition = 'none';

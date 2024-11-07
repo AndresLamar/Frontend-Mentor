@@ -123,8 +123,13 @@ header .nav .nav-menu .nav-links .link > a{
     color: var(--Very-dark-blue);
     font-size: 1rem;
     font-weight: var(--font-weight-700);
+    transition: color 0.3s ease;
 }
 
+header .nav .nav-menu .nav-links .link > a:hover,
+header .nav .nav-menu .nav-links .link > a:focus{
+    color: var(--Soft-red);
+}
 
 main{
     display: flex;
@@ -168,7 +173,14 @@ main .article{
     padding: 0.7rem 1rem;
     max-width: 11rem;
     margin-block-start: 0.3rem;
+    cursor: pointer;
     transition: all 0.3s ease;
+}
+
+.article .article-content .read-more-button:hover,
+.article .article-content .read-more-button:focus{
+    background-color: var(--Very-dark-blue);
+    color: var(--Off-white);
 }
 
 .aside{
@@ -213,6 +225,12 @@ main .article{
 .aside .aside-content .aside-item .aside-item-title > a{
     text-decoration: none;
     color: var(--Off-white);
+    transition: color 0.3s ease;
+}
+
+.aside .aside-content .aside-item .aside-item-title > a:hover,
+.aside .aside-content .aside-item .aside-item-title > a:focus{
+    color: var(--Soft-orange);
 }
 
 .aside .aside-content .aside-item .aside-item-description{
@@ -255,6 +273,12 @@ main .article{
     color: var(--Very-dark-blue);
     font-size: 1rem;
     font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.bottom-section .bottom-section-list .bottom-section-item .bottom-section-item-content .bottom-section-item-title > a:hover,
+.bottom-section .bottom-section-list .bottom-section-item .bottom-section-item-content .bottom-section-item-title > a:focus{
+    color: var(--Soft-red);
 }
 
 .bottom-section .bottom-section-list .bottom-section-item .bottom-section-item-content .bottom-section-item-description{
@@ -284,6 +308,7 @@ main .article{
 
     header .nav .nav-menu{
         position: static;
+        height: 0;
         inset: unset;
         background-color: unset;
         translate: unset;
