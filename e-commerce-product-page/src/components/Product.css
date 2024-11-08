@@ -2,13 +2,13 @@
     display: flex;
     align-items: center;
     gap: 5rem;
-    padding: 5rem;
+    padding: 5rem 2rem;
 }
 
-.product .product-image{
+/* .product .product-image{
     width: 50%;
     border-radius: 1rem;
-}
+} */
 
 .product .product-info{
     display: flex;

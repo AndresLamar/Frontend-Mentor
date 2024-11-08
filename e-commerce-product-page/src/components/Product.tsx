@@ -1,17 +1,11 @@
 import "./Product.css";
-import imageProduct from "../assets/images/image-product-1.jpg";
 import { PlusIcon, MinusIcon, CartIcon } from "./Icons";
+import Thumbnail from "./Thumbnail";
 
 const Product = () => {
   return (
     <main className="product">
-      <img
-        src={imageProduct}
-        alt="Image one of four of Limited Edition Sneakers"
-        width={1000}
-        height={1000}
-        className="product-image"
-      />
+      <Thumbnail/>
 
       <div className="product-info">
         <span className="product-brand">SNEAKER COMPANY</span>
