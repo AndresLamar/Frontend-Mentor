@@ -9,18 +9,22 @@ import imageProduct4Thumbnail from './image-product-4-thumbnail.jpg'
 
 export const images = [
     {
+        id: 'image-1',
         src: imageProduct1,
         alt: 'Image one of four of Limited Edition Sneakers'
     },
     {
+        id: 'image-2',
         src: imageProduct2,
         alt: 'Image two of four of Limited Edition Sneakers'
     },
     {
+        id: 'image-3',
         src: imageProduct3,
         alt: 'Image three of four of Limited Edition Sneakers'
     },
     {
+        id: 'image-4',
         src: imageProduct4,
         alt: 'Image four of four of Limited Edition Sneakers'
     }
@@ -28,18 +32,22 @@ export const images = [
 
 export const imagesThumbnails = [
     {
+        id: 'image-1',
         src: imageProduct1Thumbnail,
         alt: 'Thumbnail image one of four of Limited Edition Sneakers'
     },
     {
+        id: 'image-2',
         src: imageProduct2Thumbnail,
         alt: 'Thumbnail image two of four of Limited Edition Sneakers'
     },
     {
+        id: 'image-3',        
         src: imageProduct3Thumbnail,
         alt: 'Thumbnail image three of four of Limited Edition Sneakers'
     },
     {
+        id: 'image-4',
         src: imageProduct4Thumbnail,
         alt: 'Thumbnail image four of four of Limited Edition Sneakers'
     }

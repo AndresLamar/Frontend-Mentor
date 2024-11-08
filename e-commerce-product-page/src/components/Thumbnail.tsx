@@ -4,11 +4,15 @@ import { useState } from "react";
 
 const Thumbnail = () => {
   const [imageProduct, setImageProduct] = useState(images[0]);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeId, setActiveId] = useState(images[0].id);
 
-  const handleClick = (index: number)  => {
-    setImageProduct(images[index])
-    setActiveIndex(index);
+  const handleClick = (id: string)  => {
+
+    const selectedImage = images.find((image) => image.id === id);
+    if (selectedImage) {
+      setImageProduct(selectedImage);
+      setActiveId(id); 
+    }
   }
 
   return (
@@ -26,21 +30,21 @@ const Thumbnail = () => {
       </div>
       
       <div className="product-thumbnails">
-        {imagesThumbnails.map((image, index) => (
+        {imagesThumbnails.map((thumbnail) => (
             <button 
-                key={image.src}
+                key={thumbnail.src}
                 className="thumbnail"
-                onClick={() => handleClick(index)}
+                onClick={() => handleClick(thumbnail.id)}
             >
                 <span 
-                    className = {`thumbnail-img-wrapper ${index === activeIndex ? "active-img" : ""}`}>
+                    className = {`thumbnail-img-wrapper ${thumbnail.id === activeId ? "active-img" : ""}`}>
                 <img
-                  src={image.src}
-                  alt={image.alt}
+                  src={thumbnail.src}
+                  alt={thumbnail.alt}
                   width={100}
                   height={100}    
                   className = "product-thumbnail"
-                  key={image.src}
+                  key={thumbnail.src}
                 />
                 </span>
             </button>
