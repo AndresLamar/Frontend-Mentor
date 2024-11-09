@@ -38,9 +38,70 @@
 .modal-body{
     display: flex;
     flex-direction: column;
-    align-items: center;
     text-align: center;
-    padding: 5rem 1.5rem;
+    padding: 0.5rem 1.5rem 1.5rem 1.5rem;
     flex-grow: 1;
 }
+
+.modal-text{
+    margin-block: 3.25rem;
+}
+
+.cart-item{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.cart-item-image{
+    width: 3rem;
+    border-radius: 0.5rem;
+}
+
+.cart-item-details{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    gap: 0.25rem;
+}
+
+.cart-item-title{
+    color: var(--Dark-grayish-blue);
+    font-size: 1rem;
+    font-weight: var(--font-weight-400);
+}
+
+.cart-item-price{
+    color: var(--Dark-grayish-blue);
+    font-size: 1rem;
+}
+
+.cart-item-price > span{
+    font-weight: bold;
+    color: var(--Very-dark-blue);
+}
+
+.delete-button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-inline-start: 1rem;
+    padding: 0;
+}
+
+.checkout-button{
+    background-color: var(--primary-Orange);
+    color: var(--Very-dark-blue);
+    font-size: 1rem;
+    font-weight: var(--font-weight-700);
+    padding: 1em 2rem;
+    width: 100%;
+    margin-block-start: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer
+}
+
+
 
