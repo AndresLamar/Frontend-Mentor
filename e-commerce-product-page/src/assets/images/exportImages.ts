@@ -7,6 +7,12 @@ import imageProduct3Thumbnail from './image-product-3-thumbnail.jpg'
 import imageProduct4 from './image-product-4.jpg'
 import imageProduct4Thumbnail from './image-product-4-thumbnail.jpg'
 
+export interface Image {
+    id: string;
+    src: string;
+    alt: string;
+}
+
 export const images = [
     {
         id: 'image-1',
