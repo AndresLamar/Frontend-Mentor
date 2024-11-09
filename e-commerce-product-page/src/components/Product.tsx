@@ -1,6 +1,7 @@
 import "./Product.css";
-import { PlusIcon, MinusIcon, CartIcon } from "./Icons";
+import { CartIcon } from "./Icons";
 import Thumbnail from "./Thumbnail";
+import QuantitySelector from "./QuantitySelector";
 
 const Product = () => {
   return (
@@ -25,35 +26,7 @@ const Product = () => {
         </div>
 
         <form className="product-form">
-          <div className="quantity-selector">
-            <div className="quantity-field">
-              <label htmlFor="quantity-input" aria-hidden="true" hidden>
-                Enter Number of items
-              </label>
-              <input
-                type="number"
-                name="quantity"
-                id="quantity-input"
-                className="quantity-input"
-                placeholder="0"
-                min="0"
-              />
-            </div>
-            <button
-                type="button"
-                className="quantity-decrease quantity-btn"
-                aria-label="Decrease quantity"
-            >
-                <MinusIcon />
-            </button>
-            <button
-                type="button"
-                className="quantity-increase quantity-btn"
-                aria-label="Increase quantity"
-            >
-                <PlusIcon />
-            </button>
-          </div>
+          <QuantitySelector />
           
 
           <button type="submit" className="product-submit-btn">
