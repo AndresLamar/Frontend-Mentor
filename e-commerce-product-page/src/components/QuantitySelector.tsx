@@ -1,28 +1,26 @@
 import { useEffect, useRef } from "react"
 import { MinusIcon, PlusIcon } from "./Icons"
+import { useQuantity } from "../context/QuantityContext";
 
 const QuantitySelector = () => {
     const inputRef = useRef<HTMLInputElement>(null);
+    const { quantity, setQuantity } = useQuantity()
 
     useEffect(() => {
         if(inputRef.current){
-            inputRef.current.value = '0';
+            inputRef.current.value = String(quantity);
         }
-    }, [])
+    }, [quantity])
 
     const handleIncrease = () => {
-        if(inputRef.current){
-            const currentValue = parseInt(inputRef.current.value, 10);
-            inputRef.current.value = String(currentValue + 1);
+        if (inputRef.current) {
+            setQuantity(quantity + 1)
         }
     }
 
     const handleDecrease = () => {
-        if (inputRef.current) {
-            const currentValue = parseInt(inputRef.current.value, 10);
-            if (currentValue > 0) {
-                inputRef.current.value = String(currentValue - 1);
-            }
+        if (inputRef.current && quantity > 0) {
+            setQuantity(quantity - 1);
         }
     }
 
@@ -30,9 +28,9 @@ const QuantitySelector = () => {
         const newValue = parseInt(e.target.value, 10);
 
         if (!isNaN(newValue) && newValue >= 0) {
-            inputRef.current!.value = String(newValue); //update the input
+            setQuantity(newValue)
         } else if (e.target.value === "") {
-            inputRef.current!.value = "0";
+            setQuantity(0)
         }
     };
 
