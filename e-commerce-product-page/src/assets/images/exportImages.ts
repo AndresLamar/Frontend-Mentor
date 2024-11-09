@@ -13,6 +13,12 @@ export interface Image {
     alt: string;
 }
 
+export interface IThumbnail {
+    id: string;
+    src: string;
+    alt: string
+}
+
 export const images = [
     {
         id: 'image-1',

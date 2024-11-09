@@ -1,12 +1,12 @@
 import "./Product.css";
 import { CartIcon } from "./Icons";
-import Thumbnail from "./Thumbnail";
 import QuantitySelector from "./QuantitySelector";
+import Carousel from "./Carousel";
 
 const Product = () => {
   return (
     <main className="product">
-      <Thumbnail/>
+      <Carousel/>
 
       <div className="product-info">
         <span className="product-brand">SNEAKER COMPANY</span>
