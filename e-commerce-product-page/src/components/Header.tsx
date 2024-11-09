@@ -1,10 +1,16 @@
 import './Header.css'
-import Cart from './Cart'
-import { Logo } from './Icons'
+import { Logo, CartIcon } from './Icons'
 import avatarImage from '../assets/images/image-avatar.png';
 import Navbar from './Navbar'
+import { useState } from 'react';
+import CartModal from './CartModal';
 
 const Header = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false); 
+
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+
     return (
         <header>
             <div className="left-header">
@@ -13,7 +19,12 @@ const Header = () => {
             </div>
 
             <div className='right-header'>
-                <Cart />
+                <button className='cart-open-button' onClick={openModal}>
+                    <CartIcon />
+                </button>
+
+                <CartModal isOpen={isModalOpen} onClose={closeModal} />
+
                 <img src={avatarImage} alt="Avatar" width={100} height={100} className='avatar-image'/>
             </div>
         </header>

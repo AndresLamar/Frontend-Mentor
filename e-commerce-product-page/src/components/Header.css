@@ -29,9 +29,18 @@ header .nav button{
 }
 
 header .right-header{
+    position: relative;
     display: flex;
     align-items: center;
     gap: 4rem;
+}
+
+header .right-header .cart-open-button{
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 header .right-header .avatar-image{

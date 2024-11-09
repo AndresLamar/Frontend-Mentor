@@ -1,6 +1,6 @@
 import { Image } from "../assets/images/exportImages";
 import CarouselNavButton from "./CarouselNavButton";
-import {CloseIcon } from "./Icons";
+import { CloseIcon } from "./Icons";
 import "./LightBox.css";
 
 interface Props {
@@ -14,10 +14,9 @@ const LightBox = ({
   imageSelected,
   handleNextImage,
   handlePreviousImage,
-  setImageSelected,
+  setImageSelected
 }: Props) => {
   const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    console.log(e.target)
     if ((e.target as Element).classList.contains("dismiss")) {
       setImageSelected(null);
     }
@@ -26,8 +25,11 @@ const LightBox = ({
   return (
     <div className="overlay dismiss" onClick={handleClick}>
       <div className="wrapper">
-
-        <CarouselNavButton direction='previous' hideOnDesktop={true} handleClick={handlePreviousImage} />
+        <CarouselNavButton
+          direction="previous"
+          hideOnDesktop={true}
+          handleClick={handlePreviousImage}
+        />
 
         <img
           src={imageSelected.src}
@@ -37,12 +39,16 @@ const LightBox = ({
           className="lightbox-image"
         />
 
-        <CarouselNavButton direction='next' hideOnDesktop={true} handleClick={handleNextImage} />
+        <CarouselNavButton
+          direction="next"
+          hideOnDesktop={true}
+          handleClick={handleNextImage}
+        />
       </div>
 
       <button className="dismiss close" onClick={handleClick}>
-          <CloseIcon />
-        </button>
+        <CloseIcon />
+      </button>
     </div>
   );
 };
