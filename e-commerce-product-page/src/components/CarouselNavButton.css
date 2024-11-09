@@ -1,0 +1,27 @@
+.next-icon{
+    position: absolute;
+    right: -1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--White);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.previous-icon{
+    position: absolute;
+    left: -1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--White);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    cursor: pointer;
+}

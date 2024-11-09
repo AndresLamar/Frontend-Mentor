@@ -1,5 +1,6 @@
 import { Image } from "../assets/images/exportImages";
-import { NextIcon, PreviousIcon, CloseIcon } from "./Icons";
+import CarouselNavButton from "./CarouselNavButton";
+import {CloseIcon } from "./Icons";
 import "./LightBox.css";
 
 interface Props {
@@ -25,10 +26,9 @@ const LightBox = ({
   return (
     <div className="overlay dismiss" onClick={handleClick}>
       <div className="wrapper">
-        <button className="previous-icon" onClick={handlePreviousImage}>
-          <PreviousIcon />
-        </button>
-        
+
+        <CarouselNavButton direction='previous' hideOnDesktop={true} handleClick={handlePreviousImage} />
+
         <img
           src={imageSelected.src}
           alt={imageSelected.alt}
@@ -37,9 +37,7 @@ const LightBox = ({
           className="lightbox-image"
         />
 
-        <button className="next-icon" onClick={handleNextImage}>
-          <NextIcon />
-        </button>
+        <CarouselNavButton direction='next' hideOnDesktop={true} handleClick={handleNextImage} />
       </div>
 
       <button className="dismiss close" onClick={handleClick}>
