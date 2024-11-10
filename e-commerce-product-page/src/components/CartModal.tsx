@@ -1,6 +1,6 @@
 import "./CartModal.css";
 import { CloseIcon, DeleteIcon } from "./Icons";
-import { imagesThumbnails } from "../assets/images/exportImages";
+import { useItem } from "../context/ItemContext";
 
 interface Props {
   isOpen: boolean;
@@ -9,6 +9,15 @@ interface Props {
 
 const CartModal = ({ isOpen, onClose }: Props) => {
   if (!isOpen) return null;
+
+  const { item, setItem } = useItem();
+
+  const subTotal = (item?.price ?? 0) * (item?.quantity ?? 0)
+
+  const handleClick = () => {
+    setItem(null)
+  }
+
 
   return (
     <div className="modal-overlay">
@@ -20,26 +29,29 @@ const CartModal = ({ isOpen, onClose }: Props) => {
           </button>
         </div>
         <div className="modal-body">
+        {!item ? (
           <p className="modal-text">Your cart is empty.</p>
-
-        {/* <div className="cart-item-wrapper">
+        ): (
+          <div className="cart-item-wrapper">
           <div className="cart-item">
-            <img src={imagesThumbnails[0].src} alt="product" className="cart-item-image"/>
+            <img src={item.image.src} alt={item.image.alt} className="cart-item-image"/>
             <div className="cart-item-details">
-              <h3 className="cart-item-title">Fall Limited Edition Sneakers</h3>
+              <h3 className="cart-item-title">{item.title}</h3>
               <div className="cart-item-">
                 <p className="cart-item-price">
-                  $125.00 x 1{" "}
-                  <span className="cart-item-subtotal">$125.00</span>
+                  ${item.price} x {item.quantity}{" "}
+                  <span className="cart-item-subtotal">${subTotal}</span>
                 </p>
               </div>
             </div>
-            <button className="delete-button">
+            <button className="delete-button" onClick={handleClick}>
                 <DeleteIcon />
             </button>
           </div>
           <button className="checkout-button">Checkout</button>
-        </div> */}
+        </div>
+        )}
+        
         </div>
       </div>
     </div>

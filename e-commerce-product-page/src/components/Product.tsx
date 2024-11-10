@@ -6,18 +6,19 @@ import { useItem } from "../context/ItemContext";
 import { imagesThumbnails } from "../assets/images/exportImages";
 
 const Product = () => {
-  const { setItem, setQuantity } = useItem();
+  const { quantity, setItem, setQuantity } = useItem();
 
   const handleClick = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-
-    setQuantity(0)
-
+    
     setItem({
       image: imagesThumbnails[0],
       price: 125.00,
-      title: 'Fall Limited Edition Sneakers'
+      title: 'Fall Limited Edition Sneakers',
+      quantity: quantity
     })
+
+    setQuantity(0)
   };
 
   return (

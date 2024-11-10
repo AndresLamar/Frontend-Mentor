@@ -6,6 +6,7 @@ interface Item{
     image: Image;
     title: string;
     price: number;
+    quantity: number;
 }
 
 interface ItemContextProps {
