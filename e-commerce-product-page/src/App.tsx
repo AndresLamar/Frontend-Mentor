@@ -1,15 +1,15 @@
 import './App.css'
 import Header from './components/Header'
 import Product from './components/Product'
-import { QuantityProvider } from './context/QuantityContext'
+import { ItemProvider } from './context/ItemContext'
 
 function App() {
 
   return (
-    <QuantityProvider>
+    <ItemProvider>
       <Header/>
       <Product />
-    </QuantityProvider>
+    </ItemProvider>
   )
 }
 

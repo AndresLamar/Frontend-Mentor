@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react"
 import { MinusIcon, PlusIcon } from "./Icons"
-import { useQuantity } from "../context/QuantityContext";
+import { useItem } from "../context/ItemContext";
 
 const QuantitySelector = () => {
     const inputRef = useRef<HTMLInputElement>(null);
-    const { quantity, setQuantity } = useQuantity()
+    const { quantity, setQuantity } = useItem()
 
     useEffect(() => {
         if(inputRef.current){
