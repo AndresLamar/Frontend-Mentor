@@ -75,7 +75,7 @@ const Carousel = () => {
 
       <div className="product-thumbnails">
         {imagesThumbnails.map((thumbnail) => (
-          <Thumbnail thumbnail={thumbnail} handleThumbnailClick={handleThumbnailClick} activeId={activeId} />
+          <Thumbnail key={thumbnail.alt} thumbnail={thumbnail} handleThumbnailClick={handleThumbnailClick} activeId={activeId} />
         ))}
       </div>
     </div>

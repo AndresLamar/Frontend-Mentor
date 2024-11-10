@@ -2,11 +2,27 @@ import "./Product.css";
 import { CartIcon } from "./Icons";
 import QuantitySelector from "./QuantitySelector";
 import Carousel from "./Carousel";
+import { useItem } from "../context/ItemContext";
+import { imagesThumbnails } from "../assets/images/exportImages";
 
 const Product = () => {
+  const { setItem, setQuantity } = useItem();
+
+  const handleClick = (e: React.FormEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    setQuantity(0)
+
+    setItem({
+      image: imagesThumbnails[0],
+      price: 125.00,
+      title: 'Fall Limited Edition Sneakers'
+    })
+  };
+
   return (
     <main className="product">
-      <Carousel/>
+      <Carousel />
 
       <div className="product-info">
         <span className="product-brand">SNEAKER COMPANY</span>
@@ -27,9 +43,12 @@ const Product = () => {
 
         <form className="product-form">
           <QuantitySelector />
-          
 
-          <button type="submit" className="product-submit-btn">
+          <button
+            type="submit"
+            className="product-submit-btn"
+            onClick={(e) => handleClick(e)}
+          >
             <CartIcon />
             Add to cart
           </button>

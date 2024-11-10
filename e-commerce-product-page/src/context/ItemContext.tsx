@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState} from "react";
+import React, { createContext, useContext, useEffect, useState} from "react";
 import { Image } from "../assets/images/exportImages";
 
 
@@ -25,6 +25,11 @@ export const ItemContext = createContext<ItemContextProps>({
 export const ItemProvider = ({children} : {children: React.ReactNode}) => {
     const [quantity, setQuantity] = useState(0);
     const [item, setItem ] = useState<Item | null>(null)
+
+    useEffect(() => {
+        console.log(item);
+        
+    },[item])
 
     return (
         <ItemContext.Provider value={{quantity, setQuantity, item, setItem}}>
