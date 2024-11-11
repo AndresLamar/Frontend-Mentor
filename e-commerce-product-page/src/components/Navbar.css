@@ -16,8 +16,9 @@
     color: var(--primary-Orange);
 }
 
-/* body.menu-open{
+body.menu-open{
     background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
 }
 
 body.menu-open::before {
@@ -28,13 +29,9 @@ body.menu-open::before {
     bottom: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
-} */
+    z-index: 5;
+}
 
-
-/* .nav .nav-menu button,
-.nav button{
-    display: none;
-} */
 
 .nav-menu-open-button{
     background: none;
@@ -50,6 +47,7 @@ body.menu-open::before {
     top: 0;
     padding: 1.5rem;
     background-color: var(--White);
+    z-index: 5;
     translate: -100vw 0;
     transition: translate 0.5s ease-in-out;
 }
@@ -70,22 +68,9 @@ body.menu-open::before {
 }
 
 
-/*  .nav .nav-menu-open-button[aria-expanded="true"] + .nav-menu{
+.nav .nav-menu-open-button[aria-expanded="true"] + .nav-menu{
     translate: 0;
 }
-
-.nav .nav-menu .nav-links .link > a{
-    text-decoration: none;
-    color: var(--Very-dark-blue);
-    font-size: 1rem;
-    font-weight: var(--font-weight-700);
-    transition: color 0.3s ease;
-}
-
-.nav .nav-menu .nav-links .link > a:hover,
-.nav .nav-menu .nav-links .link > a:focus{
-    color: var(--Soft-red);
-} */
 
 @media screen and (min-width: 48rem){
     nav button,
