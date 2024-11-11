@@ -1,5 +1,5 @@
 import './Navbar.css'
-import { MenuIcon, CloseIcon } from './Icons'
+import { MenuIcon, CloseIcon} from './Icons'
 
 const Navbar = () => {
     return (

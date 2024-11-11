@@ -28,3 +28,21 @@
     max-width: 100%;
     width: 100%;
 }
+
+@media screen and (max-width: 48rem) {
+    .product-thumbnails{
+        display: none;
+    }
+
+    .product-image-container .open-lightbox > img {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .mobile-carousel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+}

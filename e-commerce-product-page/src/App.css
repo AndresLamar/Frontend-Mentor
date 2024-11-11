@@ -2,3 +2,10 @@ body{
     font-family: 'Kumbh Sans';
     padding: 2rem 5rem;
 }
+
+@media screen and (max-width: 48rem) {
+    body{
+        padding: 0;
+    }
+    
+}

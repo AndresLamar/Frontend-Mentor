@@ -14,8 +14,12 @@ const Header = () => {
     return (
         <header>
             <div className="left-header">
-                <Logo/>
-                <Navbar/>
+                <div className="logo">
+                    <Logo/>
+                </div>
+                <div className="navbar">
+                    <Navbar/>
+                </div>
             </div>
 
             <div className='right-header'>

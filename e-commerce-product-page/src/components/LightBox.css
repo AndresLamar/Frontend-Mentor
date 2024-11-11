@@ -74,4 +74,28 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 48rem) {
+    .overlay{
+        position: static;
+        background-color: unset;
+    }
+    
+    .lightbox-image{
+        width: 100%;
+        border-radius: 0;
+    }   
+    
+    .overlay > .close{
+        display: none;
+    }
+    
+    .wrapper > .next-icon{
+        right: 1rem;
+    }
+    
+    .wrapper > .previous-icon{
+        left: 1rem;
+    }
+}
+
 

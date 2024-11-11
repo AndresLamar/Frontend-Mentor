@@ -1,6 +1,6 @@
 import "./Carousel.css";
 import { Image, images, imagesThumbnails } from "../assets/images/exportImages";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LightBox from "./LightBox";
 import Thumbnail from "./Thumbnail";
 
@@ -8,9 +8,25 @@ const Carousel = () => {
   const [imageProduct, setImageProduct] = useState(images[0]);
   const [activeId, setActiveId] = useState(images[0].id);
   const [imageSelected, setImageSelected] = useState<Image | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Verificar si es mobile o desktop
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Si el ancho es <= 768px, es mobile
+    };    
+
+    // Ejecutar la función en la carga y cuando se cambia el tamaño de la pantalla
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleImageClick = () => {
-    setImageSelected(imageProduct);
+    if (!isMobile) {
+      setImageSelected(imageProduct); // Solo abrir LightBox en desktop
+    }
   };
 
   const handleThumbnailClick = (id: string) => {
@@ -53,26 +69,38 @@ const Carousel = () => {
   return (
     <div className="product-images">
       <div className="product-image-container">
-        <button className="open-lightbox" onClick={handleImageClick}>
-          <img
-            src={imageProduct.src}
-            alt={imageProduct.alt}
-            width={1000}
-            height={1000}
-            className="product-image"
-          />
-        </button>
+        {isMobile ? (
+          <div className="mobile-carousel">
+            <LightBox
+              imageSelected={imageProduct}
+              handleNextImage={handleNextImage}
+              handlePreviousImage={handlePreviousImage}
+              setImageSelected={setImageSelected}
+            />
+          </div>
+        ) : (
+          <>
+            <button className="open-lightbox" onClick={handleImageClick}>
+              <img
+                src={imageProduct.src}
+                alt={imageProduct.alt}
+                width={1000}
+                height={1000}
+                className="product-image"
+              />
+            </button>
 
-        {imageSelected && (
-          <LightBox
-            imageSelected={imageSelected}
-            handleNextImage={handleNextImage}
-            handlePreviousImage={handlePreviousImage}
-            setImageSelected={setImageSelected}
-          />
+            {imageSelected && (
+              <LightBox
+                imageSelected={imageSelected}
+                handleNextImage={handleNextImage}
+                handlePreviousImage={handlePreviousImage}
+                setImageSelected={setImageSelected}
+              />
+            )}
+        </>
         )}
       </div>
-
       <div className="product-thumbnails">
         {imagesThumbnails.map((thumbnail) => (
           <Thumbnail key={thumbnail.alt} thumbnail={thumbnail} handleThumbnailClick={handleThumbnailClick} activeId={activeId} />
