@@ -10,7 +10,7 @@ interface Props{
 
 const CarouselNavButton = ({direction, hideOnDesktop, handleClick}: Props) => {
     return(
-        <button className={`${direction}-icon  ${hideOnDesktop ? "hide" : ""}`} onClick={handleClick}>
+        <button className={`icon ${direction}-icon  ${hideOnDesktop ? "hide" : ""}`} onClick={handleClick}>
           {direction === "previous" ? <PreviousIcon /> : <NextIcon />}
         </button>
     )

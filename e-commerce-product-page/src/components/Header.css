@@ -10,24 +10,6 @@ header .left-header{
     gap: 3rem;
 }
 
-header .nav .nav-menu .nav-links{
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-}
-
-header .nav .nav-menu .nav-links .link > a{
-    text-decoration: none;
-    color: var(--Very-dark-blue);
-    font-size: 1rem;
-    transition: color 0.3s ease;
-}
-
-header .nav .nav-menu button,
-header .nav button{
-    display: none;
-}
-
 header .right-header{
     position: relative;
     display: flex;
@@ -46,6 +28,8 @@ header .right-header .cart-open-button{
 header .right-header .avatar-image{
     width: 4rem;
     height: auto;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 /* header .nav .nav-menu{

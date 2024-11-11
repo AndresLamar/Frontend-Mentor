@@ -11,6 +11,7 @@
 .thumbnail-img-wrapper{
     display: block;
     position: relative; 
+    transition: all 0.3s ease-in-out;
 }
 
 .thumbnail-img-wrapper.active-img::after{
@@ -20,4 +21,11 @@
     background-color: #ffffffbf;
     border: 2px solid var(--primary-Orange);
     border-radius: 1rem;
+}
+
+.thumbnail-img-wrapper:hover::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #ffffffbf;
 }

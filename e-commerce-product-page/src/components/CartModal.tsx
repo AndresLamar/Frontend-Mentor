@@ -39,8 +39,8 @@ const CartModal = ({ isOpen, onClose }: Props) => {
               <h3 className="cart-item-title">{item.title}</h3>
               <div className="cart-item-">
                 <p className="cart-item-price">
-                  ${item.price} x {item.quantity}{" "}
-                  <span className="cart-item-subtotal">${subTotal}</span>
+                  ${item.price.toFixed(2)} x {item.quantity}{" "}
+                  <span className="cart-item-subtotal">${subTotal.toFixed(2)}</span>
                 </p>
               </div>
             </div>

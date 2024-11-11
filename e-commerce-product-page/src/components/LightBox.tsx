@@ -47,7 +47,7 @@ const LightBox = ({
       </div>
 
       <button className="dismiss close" onClick={handleClick}>
-        <CloseIcon />
+        <CloseIcon fill="fff"/>
       </button>
     </div>
   );

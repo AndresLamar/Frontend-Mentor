@@ -27,16 +27,23 @@
 
 .overlay > .close{
     position: absolute;
-    right: 23rem;
+    right: 22rem;
     top: 3em;
     width: 2rem;
     height: 2rem;;
     z-index: 2;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.wrapper > .close > svg{
+.close > svg{
     z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+.close:hover > svg > path{
+    fill: var(--primary-Orange);
 }
 
 .wrapper > .next-icon{

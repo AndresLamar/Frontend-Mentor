@@ -10,6 +10,11 @@
     align-items: center;
     z-index: 2;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.icon:hover > svg > path{
+    stroke: var(--primary-Orange);
 }
 
 .previous-icon{
@@ -24,4 +29,5 @@
     align-items: center;
     z-index: 2;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }

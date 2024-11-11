@@ -1,3 +1,4 @@
+import './Navbar.css'
 import { MenuIcon, CloseIcon } from './Icons'
 
 const Navbar = () => {
@@ -18,7 +19,7 @@ const Navbar = () => {
             className="nav-menu-close-button"
             aria-label="Close"
           >
-            <CloseIcon/>
+            <CloseIcon fill=''/>
           </button>
           <ul className="nav-links">
             <li className="link"><a href="#">Collection</a></li>
