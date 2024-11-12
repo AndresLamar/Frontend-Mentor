@@ -78,6 +78,8 @@
     .overlay{
         position: static;
         background-color: unset;
+        z-index: unset;
+
     }
     
     .lightbox-image{

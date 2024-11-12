@@ -6,6 +6,7 @@
     width: 24rem;
     border-radius: 1rem;
     box-shadow: 0 20px 50px -20px #1d201c80, 0 22px 18px #1d201c06, 0 100px 80px #1d201c0a;
+    z-index: 3;
 }
 
 .modal-content{
@@ -101,6 +102,13 @@
     border-radius: 0.5rem;
     border: none;
     cursor: pointer
+}
+
+@media screen and (max-width: 48rem) {
+    .modal-overlay{
+        right: -0.5rem;
+        width: 21rem;
+    }
 }
 
 
