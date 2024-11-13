@@ -1,6 +1,20 @@
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Inter-VariableFont_slnt\,wght.ttf);
+}
+
 :root {
   /* color-scheme: light dark; */
+  font-family: 'Inter', sans-serif;
 
+  --color-blue: #345ff6;
+  --color-gunmetal: #253347;
+  --color-dark-electric-blue: #5e6e85;
+  --color-pure-white: #ffffff;
+  --font-family-primary: "Inter", sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.5;
+  --red: orangered;
 }
 
 *{
