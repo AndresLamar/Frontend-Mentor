@@ -4,9 +4,11 @@ import avatarImage from '../assets/images/image-avatar.png';
 import Navbar from './Navbar'
 import { useState } from 'react';
 import CartModal from './CartModal';
+import { useItem } from '../context/ItemContext';
 
 const Header = () => {
     const [isModalOpen, setIsModalOpen] = useState(false); 
+    const { item } = useItem()
 
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
@@ -24,6 +26,9 @@ const Header = () => {
 
             <div className='right-header'>
                 <button className='cart-open-button' onClick={openModal}>
+                    <span className={`cart-item-quantity ${ item?.quantity ? "show" : ""}`}>
+                        {item?.quantity}
+                    </span>
                     <CartIcon />
                 </button>
 
