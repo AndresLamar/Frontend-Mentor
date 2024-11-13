@@ -44,6 +44,10 @@ Projects completed:
 
 * [News Homepage](https://andreslamar.github.io/Frontend-Mentor/news-homepage/)
 
+* [E-commerce Product Page](https://e-commerceproductpag.netlify.app/)
+
+
+
 
 
 
