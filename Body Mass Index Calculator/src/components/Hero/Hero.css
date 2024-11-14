@@ -241,3 +241,30 @@ input[type="radio"]:checked::before {
     
 }
 
+@media screen and (min-width: 75rem) {
+    .hero__container{
+        flex-direction: row;
+        justify-content: flex-start;
+        padding-inline-start: 4rem;
+        height: 30rem;
+    }
+
+    .hero__intro{
+        align-items: flex-start;
+        text-align: start;
+        max-width: 30rem;
+    }
+
+    .hero__intro::before{
+        width: 54rem;
+    }
+
+    .hero__intro .intro__text {
+        max-width: 27rem;
+    }
+
+    .hero__form-wrapper {
+        max-width: 32rem;
+        width: 100%;
+    }
+}
