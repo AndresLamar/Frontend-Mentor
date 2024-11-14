@@ -131,6 +131,12 @@ input[type="radio"]:checked::before {
     font-size: 0.8rem;
 }
 
+.text-inputs-wrapper .imperial__legend{
+    color: var(--color-dark-electric-blue);
+    font-size: 0.8rem;
+    margin-block-end: 0.5rem;
+}
+
 .form__text-inputs .text-input > input{
     border-radius: 0.5rem;
     padding: 1rem 1.5rem;
@@ -144,6 +150,10 @@ input[type="radio"]:checked::before {
     color: var(--color-blue);
     font-size: 1.3rem;
     font-weight: bold;
+}
+
+.text-inputs-wrapper > .text-input > .placeholder-text{
+    top: 0.8rem;
 }
 
 .form__result{
@@ -185,4 +195,49 @@ input[type="radio"]:checked::before {
     margin-inline-start: 0.2rem;
 }
 
+@media screen and (min-width: 43.75rem) {
+    .hero__intro .intro__title{
+        max-width: 24rem;
+    }
+
+    .hero__form-wrapper {
+        max-width: 40rem;
+        width: 100%;
+    }
+
+    .hero__form fieldset .form__radios {
+        gap: 10rem;
+    }
+
+    .form__text-inputs{
+        flex-direction: row;
+    }
+
+    .form__text-inputs .text-input {
+        width: 100%;
+    }
+
+    .form__text-inputs.imperial{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .form__text-inputs.imperial .text-inputs-wrapper{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .form__result{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        border-radius: 0.5rem 4rem 4rem 0.5rem;
+    }
+    
+    .form__result .result__text{
+        max-width: 16rem;
+    }
+    
+}
 

@@ -187,7 +187,7 @@ export const Hero = () => {
                     className="measurement__label label"
                     htmlFor="height-cm"
                   >
-                    Height (cm)
+                    Height 
                   </label>
                   <input
                     id="height-cm"
@@ -203,7 +203,7 @@ export const Hero = () => {
                     className="measurement__label label"
                     htmlFor="weight-kg"
                   >
-                    Weight (kg)
+                    Weight 
                   </label>
                   <input
                     id="weight-kg"
@@ -219,70 +219,54 @@ export const Hero = () => {
 
             {measurementSystem === "imperial" && (
               <div className="form__text-inputs imperial">
-                <div className="text-inputs__height text-input">
-                  <label
-                    className="measurement__label label"
-                    htmlFor="height-ft"
-                  >
-                    Height (ft)
-                  </label>
-                  <input
-                    id="height-ft"
-                    type="text"
-                    placeholder="0"
-                    maxLength={1}
-                    onChange={(e) => setHeightFt(parseFloat(e.target.value))}
-                  />
-                  <span className="placeholder-text kg">ft</span>
-                </div>
-                <div className="text-inputs__height text-input">
-                  <label
-                    className="measurement__label label"
-                    htmlFor="height-in"
-                  >
-                    Height (in)
-                  </label>
-                  <input
-                    id="height-in"
-                    type="text"
-                    placeholder="0"
-                    maxLength={2}
-                    onChange={(e) => setHeightIn(parseFloat(e.target.value))}
-                  />
-                  <span className="placeholder-text kg">in</span>
-                </div>
-                <div className="text-inputs__weight text-input">
-                  <label
-                    className="measurement__label label"
-                    htmlFor="weight-st"
-                  >
-                    Weight (st)
-                  </label>
-                  <input
-                    id="weight-st"
-                    type="text"
-                    placeholder="0"
-                    maxLength={2}
-                    onChange={(e) => setWeightSt(parseFloat(e.target.value))}
-                  />
-                  <span className="placeholder-text kg">st</span>
-                </div>
-                <div className="text-inputs__weight text-input">
-                  <label
-                    className="measurement__label label"
-                    htmlFor="weight-lb"
-                  >
-                    Weight (lbs)
-                  </label>
-                  <input
-                    id="weight-lb"
-                    type="text"
-                    placeholder="0"
-                    maxLength={3}
-                    onChange={(e) => setWeightLb(parseFloat(e.target.value))}
-                  />
-                  <span className="placeholder-text kg">lb</span>
-                </div>
+                <fieldset className="text-inputs-wrapper">
+                  <legend className="imperial__legend">Height</legend>
+                  <div className="text-inputs__height text-input">
+                    <input
+                      id="height-ft"
+                      type="text"
+                      placeholder="0"
+                      maxLength={1}
+                      onChange={(e) => setHeightFt(parseFloat(e.target.value))}
+                    />
+                    <span className="placeholder-text kg">ft</span>
+                  </div>
+                  <div className="text-inputs__height text-input">
+                    
+                    <input
+                      id="height-in"
+                      type="text"
+                      placeholder="0"
+                      maxLength={2}
+                      onChange={(e) => setHeightIn(parseFloat(e.target.value))}
+                    />
+                    <span className="placeholder-text kg">in</span>
+                  </div>
+                </fieldset>
+
+                <fieldset className="text-inputs-wrapper">
+                  <legend className="imperial__legend">Weight</legend>
+                  <div className="text-inputs__weight text-input">
+                    <input
+                      id="weight-st"
+                      type="text"
+                      placeholder="0"
+                      maxLength={2}
+                      onChange={(e) => setWeightSt(parseFloat(e.target.value))}
+                    />
+                    <span className="placeholder-text kg">st</span>
+                  </div>
+                  <div className="text-inputs__weight text-input">
+                    <input
+                      id="weight-lb"
+                      type="text"
+                      placeholder="0"
+                      maxLength={3}
+                      onChange={(e) => setWeightLb(parseFloat(e.target.value))}
+                    />
+                    <span className="placeholder-text kg">lb</span>
+                  </div>
+                </fieldset>
               </div>
             )}
           </fieldset>
