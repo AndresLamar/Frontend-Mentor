@@ -1,0 +1,24 @@
+.meaning{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-block-start: 5rem;
+}
+
+.meaning__content{
+    display: flex; 
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.meaning__content .meaning__title{
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-wrap: unset;
+    color: var(--color-gunmetal);
+}
+
+.meaning__content .meaning__text{
+    font-size: 0.9rem;
+    color: var(--color-dark-electric-blue);
+}

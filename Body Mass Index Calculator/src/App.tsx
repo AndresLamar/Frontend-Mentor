@@ -1,5 +1,5 @@
 import './App.css'
-import { Header, Hero } from './components'
+import { Header, Hero, Meaning } from './components'
 
 function App() {
 
@@ -8,6 +8,7 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <Meaning />
       </main>
     </>
   )
