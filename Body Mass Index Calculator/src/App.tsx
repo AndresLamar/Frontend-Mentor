@@ -1,5 +1,5 @@
 import './App.css'
-import { Header, Hero, Meaning } from './components'
+import { Advices, Header, Hero, Meaning } from './components'
 
 function App() {
 
@@ -9,6 +9,7 @@ function App() {
       <main>
         <Hero />
         <Meaning />
+        <Advices />
       </main>
     </>
   )

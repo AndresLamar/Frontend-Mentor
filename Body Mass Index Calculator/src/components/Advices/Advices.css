@@ -1,0 +1,35 @@
+.advices{
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-block-start: 4rem;
+    background-color: #F5F9FF;
+    padding-inline: 1.5rem;
+    padding-block: 3rem;
+}
+
+.advices__container{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.advices__icon{
+    width: 3rem;
+}
+
+.advices__content{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 17rem;
+}
+
+.advices__title{
+    color: var(--color-gunmetal);
+}
+
+.advices__text{
+    color: var(--color-dark-electric-blue);
+    font-size: 0.9rem;
+}
