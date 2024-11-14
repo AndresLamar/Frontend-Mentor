@@ -8,3 +8,11 @@ header{
 header .header__logo{
     width: 3rem;
 }
+
+@media screen and (min-width: 75rem) {
+    header{
+        justify-content: flex-start;
+        margin-inline-start: 4rem;
+        margin-block-start: 2rem;
+    }
+}
