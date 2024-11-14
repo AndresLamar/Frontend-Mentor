@@ -9,6 +9,7 @@
     display: flex; 
     flex-direction: column;
     gap: 1.5rem;
+    padding-inline: 1.5rem;
 }
 
 .meaning__content .meaning__title{
@@ -21,4 +22,20 @@
 .meaning__content .meaning__text{
     font-size: 0.9rem;
     color: var(--color-dark-electric-blue);
+}
+
+@media screen and (min-width: 43.75rem) {
+    .meaning{
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .meaning__img{
+        width: 20rem;
+    }
+}
+
+@media screen and (min-width: 75rem) {
+    
 }
