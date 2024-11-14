@@ -3,6 +3,7 @@ header{
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-block-start: 2rem;
 }
 
 header .header__logo{
@@ -13,6 +14,6 @@ header .header__logo{
     header{
         justify-content: flex-start;
         margin-inline-start: 4rem;
-        margin-block-start: 2rem;
+        margin-block-start: 4rem;
     }
 }
