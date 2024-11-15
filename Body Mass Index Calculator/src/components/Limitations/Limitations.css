@@ -57,3 +57,24 @@
     color: var(--color-dark-electric-blue);
     line-height: 1.2;
 }
+
+@media screen and (min-width: 43.75rem) {
+    .limitations__text{
+        max-width: 35rem;
+    }
+
+    .limitations__card__wrapper{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .limitations__card.race{
+        grid-column: 1 / -1;
+        max-width: 19rem;
+        justify-self: center;
+    }
+}
+
+@media screen and (min-width: 75rem) {
+    
+}
