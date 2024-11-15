@@ -1,7 +1,8 @@
 .limitations{
     display: grid;
-    margin-block-start: 4rem;
+    margin-block: 4rem;
     padding: 1.5rem;
+    gap: 1.5rem;
 }
 
 .limitations__content{
@@ -19,12 +20,6 @@
 .limitations__text{
     font-size: 0.9rem;
     color: var(--color-dark-electric-blue);
-}
-
-.limitations__card__wrapper{
-    display: grid;
-    gap: 1rem;
-    margin-block: 2rem;
 }
 
 .limitations__card{
@@ -59,13 +54,17 @@
 }
 
 @media screen and (min-width: 43.75rem) {
-    .limitations__text{
-        max-width: 35rem;
+    .limitations{
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .limitations__card__wrapper{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+    .limitations__content {
+        grid-column: 1 / -1;
+        margin-bottom: 2rem;
+    }
+
+    .limitations__text{
+        max-width: 35rem;
     }
 
     .limitations__card.race{
@@ -76,5 +75,50 @@
 }
 
 @media screen and (min-width: 75rem) {
-    
+    .limitations{
+        grid-template-columns: repeat(12, 1fr);
+        padding-inline: 5rem;
+        background-image: url(../../assets/images/pattern-curved-line-right.svg);
+        background-repeat: no-repeat;
+        background-position-y: center;
+        background-position-x: 12rem;
+    }
+
+    .limitations__content {
+        grid-column: 1 / 7;
+        margin-bottom: 2rem;
+        text-align: start;
+        align-items: flex-start;
+    }
+
+    .limitations__title{
+        font-size: 2.3rem;
+    }
+
+    .limitations__text {
+        max-width: 29rem;
+    }
+
+    .limitations__card.gender{
+        grid-column: 7 / 12;
+        justify-self: center;
+    }
+
+    .limitations__card.age{
+        grid-column: 5 / 9;
+    }
+
+    .limitations__card.muscle{
+        grid-column: 9/ 13;
+
+    }
+
+    .limitations__card.pregnancy{
+        grid-column: 3 / 7;
+    }
+
+    .limitations__card.race{
+        grid-column: 7 / 11;
+        max-width: unset;
+    }
 }

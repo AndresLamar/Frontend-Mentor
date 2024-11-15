@@ -4,16 +4,15 @@ import "./Limitations.css";
 export const Limitations = () => {
   return (
     <section className="limitations">
-      <div className="limitations__content">
+        <div className="limitations__content">
         <h2 className="limitations__title">Limitations of BMI</h2>
         <p className="limitations__text">
-          Although BMI is often a practical indicator of healthy weight, it is
-          not suited for every person. Specific groups should carefully consider
-          their BMI outcomes, and in certain cases, the measurement may not be
-          beneficial to use.
+            Although BMI is often a practical indicator of healthy weight, it is
+            not suited for every person. Specific groups should carefully consider
+            their BMI outcomes, and in certain cases, the measurement may not be
+            beneficial to use.
         </p>
-      </div>
-      <div className="limitations__card__wrapper">
+        </div>
         <div className="limitations__card gender">
             <div className="card__header">
                 <div className="card__icon">
@@ -77,7 +76,6 @@ export const Limitations = () => {
             discuss this with your GP or practice nurse.
             </p>
         </div>
-      </div>
     </section>
   );
 };
