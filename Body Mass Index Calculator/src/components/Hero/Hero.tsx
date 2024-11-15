@@ -148,12 +148,10 @@ export const Hero = () => {
       </section>
       <section className="hero__form-wrapper">
         <form className="hero__form">
-          <fieldset
-          // role="radiogroup"
-          // aria-invalid="false"
-          // aria-describedby="query-type-error"
-          // aria-required="true"
-          >
+          <fieldset>
+            <legend className="sr-only">
+              Select measurement system: choose between metric or imperial units
+            </legend>
             <h2 className="form__title">Enter your details below</h2>
             <div className="form__radios">
               <label className="radio__label" htmlFor="metric">
@@ -195,6 +193,7 @@ export const Hero = () => {
                     placeholder="0"
                     maxLength={3}
                     onChange={(e) => setHeightCm(parseFloat(e.target.value))}
+                    aria-label="Enter height in centimeters"
                   />
                   <span className="placeholder-text cm">cm</span>
                 </div>
@@ -211,6 +210,7 @@ export const Hero = () => {
                     placeholder="0"
                     maxLength={3}
                     onChange={(e) => setWeightKg(parseFloat(e.target.value))}
+                    aria-label="Enter weight in kilograms"
                   />
                   <span className="placeholder-text kg">kg</span>
                 </div>
@@ -228,6 +228,7 @@ export const Hero = () => {
                       placeholder="0"
                       maxLength={1}
                       onChange={(e) => setHeightFt(parseFloat(e.target.value))}
+                      aria-label="Enter height in feet"
                     />
                     <span className="placeholder-text kg">ft</span>
                   </div>
@@ -239,6 +240,7 @@ export const Hero = () => {
                       placeholder="0"
                       maxLength={2}
                       onChange={(e) => setHeightIn(parseFloat(e.target.value))}
+                      aria-label="Enter height in inches"
                     />
                     <span className="placeholder-text kg">in</span>
                   </div>
@@ -253,6 +255,7 @@ export const Hero = () => {
                       placeholder="0"
                       maxLength={2}
                       onChange={(e) => setWeightSt(parseFloat(e.target.value))}
+                      aria-label="Enter weight in stones"
                     />
                     <span className="placeholder-text kg">st</span>
                   </div>
@@ -263,6 +266,7 @@ export const Hero = () => {
                       placeholder="0"
                       maxLength={3}
                       onChange={(e) => setWeightLb(parseFloat(e.target.value))}
+                      aria-label="Enter weight in pounds"
                     />
                     <span className="placeholder-text kg">lb</span>
                   </div>
@@ -284,12 +288,12 @@ export const Hero = () => {
           </div>
         ) : (
           <div className="form__result">
-          <div className="result__title-wrapper">
-            <h3 className="result__title">Your BMI is...</h3>
-            <span className="result__number">{bmiResult}</span>
-          </div>
+            <div className="result__title-wrapper" aria-live="polite">
+              <h3 className="result__title" >Your BMI is...</h3>
+              <span className="result__number">{bmiResult}</span>
+            </div>
           
-            <p className="result__text">   
+            <p className="result__text" aria-live="polite">   
             Your BMI suggest you´re a {categoty} weight. Your ideal weight is between 
               <span>
               {measurementSystem === MeasurementSystem.METRIC ? (
@@ -311,9 +315,27 @@ export const Hero = () => {
               )}
               </span>
             </p>
-        </div>
+          </div>
         )}
       </section>
     </div>
   );
 };
+
+
+// 1. Usar correctamente fieldset y legend para agrupar inputs:
+// Los fieldset y legend proporcionan una agrupación semántica clara, ayudando a los usuarios de lectores de pantalla a entender la relación entre los inputs de un formulario. Ya estás usando fieldset en tu código, lo que es excelente. Sin embargo, asegúrate de que cada grupo de inputs relacionados tenga un legend descriptivo.
+
+// Añade leyendas a los campos de altura y peso.
+// Usa un legend en el fieldset de las opciones de radio (metric vs imperial) para describir mejor el grupo.
+// 2. Etiquetas claras con for/htmlFor:
+// Cada input debe tener una etiqueta claramente asociada usando el atributo htmlFor. Los lectores de pantalla dependen de estas etiquetas para proporcionar contexto a los campos del formulario.
+
+// 3. Añadir aria-describedby para más contexto:
+// Si algún campo necesita información adicional, como qué unidades se están usando o el formato esperado, puedes usar aria-describedby para vincular el input con un texto de ayuda.
+
+// 4. Asegurarse de que los elementos del formulario son accesibles por teclado:
+// Verifica que todos los inputs puedan ser seleccionados y completados mediante el uso de la tecla Tab. También, asegúrate de que los radio buttons pueden ser seleccionados con las teclas de flecha.
+
+// 5. Agregar aria-live para actualizaciones dinámicas:
+// Para los resultados de BMI que se muestran dinámicamente, utiliza aria-live para notificar a los usuarios de lectores de pantalla cuando el contenido cambia.
