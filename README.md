@@ -46,6 +46,8 @@ Projects completed:
 
 * [E-commerce Product Page](https://e-commerceproductpag.netlify.app/)
 
+* [Body Mass Index Calculator](https://body-mass-calculatorr.netlify.app/)
+
 
 
 
