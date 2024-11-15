@@ -40,6 +40,10 @@
     .meaning{
         gap: 5rem;
         padding-inline: 5rem;
+        background-image: url(../../assets/images/pattern-curved-line-left.svg);
+        background-repeat: no-repeat;
+        background-position-y: -4rem;
+        background-position-x: 60rem;
     }
 
     .meaning__img{
