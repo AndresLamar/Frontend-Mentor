@@ -1,0 +1,11 @@
+.board .game{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.board .game .square{
+    background-color: var(--primary-light);
+    padding: 1rem;
+    color: var(--secondary);
+}
