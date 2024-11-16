@@ -1,0 +1,122 @@
+.start-menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.logo{
+    width: 5rem;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-color: var(--primary-light);
+    color: var(--secondary);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    width: 100%;
+    box-shadow: inset 0 -8px 0 #10212a;
+}
+
+.card__title{
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.card__options{
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+    background-color: var(--primary);
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
+
+.card__option{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    width: 50%;
+    height: 3rem;
+    padding: 1rem 3rem;
+    border-radius: 1rem;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.card__option:hover,
+.card__option:focus{
+    background-color: #22323A;
+}
+
+.card__option[aria-checked='true']{
+    background-color: var(--secondary);
+
+    & > svg > path{
+        fill: var(--primary);
+    }
+}
+
+.card__option > svg > path{
+    fill: var(--secondary);
+}
+
+.card__remember{
+    text-transform: uppercase;
+    color: var(--secondary-light);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.start-game__buttons{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.9rem;
+}
+
+.new-game__button{
+    padding: 1.1rem 2rem;
+    border: none;
+    border-radius: 0.8rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--primary);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.button-cpu{
+    background-color: var(--yellow);
+    box-shadow: inset 0 -8px 0 #cc8b13;
+}
+
+.button-cpu:hover,
+.button-cpu:focus{
+    background-color: var(--light-yellow);
+}
+
+.button-player{
+    background-color: var(--cyan);
+    box-shadow: inset 0 -8px 0 #118c87;
+}
+
+.button-player:hover,
+.button-player:focus{
+    background-color: var(--light-cyan);
+}
+
+@media screen and (min-width: 75rem) {
+    .card__option{
+        padding: 1rem 5rem;
+    }
+}
