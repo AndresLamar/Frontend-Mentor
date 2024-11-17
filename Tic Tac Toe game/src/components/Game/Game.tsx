@@ -91,7 +91,7 @@ export const Game = () => {
 
   return (
     <div className="board">
-      <section className="board__header">
+      <header className="board__header">
         <div className="game__logo">
           <IconLogo />
         </div>
@@ -108,7 +108,7 @@ export const Game = () => {
         <button onClick={resetGame} className="restart__button">
           <IconRestart />
         </button>
-      </section>
+      </header>
 
       <section className="game">
         {board.map((_, index) => {
@@ -128,6 +128,21 @@ export const Game = () => {
           );
         })}
       </section>
+
+      <footer className="results__footer">
+        <div className="score x-score">
+          <span>x (you)</span>
+          <span className="number">14</span>
+        </div>
+        <div className="score ties-score">
+          <span>ties</span>
+          <span className="number">32</span>
+        </div>
+        <div className="score o-score">
+          <span>o (you)</span>
+          <span className="number">11</span>
+        </div>
+      </footer>
 
       <Modal winner={winner} />
     </div>

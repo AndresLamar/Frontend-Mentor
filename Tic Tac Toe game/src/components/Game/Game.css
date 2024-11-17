@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4rem;
+    gap: 1rem;
 }
 
 .board__header{
@@ -54,6 +54,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     width: 100%;
+    margin-block-start: 3rem;
 }
 
 .board .game .square{
@@ -82,6 +83,44 @@
     fill: var(--yellow  );
 }
 
+.results__footer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    gap: 1rem;
+}
+
+.results__footer .score{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--primary);
+    height: 4rem;
+    width: 6rem;
+    border-radius: 0.5rem;
+}
+
+.results__footer .score .number{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.x-score{
+    background-color: var(--cyan);
+}
+
+.o-score{
+    background-color: var(--yellow);
+}
+
+.ties-score{
+    background-color: var(--secondary);
+}
+
 .result__modal {
     position: absolute;
     width: 100vw;
@@ -91,11 +130,10 @@
     display: grid;
     place-items: center;
     background-color: rgba(0, 0, 0, 0.493);
-  }
+}
   
 .result__modal .result {
     background: var(--primary-light);
-    /* height: 300px; */
     padding: 2.5rem;
     width: 100%;
     display: flex;
@@ -171,15 +209,16 @@
 
 
 @media screen and (min-width: 43.75rem) {
-    .board{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
+    .board .game{
+        margin-block-start: 0;
     }
 
     .board .game .square{
         height: 7rem;
+        width: 7rem;
+    }
+
+    .results__footer .score{
         width: 7rem;
     }
 
@@ -194,8 +233,18 @@
         width: 9rem;
     }
 
+    .results__footer .score{
+        width: 9rem;
+    }
+
     .icon > svg{
         width: 3.5rem;
     }
+
+    .result__modal .result {
+        width: 40rem;
+        border-radius: 1rem;
+    }
+    
 }
 
