@@ -9,21 +9,6 @@ export const useGame  = () => {
     const [currentTurn, setCurrentTurn] = useLocalStorage<PlayerSymbol>('currentTurn', initialTurn);
     const [winner, setWinner] = useState<PlayerSymbol | null | false>(null);
     const [isGameOver, setIsGameOver] = useState(false);
-
-    // const checkWinner = (boardToCheck: Array<'X' | 'O' | null>) => {
-    //     for (const combo of WINNER_COMBOS) {
-    //       const [a, b, c] = combo;
-    //       if (
-    //         boardToCheck[a] &&
-    //         boardToCheck[a] === boardToCheck[b] &&
-    //         boardToCheck[a] === boardToCheck[c]
-    //       ) {
-    //         return boardToCheck[a];
-    //       }
-    //     }
-    
-    //     return null;
-    // };
     
     const checkEndGame = (newBoard: Array<'X' | 'O' | null>) => {
       return newBoard.every((square) => square !== null);

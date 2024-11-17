@@ -3,9 +3,10 @@ import { IconLogo, IconO, IconRestart, IconX } from "../Icons/Icons";
 import { Square } from "./Square";
 import { useGame } from "../../hooks/useGame";
 import { PlayerSymbol } from "../../utils/types/types";
+import { Modal } from "./Modal";
 
 export const Game = () => {
-    const {board, currentTurn, updateBoard, resetGame } = useGame();
+    const {board, currentTurn, updateBoard, resetGame, winner } = useGame();
 
     // useEffect(() => {
     //     if (winner !== null || isGameOver) {
@@ -127,6 +128,8 @@ export const Game = () => {
           );
         })}
       </section>
+
+      <Modal winner={winner} />
     </div>
   );
 };

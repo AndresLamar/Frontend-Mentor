@@ -82,6 +82,94 @@
     fill: var(--yellow  );
 }
 
+.result__modal {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    background-color: rgba(0, 0, 0, 0.493);
+  }
+  
+.result__modal .result {
+    background: var(--primary-light);
+    /* height: 300px; */
+    padding: 2.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.3rem;
+}
+
+.result__modal .result .result__text{
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--secondary)
+}
+
+.result__modal .result .result__winner{
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--cyan);
+}
+
+.winner__icon > svg{
+    width: 1.8rem;
+}
+
+.winner__icon > svg > path{
+    fill: var(--cyan);
+}
+
+.result__options{
+    display: flex;
+    gap: 1rem;
+}
+
+.result__options .button{
+    border: none;
+    padding: 0.7rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    color: var(--primary);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 800;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.quit__button{
+    background-color: var(--secondary);
+    box-shadow: 0 4px 0 #536974;
+}
+
+.quit__button:hover,
+.quit__button:focus{
+    background-color: #94a9b3;
+}
+
+
+.next__button{
+    background-color: var(--yellow);
+    box-shadow: 0 4px 0 #cc8b13;
+}
+
+.next__button:hover,
+.next__button:focus{
+    background-color: var(--light-yellow);
+}
+
+
 @media screen and (min-width: 43.75rem) {
     .board{
         display: flex;
@@ -110,3 +198,4 @@
         width: 3.5rem;
     }
 }
+
