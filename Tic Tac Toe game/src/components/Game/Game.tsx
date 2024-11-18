@@ -4,6 +4,8 @@ import { Square } from "./Square";
 import { useGame } from "../../hooks/useGame";
 import { PlayerSymbol } from "../../utils/types/types";
 import { Modal } from "./Modal";
+import { useScoreTracker } from "../../hooks/useScoreTracker";
+import { useEffect } from "react";
 
 // interface GameProps {
 //   initialTurn: PlayerSymbol;
@@ -11,31 +13,33 @@ import { Modal } from "./Modal";
 // }
 
 export const Game = () => {
-    const {board, currentTurn, updateBoard, resetGame, winner } = useGame();
+    const {board, currentTurn, updateBoard, resetGame, winner, isGameOver } = useGame();
+    const { scores, updateScore } = useScoreTracker();
 
-    // useEffect(() => {
-    //     if (winner !== null || isGameOver) {
-    //       if (winner) {
-    //         updateScore(winner);
-    //         if (winner === 'X') setFlashX(true);
-    //         if (winner === 'O') setFlashO(true);
+    useEffect(() => {
+        if (winner !== null || isGameOver) {
+          if (winner) {
+            updateScore(winner);
+            // if (winner === 'X') setFlashX(true);
+            // if (winner === 'O') setFlashO(true);
     
-    //         setTimeout(() => {
-    //           openDialog(`Player ${winner === playerChoice ? '1' : '2'} Wins!`, 'Next Round', 'Quit', winner);
-    //           setFlashX(false);
-    //           setFlashO(false);
-    //         }, 1000);
-    //       } else {
-    //         updateScore(null);
-    //         setFlashTies(true);
+            setTimeout(() => {
+              // openDialog(`Player ${winner === playerChoice ? '1' : '2'} Wins!`, 'Next Round', 'Quit', winner);
+              // setFlashX(false);
+              // setFlashO(false);
+            }, 1000);
+          } else {
+            updateScore(null);
+            // setFlashTies(true);
     
-    //         setTimeout(() => {
-    //           openDialog('Round Tied', 'Next Round', 'Quit', null);
-    //           setFlashTies(false);
-    //         }, 1000);
-    //       }
-    //     }
-    //   }, [winner, isGameOver, gameMode, playerChoice, openDialog, updateScore]);
+            setTimeout(() => {
+              // openDialog('Round Tied', 'Next Round', 'Quit', null);
+              // setFlashTies(false);
+            }, 1000);
+          }
+        }
+      }, [winner, isGameOver, updateScore]);
+
 //   const [board, setBoard] = useState(() => {
 //     const storedBoard = window.localStorage.getItem("board");
 //     return storedBoard ? JSON.parse(storedBoard) : Array(9).fill(null);
@@ -137,15 +141,15 @@ export const Game = () => {
       <footer className="results__footer">
         <div className="score x-score">
           <span>x (you)</span>
-          <span className="number">14</span>
+          <span className="number">{scores.X}</span>
         </div>
         <div className="score ties-score">
           <span>ties</span>
-          <span className="number">32</span>
+          <span className="number">{scores.ties}</span>
         </div>
         <div className="score o-score">
           <span>o (you)</span>
-          <span className="number">11</span>
+          <span className="number">{scores.O}</span>
         </div>
       </footer>
 
