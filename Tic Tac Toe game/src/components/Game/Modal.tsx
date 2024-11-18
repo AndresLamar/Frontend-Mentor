@@ -42,14 +42,6 @@ export const Modal = ({ winner, resetGame, isDialogOpen, message, handleNextRoun
                         {message}
                     </p>
                 )}
-                {/* <h2 className="result__text">
-                    You won!
-                </h2> */}
-                {/* <p className={`result__winner ${winner === PlayerSymbol.X ? 'x-winner' : 'o-winner'}`}>
-                    <span className="winner__icon">
-                        {winner === PlayerSymbol.X ? <IconX/> : <IconO />}
-                    </span> takes the round 
-                </p> */}
 
                 <div className="result__options">
                     <button className="quit__button button" onClick={handleQuitGame} >

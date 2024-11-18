@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
 import { GameMode, PlayerSymbol } from "../utils/types/types";
 import useLocalStorage from "../hooks/useLocalStorage";
   
@@ -48,22 +48,4 @@ export function useGameContext() {
   return useContext(GameContext);
 }
   
-  // Uso en un componente:
-//   const GameControlPanel: React.FC = () => {
-//     const { isGameStarted, setIsGameStarted, gameMode, setGameMode } =
-//       useContext(GameContext);
-  
-//     return (
-//       <div>
-//         <button onClick={() => setIsGameStarted(!isGameStarted)}>
-//           {isGameStarted ? "Stop Game" : "Start Game"}
-//         </button>
-//         <button onClick={() => setGameMode(GameMode.MULTIPLAYER)}>
-//           Switch to Multiplayer
-//         </button>
-//         <p>Game Started: {isGameStarted ? "Yes" : "No"}</p>
-//         <p>Game Mode: {gameMode}</p>
-//       </div>
-//     );
-//   };
   

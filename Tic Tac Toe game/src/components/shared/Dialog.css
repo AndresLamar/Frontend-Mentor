@@ -1,0 +1,16 @@
+.overlay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: transparent;
+    margin: auto;
+    height: auto;
+    width: auto;
+    border: none;
+    /* m-auto h-auto w-auto flex-center text-light-1 overflow-hidden bg-transparent backdrop:bg-dark-4/70 lg:w-full */
+}
+
+.overlay::backdrop{
+    background-color: rgba(0, 0, 0, 0.493);
+}
