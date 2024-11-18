@@ -192,15 +192,26 @@
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
+}
+
+.result__modal .result .result__winner.x-winner{
     color: var(--cyan);
+
+    & > span > svg > path{
+        fill: var(--cyan);
+    }
+}
+
+.result__modal .result .result__winner.o-winner{
+    color: var(--yellow);
+
+    & > span > svg > path{
+        fill: var(--yellow);
+    }
 }
 
 .winner__icon > svg{
     width: 1.8rem;
-}
-
-.winner__icon > svg > path{
-    fill: var(--cyan);
 }
 
 .result__options{

@@ -149,7 +149,7 @@ export const Game = () => {
         </div>
       </footer>
 
-      <Modal winner={winner} />
+      <Modal winner={winner} resetGame={resetGame} />
     </div>
   );
 };
