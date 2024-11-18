@@ -1,37 +1,61 @@
 import { useGameContext } from "../../context/GameContext";
-import { PlayerSymbol } from "../../utils/types/types";
+import { GameMode, PlayerSymbol } from "../../utils/types/types";
 import { IconO, IconX } from "../Icons/Icons"
 
 interface ModalProps{
     winner: PlayerSymbol | null | false;
     resetGame: () => void;
+    isDialogOpen: boolean;
+    message: string;
+    handleNextRound: () => void;
 }
 
-export const Modal = ({ winner, resetGame } : ModalProps) => {    
-    const { setIsGameStarted } = useGameContext()
+export const Modal = ({ winner, resetGame, isDialogOpen, message, handleNextRound } : ModalProps) => {    
+    const { setIsGameStarted, playerChoice, gameMode } = useGameContext()
 
-    if(!winner) return;
+    if(!isDialogOpen) return;
 
     const handleQuitGame = () => {
         resetGame();
         setTimeout(() => setIsGameStarted(false), 0);
     }
 
+    const winningPlayer = winner === playerChoice ? '1' : '2';
+
     return(
         <section className="result__modal">
             <div className="result">
-                <h2 className="result__text">You won!</h2>
-                <p className={`result__winner ${winner === PlayerSymbol.X ? 'x-winner' : 'o-winner'}`}>
+                {winner && gameMode === GameMode.MULTIPLAYER && (
+                    <>
+                        <h2 className="result__text">
+                            Player {winningPlayer} wins!
+                        </h2>
+                        <p className={`result__winner ${winner === PlayerSymbol.X ? 'x-winner' : 'o-winner'}`}>
+                            <span className="winner__icon">
+                            {winner === PlayerSymbol.X ? <IconX/> : <IconO />}
+                            </span> takes the round 
+                         </p>
+                    </>
+                )}
+                {!winner && (
+                    <p className="result__text tied">
+                        {message}
+                    </p>
+                )}
+                {/* <h2 className="result__text">
+                    You won!
+                </h2> */}
+                {/* <p className={`result__winner ${winner === PlayerSymbol.X ? 'x-winner' : 'o-winner'}`}>
                     <span className="winner__icon">
                         {winner === PlayerSymbol.X ? <IconX/> : <IconO />}
                     </span> takes the round 
-                </p>
+                </p> */}
 
                 <div className="result__options">
                     <button className="quit__button button" onClick={handleQuitGame} >
                         quit
                     </button>
-                    <button className="next__button button" onClick={resetGame}>
+                    <button className="next__button button" onClick={handleNextRound}>
                         next round
                     </button>
                 </div>

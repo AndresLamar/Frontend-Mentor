@@ -6,15 +6,24 @@ import { PlayerSymbol } from "../../utils/types/types";
 import { Modal } from "./Modal";
 import { useScoreTracker } from "../../hooks/useScoreTracker";
 import { useEffect } from "react";
+import { useDialog } from "../../hooks/useDialog";
+import { useGameContext } from "../../context/GameContext";
 
-// interface GameProps {
-//   initialTurn: PlayerSymbol;
-//   playerChoice: PlayerSymbol;
-// }
+interface GameProps {
+  restartGame: () => void;
+}
 
-export const Game = () => {
-    const {board, currentTurn, updateBoard, resetGame, winner, isGameOver } = useGame();
+export const Game = ({ restartGame }: GameProps) => {
+    const { board, currentTurn, updateBoard, resetBoard, winner, isGameOver, setCurrentTurn } = useGame();
+    const { playerChoice, initialTurn  } = useGameContext()
     const { scores, updateScore } = useScoreTracker();
+    const { isDialogOpen, dialogMessage, confirmText, cancelText, dialogWinner, isRestartDialog, openDialog, closeDialog } = useDialog();
+
+    const handleNextRound = () => {
+      resetBoard();
+      closeDialog();
+      setCurrentTurn(initialTurn);
+    };
 
     useEffect(() => {
         if (winner !== null || isGameOver) {
@@ -24,18 +33,18 @@ export const Game = () => {
             // if (winner === 'O') setFlashO(true);
     
             setTimeout(() => {
-              // openDialog(`Player ${winner === playerChoice ? '1' : '2'} Wins!`, 'Next Round', 'Quit', winner);
+              openDialog(`Player ${winner === playerChoice ? '1' : '2'} Wins!`, 'Next Round', 'Quit', winner);
               // setFlashX(false);
               // setFlashO(false);
-            }, 1000);
+            }, 500);
           } else {
             updateScore(null);
             // setFlashTies(true);
     
             setTimeout(() => {
-              // openDialog('Round Tied', 'Next Round', 'Quit', null);
+              openDialog('Round Tied', 'Next Round', 'Quit', null);
               // setFlashTies(false);
-            }, 1000);
+            }, 500);
           }
         }
       }, [winner, isGameOver, updateScore]);
@@ -114,7 +123,7 @@ export const Game = () => {
           </span>
         )}
 
-        <button onClick={resetGame} className="restart__button">
+        <button onClick={resetBoard} className="restart__button">
           <IconRestart />
         </button>
       </header>
@@ -153,7 +162,7 @@ export const Game = () => {
         </div>
       </footer>
 
-      <Modal winner={winner} resetGame={resetGame} />
+      <Modal isDialogOpen={isDialogOpen} winner={winner} resetGame={restartGame} message={dialogMessage} handleNextRound={handleNextRound} />
     </div>
   );
 };

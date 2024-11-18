@@ -8,7 +8,7 @@ interface Scores {
 }
 
 export const useScoreTracker = () => {
-  const [scores, setScores] = useLocalStorage<Scores>('scores', { X: 0, O: 0, ties: 0 });
+  const [scores, setScores, removeScoresFromStorage ] = useLocalStorage<Scores>('scores', { X: 0, O: 0, ties: 0 });
 
   const updateScore = useCallback(
     (winner: 'X' | 'O' | null) => {
@@ -28,5 +28,6 @@ export const useScoreTracker = () => {
   return {
     scores,
     updateScore,
+    removeScoresFromStorage
   };
 };

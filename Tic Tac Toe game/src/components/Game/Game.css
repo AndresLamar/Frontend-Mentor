@@ -182,7 +182,11 @@
     font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
-    color: var(--secondary)
+    color: var(--secondary);
+
+    &.tied{
+        font-size: 1.5rem;
+    }
 }
 
 .result__modal .result .result__winner{
