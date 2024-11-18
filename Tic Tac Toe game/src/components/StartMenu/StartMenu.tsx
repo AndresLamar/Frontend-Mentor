@@ -1,14 +1,17 @@
 import { useState } from 'react';
 import { IconLogo, IconO, IconX } from '../Icons/Icons'
 import './StartMenu.css'
+import { GameMode, PlayerSymbol } from '../../utils/types/types';
 
-export type PlayerSymbol = "X" | "O";
+interface StartMenuProps{
+    startGame: (mode: GameMode, choice: PlayerSymbol) => void;
+}
 
-export const StartMenu = () => {    
-    const [selectedSymbols, setSelectedSymbols] = useState<PlayerSymbol>("X");
+export const StartMenu = ({ startGame } : StartMenuProps) => {    
+    const [selectedSymbol, setSelectedSymbol] = useState<PlayerSymbol>(PlayerSymbol.X);
 
     const handleSymbolClick = (newSymbol: PlayerSymbol): void => {
-        setSelectedSymbols(newSymbol);
+        setSelectedSymbol(newSymbol);
     };
 
     return (
@@ -20,11 +23,11 @@ export const StartMenu = () => {
             <div className="card">
                 <h1 className='card__title'>Pick player 1´s mark </h1>
                 <div className="card__options">
-                    <button aria-checked={selectedSymbols === "X"} 
-                    onClick={() => handleSymbolClick("X")} className='card__option x-option'>
+                    <button aria-checked={selectedSymbol === "X"} 
+                    onClick={() => handleSymbolClick(PlayerSymbol.X)} className='card__option x-option'>
                         <IconX/>
                     </button>
-                    <button aria-checked={selectedSymbols === "O"} onClick={() => handleSymbolClick("O")} className='card__option o-option'>
+                    <button aria-checked={selectedSymbol === "O"} onClick={() => handleSymbolClick(PlayerSymbol.O)} className='card__option o-option'>
                         <IconO/>
                     </button>
                 </div>
@@ -32,8 +35,18 @@ export const StartMenu = () => {
             </div>
 
             <div className="start-game__buttons">
-                <button className='new-game__button button-cpu'>new game (vs cpu)</button>
-                <button className='new-game__button button-player'>new game (vs player)</button>
+                <button 
+                    className='new-game__button button-cpu'
+                    onClick={() => startGame(GameMode.CPU, selectedSymbol)}
+                >
+                    new game (vs cpu)
+                </button>
+                <button 
+                    className='new-game__button button-player' 
+                    onClick={() => startGame(GameMode.MULTIPLAYER, selectedSymbol)}
+                >
+                    new game (vs player)
+                </button>
             </div>
         </div>
     )

@@ -61,14 +61,49 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 4rem;
-    font-weight: 600;
     background-color: var(--primary-light);
     height: 6rem;
     width: 6rem;
     color: var(--secondary);
     border-radius: 0.5rem;
     box-shadow: inset 0 -6px 0 #10212a;
+    position: relative;
+
+    &::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 60%;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    &.x-hover::before{
+        background-image: url('../../assets/icon-x-outline.svg');
+    }
+
+    &.o-hover::before{
+        background-image: url('../../assets/icon-o-outline.svg');
+    }   
+
+    &:hover::before{
+        opacity: 1;
+    }
+
+    &.occupied {
+        background-image: none;
+        cursor: default;
+        pointer-events: none;
+        
+        &::before {
+          opacity: 0;
+        }
+    }
 }
 
 .icon > svg{
@@ -80,7 +115,7 @@
 }
 
 .icon-o > svg > path{
-    fill: var(--yellow  );
+    fill: var(--yellow);
 }
 
 .results__footer{
@@ -238,7 +273,7 @@
     }
 
     .icon > svg{
-        width: 3.5rem;
+        width: 5rem;
     }
 
     .result__modal .result {

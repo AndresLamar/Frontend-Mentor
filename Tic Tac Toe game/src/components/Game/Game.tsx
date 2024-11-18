@@ -5,6 +5,11 @@ import { useGame } from "../../hooks/useGame";
 import { PlayerSymbol } from "../../utils/types/types";
 import { Modal } from "./Modal";
 
+// interface GameProps {
+//   initialTurn: PlayerSymbol;
+//   playerChoice: PlayerSymbol;
+// }
+
 export const Game = () => {
     const {board, currentTurn, updateBoard, resetGame, winner } = useGame();
 
@@ -113,7 +118,7 @@ export const Game = () => {
       <section className="game">
         {board.map((_, index) => {
           return (
-            <Square key={index} updateBoard={updateBoard} index={index}>
+            <Square key={index} updateBoard={updateBoard} index={index} className={`${_ ? 'ocuppied' : `${currentTurn === PlayerSymbol.X ? 'x-hover' : 'o-hover'}`}`} >
               {board[index] == PlayerSymbol.X ?
                 <div className="icon-x icon">
                     <IconX />

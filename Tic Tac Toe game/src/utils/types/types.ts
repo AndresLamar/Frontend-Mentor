@@ -3,3 +3,8 @@ export enum PlayerSymbol {
     O = "O",
 }
   
+
+export enum GameMode {
+    CPU = "Cpu",
+    MULTIPLAYER = "Multiplayer",
+}
