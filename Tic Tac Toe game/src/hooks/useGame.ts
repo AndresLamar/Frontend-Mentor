@@ -4,9 +4,9 @@ import useLocalStorage from "./useLocalStorage"
 import { checkWinner } from "../utils/logic/logic";
 
 export const useGame  = () => {
-    const [board, setBoard] = useLocalStorage<Array<'X' | 'O' | null>>('board', Array(9).fill(null));
+    const [board, setBoard, removeBoardFromStorage] = useLocalStorage<Array<'X' | 'O' | null>>('board', Array(9).fill(null));
     const [initialTurn, setInitialTurn] = useLocalStorage<PlayerSymbol>('initialTurn', PlayerSymbol.X);
-    const [currentTurn, setCurrentTurn] = useLocalStorage<PlayerSymbol>('currentTurn', initialTurn);
+    const [currentTurn, setCurrentTurn, removeCurrentPlayerFromStorage] = useLocalStorage<PlayerSymbol>('currentTurn', initialTurn);
     const [winner, setWinner] = useState<PlayerSymbol | null | false>(null);
     const [isGameOver, setIsGameOver] = useState(false);
     
@@ -35,7 +35,7 @@ export const useGame  = () => {
         }
     }, [board, currentTurn, isGameOver, setCurrentTurn, setInitialTurn]);
 
-    const resetGame = useCallback(() => {
+    const resetBoard = useCallback(() => {
         setBoard(Array(9).fill(null));
         setWinner(null);
         setInitialTurn(PlayerSymbol.X);
@@ -46,10 +46,12 @@ export const useGame  = () => {
     return {
         currentTurn,
         setCurrentTurn,
+        removeCurrentPlayerFromStorage,
         board,
         winner,
         updateBoard,
-        resetGame,
+        removeBoardFromStorage,
+        resetBoard,
         initialTurn,
         isGameOver
       };

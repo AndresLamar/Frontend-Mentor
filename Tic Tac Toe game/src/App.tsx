@@ -2,11 +2,13 @@ import './App.css'
 import { Game, StartMenu } from './components'
 import { useGameContext } from './context/GameContext'
 import { useGame } from './hooks/useGame';
+import { useScoreTracker } from './hooks/useScoreTracker';
 import { GameMode, PlayerSymbol } from './utils/types/types';
 
 function App() {
-  const { setGameMode, isGameStarted, setIsGameStarted, setPlayerChoice, setInitialTurn } = useGameContext();
-  const {} = useGame()
+  const { setGameMode, removeGameModeFromStorage, isGameStarted, setIsGameStarted, removeGameStartedFromStorage, setPlayerChoice, setInitialTurn, removeInitialPlayer, removePlayerChoiceFromStorage } = useGameContext();
+  const { removeCurrentPlayerFromStorage, removeBoardFromStorage } = useGame()
+  const { removeScoresFromStorage } = useScoreTracker()
 
   const startGame = (mode: GameMode, choice: PlayerSymbol) => {
     setGameMode(mode);
@@ -16,13 +18,24 @@ function App() {
     setInitialTurn(PlayerSymbol.X);
   };
 
+  const restartGame = () => {
+    setIsGameStarted(false);
+    removeInitialPlayer();
+    removeGameStartedFromStorage();
+    removeGameModeFromStorage();
+    removePlayerChoiceFromStorage();
+    removeCurrentPlayerFromStorage();
+    removeScoresFromStorage();
+    removeBoardFromStorage();
+  };
+
 
   return (
     <>
     <main>
       {
         isGameStarted ? (
-          <Game />
+          <Game restartGame={restartGame}/>
         ) : (
           <StartMenu startGame={startGame} /> 
         )
