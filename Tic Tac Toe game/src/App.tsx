@@ -7,14 +7,14 @@ import { GameMode, PlayerSymbol } from './utils/types/types';
 
 function App() {
   const { setGameMode, removeGameModeFromStorage, isGameStarted, setIsGameStarted, removeGameStartedFromStorage, setPlayerChoice, setInitialTurn, removeInitialPlayer, removePlayerChoiceFromStorage } = useGameContext();
-  const { removeCurrentPlayerFromStorage, removeBoardFromStorage } = useGame()
-  const { removeScoresFromStorage } = useScoreTracker()
+  const { removeCurrentPlayerFromStorage, removeBoardFromStorage } = useGame();
+  const { removeScoresFromStorage } = useScoreTracker();
+
 
   const startGame = (mode: GameMode, choice: PlayerSymbol) => {
     setGameMode(mode);
     setIsGameStarted(true);
     setPlayerChoice(choice);
-    // setGameMode(mode);
     setInitialTurn(PlayerSymbol.X);
   };
 

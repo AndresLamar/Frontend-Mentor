@@ -14,3 +14,12 @@ export const checkWinner = (boardToCheck: Array<'X' | 'O' | null>): { winner: 'X
 
     return {winner: null};
 };
+
+export const getRandomMove = (boardToCheck: Array<'X' | 'O' | null>): number | null => {
+  const emptyCells = boardToCheck.map((cell, index) => (cell === null ? index : null)).filter((index) => index !== null);
+  if (emptyCells.length === 0) {
+    return null; // Return null if no empty cells are found
+  } else {
+    return emptyCells[Math.floor(Math.random() * emptyCells.length)] as number; // Return random empty cell index
+  }
+};

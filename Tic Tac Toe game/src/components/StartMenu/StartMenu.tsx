@@ -1,6 +1,6 @@
 import './StartMenu.css'
 import { IconLogo, IconO, IconX } from '../Icons/Icons'
-import { GameMode, PlayerSymbol } from '../../utils/types/types';
+import { CpuDificulty, GameMode, PlayerSymbol } from '../../utils/types/types';
 import { useGameContext } from '../../context/GameContext';
 import { Dialog } from '../shared/Dialog';
 import { useState } from 'react';
@@ -11,7 +11,7 @@ interface StartMenuProps{
 
 export const StartMenu = ({ startGame } : StartMenuProps) => {    
     const [selectLevel, setSelectLevel] = useState(false)
-    const { playerChoice, setPlayerChoice } = useGameContext();    
+    const { playerChoice, setPlayerChoice, setCpuLevel  } = useGameContext();    
 
     const closeModal = () => {
         setSelectLevel(false)
@@ -21,9 +21,13 @@ export const StartMenu = ({ startGame } : StartMenuProps) => {
         setPlayerChoice(newSymbol);
     };
 
-    const handleNewCpuGame = () => {
+    const handleOpenLevelsDialog = () => {
         setSelectLevel(true);
-        // startGame(GameMode.CPU, playerChoice);
+    };
+
+    const handleNewCpuGame = ( Dificulty: CpuDificulty) => {
+        setCpuLevel(Dificulty)
+        startGame(GameMode.CPU, playerChoice);
     };
 
     return (
@@ -49,7 +53,7 @@ export const StartMenu = ({ startGame } : StartMenuProps) => {
             <div className="start-game__buttons">
                 <button 
                     className='new-game__button button-cpu'
-                    onClick={handleNewCpuGame}
+                    onClick={handleOpenLevelsDialog}
                 >
                     new game (vs cpu)
                 </button>
@@ -66,16 +70,16 @@ export const StartMenu = ({ startGame } : StartMenuProps) => {
                     <div className="wrapper">
                         <h2 className="level__title">Select cpu level</h2>
                         <div className="level__options">
-                            <button className='level__button easy'>
+                            <button className='level__button easy' onClick={() => handleNewCpuGame(CpuDificulty.EASY)}>
                                 Easy
                             </button>
 
-                            <button className='level__button medium'>
+                            <button className='level__button medium' onClick={() => handleNewCpuGame(CpuDificulty.MEDIUM)}>
                                 Medium
                             </button>
                             
-                            <button className='level__button dificult'>
-                                Dificult
+                            <button className='level__button dificult' onClick={() => handleNewCpuGame(CpuDificulty.DIFFICULT)}>
+                                Difficult
                             </button>
                         </div>
                     </div>    
