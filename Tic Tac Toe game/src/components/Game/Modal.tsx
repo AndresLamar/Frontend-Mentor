@@ -25,17 +25,25 @@ export const Modal = ({ winner, resetGame, isDialogOpen, message, handleNextRoun
     return(
         <section className="result__modal">
             <div className="result">
-                {winner && gameMode === GameMode.MULTIPLAYER && (
+                {winner && (
                     <>
+                    {gameMode === GameMode.MULTIPLAYER ? (
                         <h2 className="result__text">
                             Player {winningPlayer} wins!
                         </h2>
-                        <p className={`result__winner ${winner === PlayerSymbol.X ? 'x-winner' : 'o-winner'}`}>
-                            <span className="winner__icon">
-                            {winner === PlayerSymbol.X ? <IconX/> : <IconO />}
-                            </span> takes the round 
-                         </p>
+                    ) : (
+                        <h2 className="result__text">
+                            {winner === playerChoice ? 'You won!' : 'Oh no, you lost...'}
+                        </h2>
+                    )}
                     </>
+                )}
+                {winner && (
+                    <p className={`result__winner ${winner === PlayerSymbol.X ? 'x-winner' : 'o-winner'}`}>
+                        <span className="winner__icon">
+                        {winner === PlayerSymbol.X ? <IconX/> : <IconO />}
+                        </span> takes the round 
+                    </p>
                 )}
                 {!winner && (
                     <p className="result__text tied">
