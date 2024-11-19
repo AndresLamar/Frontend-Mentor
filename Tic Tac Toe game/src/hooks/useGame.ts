@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react"
 import { CpuDificulty, GameMode, PlayerSymbol } from "../utils/types/types"
 import useLocalStorage from "./useLocalStorage"
-import { checkWinner, getBestMove, getBlockingMove, getRandomMove } from "../utils/logic/logic";
+import { checkEndGame, checkWinner, getBestMove, getMinimaxMove, getRandomMove } from "../utils/logic/logic";
 import { useGameContext } from "../context/GameContext";
 
 export const useGame  = () => {
@@ -12,10 +12,6 @@ export const useGame  = () => {
     const [isGameOver, setIsGameOver] = useState(false);
 
     const { cpuLevel, playerChoice, gameMode,  } = useGameContext();
-    
-    const checkEndGame = (newBoard: Array<'X' | 'O' | null>) => {
-      return newBoard.every((square) => square !== null);
-    };
 
     const updateBoard = useCallback((index: number) => {
         if (board[index] || isGameOver) return;
@@ -59,6 +55,11 @@ export const useGame  = () => {
             }
           } else if (cpuLevel == CpuDificulty.MEDIUM) {
             const move = getBestMove(board, playerChoice, cpuPlayer ); // Obtenemos un movimiento aleatorio
+            if (move !== null) { // Verificamos que no sea `null`
+                setTimeout(() => updateBoard(move), 500);
+            }
+          } else if (cpuLevel == CpuDificulty.DIFFICULT) {
+            const move = getMinimaxMove(board, playerChoice, cpuPlayer ); // Obtenemos un movimiento aleatorio
             if (move !== null) { // Verificamos que no sea `null`
                 setTimeout(() => updateBoard(move), 500);
             }
