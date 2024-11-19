@@ -23,3 +23,33 @@ export const getRandomMove = (boardToCheck: Array<'X' | 'O' | null>): number | n
     return emptyCells[Math.floor(Math.random() * emptyCells.length)] as number; // Return random empty cell index
   }
 };
+
+
+export const getBlockingMove = (board: Array<'X' | 'O' | null>, playerSymbol: string): number | null => {
+  for (let combo of WINNER_COMBOS) {
+    const [a, b, c] = combo;
+    const line = [board[a], board[b], board[c]];
+
+    if (line.filter((cell) => cell === playerSymbol).length === 2 && line.includes(null)) {
+      return combo[line.indexOf(null)];
+    }
+  }
+
+  return null;
+};
+
+export const getBestMove = (board: Array<'X' | 'O' | null>, playerSymbol: string, cpuSymbol: string): number | null=> {
+  // Intentar ganar
+  const winningMove = getBlockingMove(board, cpuSymbol);
+  if (winningMove !== null) return winningMove;
+
+  // Intentar bloquear
+  const blockingMove = getBlockingMove(board, playerSymbol);
+  if (blockingMove !== null) return blockingMove;
+
+  // Movimiento aleatorio
+  const randomMove = getRandomMove(board);
+  if(randomMove !== null) return randomMove
+
+  return null
+};

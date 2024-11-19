@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react"
 import { CpuDificulty, GameMode, PlayerSymbol } from "../utils/types/types"
 import useLocalStorage from "./useLocalStorage"
-import { checkWinner, getRandomMove } from "../utils/logic/logic";
+import { checkWinner, getBestMove, getBlockingMove, getRandomMove } from "../utils/logic/logic";
 import { useGameContext } from "../context/GameContext";
 
 export const useGame  = () => {
@@ -54,6 +54,11 @@ export const useGame  = () => {
         //   const bestMove = getRandomMove([...board], cpuPlayer, playerChoice);
           if (cpuLevel == CpuDificulty.EASY) {
             const move = getRandomMove(board); // Obtenemos un movimiento aleatorio
+            if (move !== null) { // Verificamos que no sea `null`
+                setTimeout(() => updateBoard(move), 500);
+            }
+          } else if (cpuLevel == CpuDificulty.MEDIUM) {
+            const move = getBestMove(board, playerChoice, cpuPlayer ); // Obtenemos un movimiento aleatorio
             if (move !== null) { // Verificamos que no sea `null`
                 setTimeout(() => updateBoard(move), 500);
             }
