@@ -2,7 +2,7 @@ import "./Game.css";
 import { IconLogo, IconO, IconRestart, IconX } from "../Icons/Icons";
 import { Square } from "./Square";
 import { useGame } from "../../hooks/useGame";
-import { PlayerSymbol } from "../../utils/types/types";
+import { GameMode, PlayerSymbol } from "../../utils/types/types";
 import { Modal } from "./Modal";
 import { useScoreTracker } from "../../hooks/useScoreTracker";
 import { useEffect } from "react";
@@ -15,7 +15,7 @@ interface GameProps {
 
 export const Game = ({ restartGame }: GameProps) => {
     const { board, currentTurn, updateBoard, resetBoard, winner, isGameOver, setCurrentTurn } = useGame();
-    const { playerChoice, initialTurn  } = useGameContext()
+    const { playerChoice, initialTurn, gameMode  } = useGameContext()
     const { scores, updateScore } = useScoreTracker();
     const { isDialogOpen, dialogMessage, openDialog, closeDialog } = useDialog();
 
@@ -29,21 +29,15 @@ export const Game = ({ restartGame }: GameProps) => {
         if (winner !== null || isGameOver) {
           if (winner) {
             updateScore(winner);
-            // if (winner === 'X') setFlashX(true);
-            // if (winner === 'O') setFlashO(true);
     
             setTimeout(() => {
               openDialog(`Player ${winner === playerChoice ? '1' : '2'} Wins!`, 'Next Round', 'Quit', winner);
-              // setFlashX(false);
-              // setFlashO(false);
             }, 500);
           } else {
             updateScore(null);
-            // setFlashTies(true);
     
             setTimeout(() => {
               openDialog('Round Tied', 'Next Round', 'Quit', null);
-              // setFlashTies(false);
             }, 500);
           }
         }
@@ -90,18 +84,38 @@ export const Game = ({ restartGame }: GameProps) => {
       </section>
 
       <footer className="results__footer">
-        <div className="score x-score">
-          <span>x (you)</span>
-          <span className="number">{scores.X}</span>
-        </div>
-        <div className="score ties-score">
-          <span>ties</span>
-          <span className="number">{scores.ties}</span>
-        </div>
-        <div className="score o-score">
-          <span>o (you)</span>
-          <span className="number">{scores.O}</span>
-        </div>
+        {gameMode === GameMode.MULTIPLAYER ? (
+            <>
+              <div className="score x-score">
+                <span>{playerChoice === PlayerSymbol.X ? 'x (P1)' : 'x(P2)'}</span>
+                <span className="number">{scores.X}</span>
+              </div>
+              <div className="score ties-score">
+                <span>ties</span>
+                <span className="number">{scores.ties}</span>
+              </div>
+              <div className="score o-score">
+                <span>{playerChoice === PlayerSymbol.O ? 'o (P1)' : 'o(p2)'}</span>
+                <span className="number">{scores.O}</span>
+              </div>
+            </>
+          ) : 
+            <>
+              <div className="score x-score">
+                <span>{playerChoice === PlayerSymbol.X ? 'x (you)' : 'x'}</span>
+                <span className="number">{scores.X}</span>
+              </div>
+              <div className="score ties-score">
+                <span>ties</span>
+                <span className="number">{scores.ties}</span>
+              </div>
+              <div className="score o-score">
+                <span>{playerChoice === PlayerSymbol.O ? 'o (you))' : 'o'}</span>
+                <span className="number">{scores.O}</span>
+              </div>
+            </>
+          }
+        
       </footer>
 
       <Modal isDialogOpen={isDialogOpen} winner={winner} resetGame={restartGame} message={dialogMessage} handleNextRound={handleNextRound} />
