@@ -48,6 +48,8 @@ Projects completed:
 
 * [Body Mass Index Calculator](https://body-mass-calculatorr.netlify.app/)
 
+* [Tic Tac Toe](https://tic-tacc-toe-al.netlify.app/)
+
 
 
 
