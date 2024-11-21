@@ -47,7 +47,6 @@ export const useGame  = () => {
     
         // If in CPU mode and it's CPU's turn
         if (gameMode === GameMode.CPU && currentTurn === cpuPlayer && !isGameOver && !winner) {
-        //   const bestMove = getRandomMove([...board], cpuPlayer, playerChoice);
           if (cpuLevel == CpuDificulty.EASY) {
             const move = getRandomMove(board); // Obtenemos un movimiento aleatorio
             if (move !== null) { // Verificamos que no sea `null`
