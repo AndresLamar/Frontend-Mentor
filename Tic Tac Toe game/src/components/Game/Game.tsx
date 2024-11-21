@@ -1,5 +1,5 @@
 import "./Game.css";
-import { IconLogo, IconO, IconRestart, IconX } from "../Icons/Icons";
+import { IconO, IconX } from "../Icons/Icons";
 import { Square } from "./Square";
 import { useGame } from "../../hooks/useGame";
 import { GameMode, PlayerSymbol } from "../../utils/types/types";
@@ -8,6 +8,7 @@ import { useScoreTracker } from "../../hooks/useScoreTracker";
 import { useEffect } from "react";
 import { useDialog } from "../../hooks/useDialog";
 import { useGameContext } from "../../context/GameContext";
+import { BoardHeader } from "./BoardHeader";
 
 interface GameProps {
   restartGame: () => void;
@@ -45,24 +46,7 @@ export const Game = ({ restartGame }: GameProps) => {
 
   return (
     <div className="board">
-      <header className="board__header">
-        <div className="game__logo">
-          <IconLogo />
-        </div>
-        {currentTurn == PlayerSymbol.X ? (
-          <span className="turn__text">
-            <IconX /> turn
-          </span>
-        ) : (
-          <span className="turn__text">
-            <IconO /> turn
-          </span>
-        )}
-
-        <button onClick={resetBoard} className="restart__button">
-          <IconRestart />
-        </button>
-      </header>
+      <BoardHeader resetBoard={resetBoard}/>
 
       <section className="game">
         {board.map((_, index) => {
