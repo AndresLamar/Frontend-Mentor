@@ -50,6 +50,8 @@ Projects completed:
 
 * [Tic Tac Toe](https://tic-tacc-toe-al.netlify.app/)
 
+* [NFT Preview Card Component](https://andreslamar.github.io/Frontend-Mentor/nft-preview-card-component/)
+
 
 
 
