@@ -208,3 +208,15 @@ body{
 .c-card__hero-name:hover{
     color: var(--primary-Cyan);
 }
+
+.attribution{
+    color: var(--primary-Soft-blue);
+    text-align: center;
+
+    & a{
+        color: var(--primary-Cyan);
+        text-decoration: none;
+        font-weight: var(--font-weight-600);
+        cursor: pointer;
+    }
+}
