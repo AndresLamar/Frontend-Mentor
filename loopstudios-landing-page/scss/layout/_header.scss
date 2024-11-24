@@ -1,0 +1,21 @@
+@use '../abstracts/mixins' as m;
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1.5rem;    
+
+    @include m.breakpoint("large"){
+        padding: 3rem 10rem;
+    }
+
+    .logo{
+        width: 8rem;
+
+        @include m.breakpoint("middle"){
+            width: 12rem;
+        }
+    }
+}
+
