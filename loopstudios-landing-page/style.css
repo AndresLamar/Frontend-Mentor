@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+/* body {
+    min-height: 100dvh;
+} */
+
+input, button, textarea, select {
+    text-wrap: inherit;
+}
+
+img, video, svg {
+    height: auto;
+    max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce){
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition: none;
+    }
+}
+
+body.menu-open{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+body.menu-open::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+header .logo{
+    width: 2.5rem;
+}
+
+header .c-nav .c-nav__menu{
+    position: fixed;
+    width: 70%;
+    height: 100vh;
+    right: 0;
+    top: 0;
+    padding: 1.5rem;
+    background-color: var(--Off-white);
+    translate: 100vw 0;
+    transition: translate 0.5s ease-in-out;
+}
+
+header .c-nav .c-nav__menu .c-nav__links{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+header .c-nav .c-nav__menu button,
+header .c-nav button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+header .c-nav .c-nav__menu-open-button[aria-expanded="true"] + .c-nav__menu{
+    translate: 0;
+}
+
+header .c-nav .c-nav__menu .c-nav__menu-close-button{
+    display: block;
+    margin-inline-start: auto;
+    margin-block-end: 8rem;
+}
+
+header .c-nav .c-nav__menu .c-nav__links .c-nav__item > a{
+    text-decoration: none;
+    color: var(--Very-dark-blue);
+    font-size: 1rem;
+    font-weight: var(--font-weight-700);
+    transition: color 0.3s ease;
+}
+
+header .c-nav .c-nav__menu .c-nav__links .c-nav__item > a:hover,
+header .c-nav .c-nav__menu .c-nav__links .c-nav__item > a:focus{
+    color: var(--Soft-red);
+}
+
+@media screen and (min-width: 48rem){
+    body{
+        display: grid;
+        place-content: center;
+    }
+
+    header{
+        margin-bottom: 4rem;
+    }
+    
+    header .logo{
+        width: 4.5rem;
+    }
+
+    header nav button,
+    header .c-nav .c-nav__menu .c-nav__menu-close-button{
+        display: none;
+    }
+
+    header .c-nav .c-nav__menu{
+        position: static;
+        height: 0;
+        inset: unset;
+        background-color: unset;
+        translate: unset;
+    }
+
+    header .c-nav .c-nav__menu .c-nav__links{
+        flex-direction: row;
+        gap: 2.5rem;
+    }
+}

@@ -4,18 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Loopstudios landing page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./scss/style.css">
+
+  <script type="module" src="scipt.js"></script>
+  
+  <title>Loopstudios landing page | Frontend Mentor </title>
 </head>
 <body>
-  About
+  <header>
+    <img src="./images/logo.svg" alt="logo" width="192" height="32" class="logo" />
+
+    <nav class="l-nav">
+      <span id="l-nav__label" hidden>Navigation</span>
+      <button
+        id="btnOpen"
+        class="l-nav__menu-open-button"
+        aria-expanded="false"
+        aria-labelledby="l-nav__label"
+      >
+        <img
+          src="./images/icon-hamburger.svg"
+          alt=""
+          width="24" 
+          height="16"
+        />
+      </button>
+      <div class="l-nav__menu js-menu" role="dialog" aria-labelledby="l-nav__label">
+        <button
+          id="btnClose" 
+          class="l-nav__menu-close-button"
+          aria-label="Close"
+        >
+          <img
+            src="./images/icon-close.svg"
+            alt=""
+            width="20" 
+            height="20"
+          />
+        </button>
+        <ul class="l-nav__links">
+          <li class="l-nav__item"><a href="#">About</a></li>
+          <li class="l-nav__item"><a href="#">Careers</a></li>
+          <li class="l-nav__item"><a href="#">Events</a></li>
+          <li class="l-nav__item"><a href="#">Products</a></li>
+          <li class="l-nav__item"><a href="#">Support</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main></main>
+
+  <footer></footer>
+
+  <!-- About
   Careers
   Events
   Products
@@ -49,11 +96,11 @@
   Products
   Support
 
-  © 2021 Loopstudios. All rights reserved.
+  © 2021 Loopstudios. All rights reserved. -->
 
-  <div class="attribution">
+  <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
-  </div>
+  </div> -->
 </body>
 </html>
