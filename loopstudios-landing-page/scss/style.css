@@ -69,6 +69,11 @@ body.menu-open header .logo {
   gap: 1.5rem;
   list-style: none;
 }
+@media (min-width: 43.75em) {
+  .l-nav .l-nav__menu .l-nav__links {
+    gap: 1rem;
+  }
+}
 .l-nav .l-nav__menu .l-nav__links .l-nav__item > a {
   text-decoration: none;
   text-transform: uppercase;
@@ -76,6 +81,12 @@ body.menu-open header .logo {
   font-size: 1.5rem;
   font-weight: 200;
   transition: color 0.3s ease;
+}
+@media (min-width: 43.75em) {
+  .l-nav .l-nav__menu .l-nav__links .l-nav__item > a {
+    text-transform: unset;
+    font-size: 1rem;
+  }
 }
 .l-nav .l-nav__menu .l-nav__menu-close-button {
   display: block;
