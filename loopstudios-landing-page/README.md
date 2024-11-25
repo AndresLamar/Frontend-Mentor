@@ -35,7 +35,7 @@ Users should be able to:
 
 ### Links
 
-- [Solution URL](https://your-solution-url.com)
+- [Solution URL](https://www.frontendmentor.io/solutions/loopstudios-landing-page-lR8hXIAhbK)
 - [Live Site](https://andreslamar.github.io/Frontend-Mentor/loopstudios-landing-page/)
 
 ## My process
