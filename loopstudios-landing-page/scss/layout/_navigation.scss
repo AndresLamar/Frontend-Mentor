@@ -39,10 +39,28 @@ body.menu-open{
                 font-size: 1.5rem;
                 font-weight: 200;
                 transition: color 0.3s ease;
+                position: relative;
 
                 @include m.breakpoint("middle"){
                     text-transform: unset;
                     font-size: 1rem;
+
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        bottom: -8px;
+                        left: 50%;
+                        transform: translate(-50%);
+                        width: 0;
+                        height: 2px;
+                        background-color: v.$color-primary-White;
+                        transition: width .27s ease-in-out;
+                    }
+
+                    &:hover::after,
+                    &:focus::after{
+                        width: 24px;
+                    }
                 }
             }
         }
@@ -67,7 +85,7 @@ body.menu-open{
 
 .l-nav .l-nav__menu .l-nav__links .l-nav__item > a:hover,
 .l-nav .l-nav__menu .l-nav__links .l-nav__item > a:focus{
-    color: var(--Soft-red);
+    color: v.$color-primary-White;
 }
 
 

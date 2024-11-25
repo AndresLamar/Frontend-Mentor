@@ -81,11 +81,26 @@ body.menu-open header .logo {
   font-size: 1.5rem;
   font-weight: 200;
   transition: color 0.3s ease;
+  position: relative;
 }
 @media (min-width: 43.75em) {
   .l-nav .l-nav__menu .l-nav__links .l-nav__item > a {
     text-transform: unset;
     font-size: 1rem;
+  }
+  .l-nav .l-nav__menu .l-nav__links .l-nav__item > a::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 0;
+    height: 2px;
+    background-color: hsl(0, 0%, 100%);
+    transition: width 0.27s ease-in-out;
+  }
+  .l-nav .l-nav__menu .l-nav__links .l-nav__item > a:hover::after, .l-nav .l-nav__menu .l-nav__links .l-nav__item > a:focus::after {
+    width: 24px;
   }
 }
 .l-nav .l-nav__menu .l-nav__menu-close-button {
@@ -105,7 +120,7 @@ body.menu-open header .logo {
 
 .l-nav .l-nav__menu .l-nav__links .l-nav__item > a:hover,
 .l-nav .l-nav__menu .l-nav__links .l-nav__item > a:focus {
-  color: var(--Soft-red);
+  color: hsl(0, 0%, 100%);
 }
 
 @media screen and (min-width: 48rem) {
