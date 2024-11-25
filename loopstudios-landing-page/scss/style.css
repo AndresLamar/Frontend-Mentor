@@ -166,6 +166,7 @@ header .logo {
     background-size: 100% 34rem;
     place-items: flex-start;
     padding: 10rem;
+    min-height: unset;
   }
 }
 .c-hero .c-hero__description {
@@ -183,5 +184,71 @@ header .logo {
     max-width: 28rem;
     padding: 2rem;
     margin-block-start: 2rem;
+  }
+}
+
+.c-company {
+  display: grid;
+  justify-items: center;
+  padding: 1.5rem;
+  margin-block-start: 5rem;
+  text-align: center;
+}
+@media (min-width: 75em) {
+  .c-company {
+    grid-template-columns: repeat(12, 1fr);
+    padding: 10rem;
+    margin-block-start: 0rem;
+    text-align: start;
+  }
+}
+@media (min-width: 75em) {
+  .c-company picture {
+    grid-column: 1/9;
+    grid-row: 1;
+  }
+}
+.c-company__image {
+  aspect-ratio: 654/448;
+}
+.c-company__description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-block-start: 2rem;
+  max-width: 28rem;
+}
+@media (min-width: 75em) {
+  .c-company__description {
+    grid-column: 7/-1;
+    grid-row: 1;
+    align-self: end;
+    background-color: hsl(0, 0%, 100%);
+    padding: 4rem 0 0 4rem;
+    max-width: unset;
+  }
+}
+.c-company__title {
+  font-size: 2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+@media (min-width: 75em) {
+  .c-company__title {
+    font-size: 2.5rem;
+  }
+}
+.c-company__description-text {
+  font-family: "Alata", serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: hsl(0, 0%, 55%);
+  margin-block-start: 1rem;
+  max-width: 18rem;
+}
+@media (min-width: 75em) {
+  .c-company__description-text {
+    max-width: unset;
   }
 }/*# sourceMappingURL=style.css.map */
