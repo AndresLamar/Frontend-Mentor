@@ -3,13 +3,30 @@
 
 .c-card{
     position: relative;
+    cursor: pointer;
 
     &::before{
         content: "";
         position: absolute;
         inset: 0;
-        
         box-shadow: inset 0px -88px 70px 14px rgba(0, 0, 0, 0.6);
+    }
+
+    &::after{
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: v.$color-primary-White;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    &:hover::after{
+        opacity: 0.6;
+    }
+
+    &:hover .c-card__title{
+        color: v.$color-primary-Black;
     }
 
     .c-card__title{

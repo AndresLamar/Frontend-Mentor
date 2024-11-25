@@ -41,6 +41,13 @@
         border: 2px solid v.$color-primary-Black;
         padding: 0.5rem 2rem;
         cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &:hover,
+        &:focus{
+            background: v.$color-primary-Black;
+            color: v.$color-primary-White;
+        }
 
         @include m.breakpoint("large"){
             grid-row: 1;

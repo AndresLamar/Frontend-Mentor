@@ -10,73 +10,72 @@ body.menu-open{
 }
 
 
-.l-nav{
-    .l-nav__menu{
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        right: 0;
-        top: 0;
-        padding: 1.5rem;
-        background-color: v.$color-primary-Black;
-        translate: 100vw 0;
-        transition: translate 0.5s ease-in-out;
+.l-nav__menu{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    right: 0;
+    top: 0;
+    padding: 1.5rem;
+    background-color: v.$color-primary-Black;
+    translate: 100vw 0;
+    transition: translate 0.5s ease-in-out;
+}
+
+.l-nav__links{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    list-style: none;
+
+    @include m.breakpoint("middle"){
+        gap: 1rem;
+    }
+}
+
+.l-nav__item > a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: v.$color-primary-White;
+    font-size: 1.5rem;
+    font-weight: 200;
+    transition: color 0.3s ease;
+    position: relative;
+
+    @include m.breakpoint("middle"){
+        text-transform: unset;
+        font-size: 1rem;
+
+        &::after{
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translate(-50%);
+            width: 0;
+            height: 2px;
+            background-color: v.$color-primary-White;
+            transition: width .27s ease-in-out;
+        }
+
+        &:hover::after,
+        &:focus::after{
+            width: 24px;
+        }
+    }
+}
+
+.l-nav__menu-close-button{
+    display: block;
+    margin-inline-start: auto;
+    margin-block-end: 8rem;
+}
     
-        .l-nav__links{
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            list-style: none;
 
-            @include m.breakpoint("middle"){
-                gap: 1rem;
-            }
-
-            .l-nav__item > a{
-                text-decoration: none;
-                text-transform: uppercase;
-                color: v.$color-primary-White;
-                font-size: 1.5rem;
-                font-weight: 200;
-                transition: color 0.3s ease;
-                position: relative;
-
-                @include m.breakpoint("middle"){
-                    text-transform: unset;
-                    font-size: 1rem;
-
-                    &::after{
-                        content: "";
-                        position: absolute;
-                        bottom: -8px;
-                        left: 50%;
-                        transform: translate(-50%);
-                        width: 0;
-                        height: 2px;
-                        background-color: v.$color-primary-White;
-                        transition: width .27s ease-in-out;
-                    }
-
-                    &:hover::after,
-                    &:focus::after{
-                        width: 24px;
-                    }
-                }
-            }
-        }
-
-        .l-nav__menu-close-button{
-            display: block;
-            margin-inline-start: auto;
-            margin-block-end: 8rem;
-        }
-    }
-
-    button{
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
+button{
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .l-nav .l-nav__menu-open-button[aria-expanded="true"] + .l-nav__menu{

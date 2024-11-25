@@ -41,7 +41,7 @@ body.menu-open header .logo {
   z-index: 1;
 }
 
-.l-nav .l-nav__menu {
+.l-nav__menu {
   position: fixed;
   width: 100%;
   height: 100vh;
@@ -52,18 +52,20 @@ body.menu-open header .logo {
   translate: 100vw 0;
   transition: translate 0.5s ease-in-out;
 }
-.l-nav .l-nav__menu .l-nav__links {
+
+.l-nav__links {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   list-style: none;
 }
 @media (min-width: 43.75em) {
-  .l-nav .l-nav__menu .l-nav__links {
+  .l-nav__links {
     gap: 1rem;
   }
 }
-.l-nav .l-nav__menu .l-nav__links .l-nav__item > a {
+
+.l-nav__item > a {
   text-decoration: none;
   text-transform: uppercase;
   color: hsl(0, 0%, 100%);
@@ -73,11 +75,11 @@ body.menu-open header .logo {
   position: relative;
 }
 @media (min-width: 43.75em) {
-  .l-nav .l-nav__menu .l-nav__links .l-nav__item > a {
+  .l-nav__item > a {
     text-transform: unset;
     font-size: 1rem;
   }
-  .l-nav .l-nav__menu .l-nav__links .l-nav__item > a::after {
+  .l-nav__item > a::after {
     content: "";
     position: absolute;
     bottom: -8px;
@@ -88,16 +90,18 @@ body.menu-open header .logo {
     background-color: hsl(0, 0%, 100%);
     transition: width 0.27s ease-in-out;
   }
-  .l-nav .l-nav__menu .l-nav__links .l-nav__item > a:hover::after, .l-nav .l-nav__menu .l-nav__links .l-nav__item > a:focus::after {
+  .l-nav__item > a:hover::after, .l-nav__item > a:focus::after {
     width: 24px;
   }
 }
-.l-nav .l-nav__menu .l-nav__menu-close-button {
+
+.l-nav__menu-close-button {
   display: block;
   margin-inline-start: auto;
   margin-block-end: 8rem;
 }
-.l-nav button {
+
+button {
   background: none;
   border: none;
   cursor: pointer;
@@ -306,6 +310,11 @@ header .logo {
   border: 2px solid hsl(0, 0%, 0%);
   padding: 0.5rem 2rem;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.c-creations .c-creations__button:hover, .c-creations .c-creations__button:focus {
+  background: hsl(0, 0%, 0%);
+  color: hsl(0, 0%, 100%);
 }
 @media (min-width: 75em) {
   .c-creations .c-creations__button {
@@ -324,12 +333,27 @@ header .logo {
 
 .c-card {
   position: relative;
+  cursor: pointer;
 }
 .c-card::before {
   content: "";
   position: absolute;
   inset: 0;
   box-shadow: inset 0px -88px 70px 14px rgba(0, 0, 0, 0.6);
+}
+.c-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: hsl(0, 0%, 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.c-card:hover::after {
+  opacity: 0.6;
+}
+.c-card:hover .c-card__title {
+  color: hsl(0, 0%, 0%);
 }
 .c-card .c-card__title {
   font-size: 1.5rem;
