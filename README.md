@@ -52,6 +52,8 @@ Projects completed:
 
 * [NFT Preview Card Component](https://andreslamar.github.io/Frontend-Mentor/nft-preview-card-component/)
 
+* [LoopStudio Landing Page](https://andreslamar.github.io/Frontend-Mentor/loopstudios-landing-page/)
+
 
 
 
