@@ -10,6 +10,12 @@
     padding: 1.5rem;
     margin-block-start: 5rem;
 
+    @include m.breakpoint("large"){
+        place-items: start;
+        padding: 5rem 10rem;
+        margin-block-start: 0;
+    }
+
     .c-creations__title{
         font-size: 2rem;
         font-weight: 300;
@@ -38,10 +44,15 @@
 
         @include m.breakpoint("large"){
             grid-row: 1;
+            justify-self: flex-end;
         }
     }
 
     .l-grid-images{
         grid-row: 2;
+
+        @include m.breakpoint("large"){
+            grid-column: 1 / 3;
+        }
     }
 }

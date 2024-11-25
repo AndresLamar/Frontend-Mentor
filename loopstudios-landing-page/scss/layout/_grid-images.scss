@@ -1,0 +1,11 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.l-grid-images{
+    display: grid;
+    gap: 1.5rem;
+    
+    @include m.breakpoint("large"){
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

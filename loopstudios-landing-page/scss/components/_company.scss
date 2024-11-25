@@ -10,7 +10,7 @@
 
     @include m.breakpoint("large"){
         grid-template-columns: repeat(12, 1fr);
-        padding: 10rem;
+        padding: 5rem 10rem;
         margin-block-start: 0rem;
         text-align: start;
 

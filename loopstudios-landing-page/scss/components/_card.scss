@@ -1,0 +1,31 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.c-card{
+    position: relative;
+
+    &::before{
+        content: "";
+        position: absolute;
+        inset: 0;
+        
+        box-shadow: inset 0px -88px 70px 14px rgba(0, 0, 0, 0.6);
+    }
+
+    .c-card__title{
+        font-size: 1.5rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: v.$color-primary-White;
+        opacity: 0.95;
+        position: absolute;
+        bottom: 0;
+        padding: 1.5rem;
+        max-width: 11rem;
+        z-index: 1;
+    }
+
+    .the-grid{
+        max-width: 5rem;
+    }
+}
