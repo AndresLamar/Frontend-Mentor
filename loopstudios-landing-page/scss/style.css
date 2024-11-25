@@ -34,18 +34,7 @@ a, a:active, a:visited {
 }
 
 body {
-  background-image: url("../images/mobile/image-hero.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 34rem;
-  background-position: top center;
   font-family: "Josefin Sans", serif;
-}
-@media (min-width: 43.75em) {
-  body {
-    background-image: url("../images/desktop/image-hero.jpg");
-    background-size: cover;
-    background-size: 100% auto;
-  }
 }
 
 body.menu-open header .logo {
@@ -123,7 +112,7 @@ body.menu-open header .logo {
   color: hsl(0, 0%, 100%);
 }
 
-@media screen and (min-width: 48rem) {
+@media screen and (min-width: 43.75em) {
   nav button,
   .l-nav .l-nav__menu .l-nav__menu-close-button {
     display: none;
@@ -145,6 +134,8 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 2rem 1.5rem;
+  position: absolute;
+  width: 100%;
 }
 @media (min-width: 75em) {
   header {
@@ -157,5 +148,40 @@ header .logo {
 @media (min-width: 43.75em) {
   header .logo {
     width: 12rem;
+  }
+}
+
+.c-hero {
+  background-image: url("../images/mobile/image-hero.jpg");
+  background-repeat: no-repeat;
+  min-height: 100dvh;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+@media (min-width: 75em) {
+  .c-hero {
+    background-image: url("../images/desktop/image-hero.jpg");
+    background-size: 100% 34rem;
+    place-items: flex-start;
+    padding: 10rem;
+  }
+}
+.c-hero .c-hero__description {
+  font-size: 2.6rem;
+  font-weight: 200;
+  text-transform: uppercase;
+  color: hsl(0, 0%, 100%);
+  border: 2px solid hsl(0, 0%, 100%);
+  padding: 1.5rem;
+  max-width: 21rem;
+}
+@media (min-width: 43.75em) {
+  .c-hero .c-hero__description {
+    font-size: 3rem;
+    max-width: 28rem;
+    padding: 2rem;
+    margin-block-start: 2rem;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -2,16 +2,5 @@
 @use '../abstracts/variables' as v;
 
 body{
-    background-image: url('../images/mobile/image-hero.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% 34rem;
-    background-position: top center;
     font-family: v.$font-primary;
-    
-
-    @include m.breakpoint("middle"){
-        background-image: url('../images/desktop/image-hero.jpg');
-        background-size: cover;
-        background-size: 100% auto;
-    }
 }
