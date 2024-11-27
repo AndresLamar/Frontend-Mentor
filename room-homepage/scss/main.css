@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100dvh;
+}
+
+input, button, textarea, select {
+  text-wrap: inherit;
+}
+
+img, video, svg {
+  height: auto;
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transition: none;
+  }
+}
+body {
+  font-family: "League Spartan", sans-serif;
+}
+
+body.menu-open {
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+
+body.menu-open::before {
+  content: "";
+  position: fixed;
+  top: 7rem;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+
+.l-nav__menu {
+  position: fixed;
+  width: 100%;
+  height: 7rem;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: hsl(0, 0%, 100%);
+  translate: -100vw 0;
+  transition: translate 0.5s ease-in-out;
+}
+
+.l-nav__links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.l-nav__item > a {
+  text-decoration: none;
+  color: hsl(0, 0%, 0%);
+  font-size: 1rem;
+  font-weight: 800;
+  transition: color 0.3s ease;
+  position: relative;
+}
+@media screen and (min-width: 43.75em) {
+  .l-nav__item > a {
+    text-transform: unset;
+    font-size: 1rem;
+  }
+  .l-nav__item > a::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.27s ease-in-out;
+  }
+  .l-nav__item > a:hover::after, .l-nav__item > a:focus::after {
+    width: 24px;
+  }
+}
+
+.l-nav__menu-close-button {
+  display: block;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.l-nav .l-nav__menu-open-button[aria-expanded=true] + .l-nav__menu {
+  translate: 0;
+}
+
+.l-nav .l-nav__menu .l-nav__links .l-nav__item > a:hover,
+.l-nav .l-nav__menu .l-nav__links .l-nav__item > a:focus {
+  color: white;
+}
+
+@media screen and (min-width: 43.75em) {
+  nav button,
+  .l-nav .l-nav__menu .l-nav__menu-close-button {
+    display: none;
+  }
+  .l-nav .l-nav__menu {
+    position: static;
+    height: 0;
+    inset: unset;
+    background-color: unset;
+    translate: unset;
+  }
+  .l-nav .l-nav__menu .l-nav__links {
+    flex-direction: row;
+    gap: 2.5rem;
+  }
+}
+header {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 1.5rem;
+  position: absolute;
+  width: 100%;
+}
+header .logo {
+  margin: 0 auto;
+}/*# sourceMappingURL=main.css.map */

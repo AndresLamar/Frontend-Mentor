@@ -5,18 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+
+  <script type="module" src="./scipt.js"></script>
+
+  <link rel="stylesheet" href="./scss/main.css">
   
   <title>Room homepage | Frontend Mentor </title>
 </head>
 <body>
   <header>
-    <img src="./images/logo.svg" alt="logo">
+      <img src="./images/logo.svg" alt="logo" class="logo">
+
+    <nav class="l-nav">
+      <span id="l-nav__label" hidden>Navigation</span>
+      <button
+        id="btnOpen"
+        class="l-nav__menu-open-button"
+        aria-expanded="false"
+        aria-labelledby="l-nav__label"
+      >
+        <img
+          src="./images/icon-hamburger.svg"
+          alt=""
+          width="24" 
+          height="16"
+        />
+      </button>
+      <div class="l-nav__menu js-menu" role="dialog" aria-labelledby="l-nav__label">
+        <button
+          id="btnClose" 
+          class="l-nav__menu-close-button"
+          aria-label="Close"
+        >
+          <img
+            src="./images/icon-close.svg"
+            alt=""
+            width="20" 
+            height="20"
+          />
+        </button>
+        <ul class="l-nav__links">
+          <li class="l-nav__item"><a href="#">home</a></li>
+          <li class="l-nav__item"><a href="#">shop</a></li>
+          <li class="l-nav__item"><a href="#">about</a></li>
+          <li class="l-nav__item"><a href="#">contact</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
   <main>
     <section>
       <div>
-        <img src="./images/desktop-image-hero-1.jpg" alt="">
+        <!-- <img src="./images/mobile-image-hero-1.jpg" alt="" width="360" height="375"> -->
+        <img src="./images/mobile-image-hero-1.jpg" alt="">
       </div>
 
       <h1>Discover innovative ways to decorate</h1>

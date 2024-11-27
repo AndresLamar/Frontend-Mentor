@@ -1,0 +1,112 @@
+@use '../abstracts/variables' as v;
+
+body.menu-open{
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+body.menu-open::before {
+    content: "";
+    position: fixed;
+    top: 7rem;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+
+.l-nav__menu{
+    position: fixed;
+    width: 100%;
+    height: 7rem;
+    right: 0;
+    top: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: v.$color-primary-white;
+    translate: -100vw 0;
+    transition: translate 0.5s ease-in-out;
+}
+
+.l-nav__links{
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.l-nav__item > a{
+    text-decoration: none;
+    color: v.$color-primary-black;
+    font-size: 1rem;
+    font-weight: 800;
+    transition: color 0.3s ease;
+    position: relative;
+
+    @media screen and (min-width: 43.75em){
+        text-transform: unset;
+        font-size: 1rem;
+
+        &::after{
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translate(-50%);
+            width: 0;
+            height: 2px;
+            background-color: white;
+            transition: width .27s ease-in-out;
+        }
+
+        &:hover::after,
+        &:focus::after{
+            width: 24px;
+        }
+    }
+}
+
+.l-nav__menu-close-button{
+    display: block;
+}
+    
+
+button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.l-nav .l-nav__menu-open-button[aria-expanded="true"] + .l-nav__menu{
+    translate: 0;
+}
+
+.l-nav .l-nav__menu .l-nav__links .l-nav__item > a:hover,
+.l-nav .l-nav__menu .l-nav__links .l-nav__item > a:focus{
+    color: white
+}
+
+
+@media screen and (min-width: 43.75em){
+    nav button,
+    .l-nav .l-nav__menu .l-nav__menu-close-button{
+        display: none;
+    }
+
+    .l-nav .l-nav__menu{
+        position: static;
+        height: 0;
+        inset: unset;
+        background-color: unset;
+        translate: unset;
+    }
+
+    .l-nav .l-nav__menu .l-nav__links{
+        flex-direction: row;
+        gap: 2.5rem;
+    }
+}

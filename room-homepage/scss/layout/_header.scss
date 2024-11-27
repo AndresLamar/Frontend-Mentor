@@ -1,0 +1,14 @@
+header{
+    display: flex; 
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5rem 1.5rem;   
+    position: absolute;
+    width: 100%; 
+
+    .logo{
+        margin: 0 auto;
+    }
+}
+
