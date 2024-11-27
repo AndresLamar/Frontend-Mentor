@@ -7,8 +7,19 @@ header{
     position: absolute;
     width: 100%; 
 
+    @media screen and (min-width: 43.75em){
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 3rem;
+        padding: 2.5rem;   
+    }
+
     .logo{
         margin: 0 auto;
+
+        @media screen and (min-width: 43.75em){
+            margin: 0;  
+        }
     }
 }
 

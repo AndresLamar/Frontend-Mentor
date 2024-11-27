@@ -48,6 +48,9 @@ body.menu-open::before {
     position: relative;
 
     @media screen and (min-width: 43.75em){
+        color: v.$color-primary-white;
+        font-weight: 400;
+
         text-transform: unset;
         font-size: 1rem;
 
@@ -65,7 +68,7 @@ body.menu-open::before {
 
         &:hover::after,
         &:focus::after{
-            width: 24px;
+            width: 1rem;
         }
     }
 }

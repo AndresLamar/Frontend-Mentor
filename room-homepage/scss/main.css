@@ -80,6 +80,8 @@ body.menu-open::before {
 }
 @media screen and (min-width: 43.75em) {
   .l-nav__item > a {
+    color: hsl(0, 0%, 100%);
+    font-weight: 400;
     text-transform: unset;
     font-size: 1rem;
   }
@@ -95,7 +97,7 @@ body.menu-open::before {
     transition: width 0.27s ease-in-out;
   }
   .l-nav__item > a:hover::after, .l-nav__item > a:focus::after {
-    width: 24px;
+    width: 1rem;
   }
 }
 
@@ -144,6 +146,19 @@ header {
   position: absolute;
   width: 100%;
 }
+@media screen and (min-width: 43.75em) {
+  header {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 3rem;
+    padding: 2.5rem;
+  }
+}
 header .logo {
   margin: 0 auto;
+}
+@media screen and (min-width: 43.75em) {
+  header .logo {
+    margin: 0;
+  }
 }/*# sourceMappingURL=main.css.map */
