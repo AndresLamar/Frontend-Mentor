@@ -55,5 +55,20 @@
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 10px;
+        transition: color 0.3s ease;
+
+        &:hover,
+        &:focus{
+            color: v.$color-primary-dark-gray;
+        }
+
+        svg path{
+            transition: fill 0.3s ease;
+        }
+
+        &:hover svg path,
+        &:focus svg path{
+            fill: v.$color-primary-dark-gray;
+        }
     }
 }

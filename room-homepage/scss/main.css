@@ -214,6 +214,16 @@ header .logo {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 10px;
+  transition: color 0.3s ease;
+}
+.c-card__button:hover, .c-card__button:focus {
+  color: hsl(0, 0%, 63%);
+}
+.c-card__button svg path {
+  transition: fill 0.3s ease;
+}
+.c-card__button:hover svg path, .c-card__button:focus svg path {
+  fill: hsl(0, 0%, 63%);
 }
 
 @media (min-width: 75em) {
