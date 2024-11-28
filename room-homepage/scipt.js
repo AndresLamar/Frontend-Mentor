@@ -58,14 +58,23 @@ function updateText(direction){
 }
 
 nextBtn.addEventListener('click', () => {
-    updateThumbnail('next')
-    updateText('next')
+    
 });
 
 previousBtn.addEventListener('click', () => {
     updateThumbnail('previous')
     updateText('previous')
 });
+
+document.addEventListener("keydown", (e) => {
+    if(e.code == "ArrowRight"){
+        updateThumbnail('next')
+        updateText('next')
+    }else if(e.code == "ArrowLeft"){
+        updateThumbnail('previous')
+        updateText('previous')
+    }    
+   })
 
 function setupTopNav(e){
     if(e.matches){
