@@ -6,6 +6,7 @@ header{
     padding: 2.5rem 1.5rem;   
     position: absolute;
     width: 100%; 
+    z-index: 2;
 
     @media screen and (min-width: 43.75em){
         flex-direction: row;
