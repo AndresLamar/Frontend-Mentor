@@ -1,0 +1,49 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.c-hero{
+    display: grid;
+
+    @include m.breakpoint("large"){
+        grid-column: 1 / 5;
+    }
+
+    &__picture{
+        grid-row: 1;
+        grid-column: 1;
+    }
+
+    &__image{
+        width: 100%;
+        height: 100%;
+    }
+
+    &__buttons{
+        grid-row: 1;
+        grid-column: 1;
+
+        display: flex;
+        justify-self: end;
+        align-self: end;
+
+        @include m.breakpoint("large"){
+            transform: translateX(100%);
+        }  
+    }
+
+    &__button{
+        background-color: v.$color-primary-black;
+        padding: 1rem 1.2rem;  
+        transition: background-color 0.3s ease;
+
+        &:hover,
+        &:focus{
+            background-color: v.$color-primary-dark-gray;
+        };
+           
+        & svg{
+            width: 0.8rem;
+        }
+    }
+}
+

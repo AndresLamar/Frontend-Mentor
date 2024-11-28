@@ -169,10 +169,21 @@ header .logo {
     grid-template-columns: repeat(7, 1fr);
   }
 }
+.c-card__hero {
+  display: grid;
+}
 @media (min-width: 75em) {
   .c-card__hero {
     grid-column: 1/5;
   }
+}
+.c-card__hero-buttons {
+  grid-row: 1;
+  display: flex;
+  gap: 1.5rem;
+}
+.c-card__hero-button {
+  background-color: black;
 }
 .c-card__image {
   width: 100%;
@@ -224,6 +235,46 @@ header .logo {
 }
 .c-card__button:hover svg path, .c-card__button:focus svg path {
   fill: hsl(0, 0%, 63%);
+}
+
+.c-hero {
+  display: grid;
+}
+@media (min-width: 75em) {
+  .c-hero {
+    grid-column: 1/5;
+  }
+}
+.c-hero__picture {
+  grid-row: 1;
+  grid-column: 1;
+}
+.c-hero__image {
+  width: 100%;
+  height: 100%;
+}
+.c-hero__buttons {
+  grid-row: 1;
+  grid-column: 1;
+  display: flex;
+  justify-self: end;
+  align-self: end;
+}
+@media (min-width: 75em) {
+  .c-hero__buttons {
+    transform: translateX(100%);
+  }
+}
+.c-hero__button {
+  background-color: hsl(0, 0%, 0%);
+  padding: 1rem 1.2rem;
+  transition: background-color 0.3s ease;
+}
+.c-hero__button:hover, .c-hero__button:focus {
+  background-color: hsl(0, 0%, 63%);
+}
+.c-hero__button svg {
+  width: 0.8rem;
 }
 
 @media (min-width: 75em) {

@@ -8,8 +8,20 @@
     }
 
     &__hero{
+        display: grid;
+
         @include m.breakpoint("large"){
             grid-column: 1 / 5;
+        }
+
+        &-buttons{
+            grid-row: 1;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        &-button{
+            background-color: black;
         }
     }
 
