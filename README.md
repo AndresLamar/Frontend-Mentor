@@ -54,6 +54,8 @@ Projects completed:
 
 * [LoopStudio Landing Page](https://andreslamar.github.io/Frontend-Mentor/loopstudios-landing-page/)
 
+* [Room Homepage](https://andreslamar.github.io/Frontend-Mentor/room-homepage/)
+
 
 
 

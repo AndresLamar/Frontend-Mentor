@@ -36,8 +36,8 @@ Users should be able to:
 
 ### Links
 
-- [Solution URL](https://your-solution-url.com)
-- [Live Site](https://your-live-site-url.com)
+- [Solution URL](https://www.frontendmentor.io/solutions/room-home-page-fRySVgPl6p)
+- [Live Site](https://andreslamar.github.io/Frontend-Mentor/room-homepage/)
 
 ## My process
 
